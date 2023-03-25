@@ -1,0 +1,267 @@
+/* 头部 */
+.huadiao-header {
+    width: 100rem;
+    height: 9.25rem;
+    padding: .3125rem 0 0 .625rem;
+    background: url(../images/historyImages/historyBackground.png) no-repeat;
+}
+
+body {
+    /* 隐藏水平滚动条 */
+    overflow-x: hidden;
+}
+
+/* 指示牌 */
+.indicator {
+    position: fixed;
+    bottom: 0rem;
+    left: -1.0625rem;
+    width: 13rem;
+    height: 11.0625rem;
+    font-size: .8125rem;
+    color: rgb(100, 59, 33);
+    background: url(../images/historyImages/indicator.png) no-repeat;
+    background-size: 13rem;
+}
+
+
+.indicator .indicator-notes,
+.indicator .indicator-fanju {
+    position: absolute;
+    z-index: 1;
+    width: 6.25rem;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    text-align: center;
+}
+
+/* 笔记 */
+.indicator .indicator-notes {
+
+    top: .1875rem;
+    left: 3.4375rem;
+    transform: rotate(-3deg);
+}
+
+/* 番剧馆 */
+.indicator .indicator-fanju {
+    top: 2.125rem;
+    left: 2.75rem;
+}
+
+/* 历史记录牌 */
+.historySign {
+    position: absolute;
+    top: 11.25rem;
+    left: 0rem;
+    width: 11.8125rem;
+    height: 8.6875rem;
+    background: url(../images/historyImages/history.png) no-repeat;
+}
+
+.histroyContentBar {
+    display: block;
+    width: 75rem;
+    margin: 0 auto;
+}
+
+/* 搜索，删除 */
+.historyTools {
+    display: block;
+    width: 100%;
+    height: 3.75rem;
+}
+
+.noteHistoryContent,
+.fanjuHistoryContent {
+    display: none;
+}
+
+/* 每个记录 */
+.noteHistoryContent ul li,
+.fanjuHistoryContent ul li {
+    position: relative;
+    width: 100%;
+    height: 7.5rem;
+}
+
+.lastTime {
+    position: absolute;
+    display: inline-block;
+    width: 6.25rem;
+    height: 100%;
+    border-right: 1px solid #c9c8c8;
+}
+
+/* 时间 */
+.lastTime .time {
+    position: absolute;
+    width: 6.25rem;
+    height: 1.0625rem;
+    top: 3rem;
+    left: 8.75rem;
+    font-size: .75rem;
+    color: #a1a1a1;
+}
+
+/* 三角 */
+.lastTime .triangle {
+    position: absolute;
+    top: 3.0625rem;
+    left: 6.25rem;
+    border-left: .4375rem solid #aeaeae;
+    border-bottom: .4375rem solid transparent;
+    border-top: .4375rem solid transparent;
+    border-right: 0;
+}
+
+/* 笔记信息 */
+.seenNote {
+    display: inline-block;
+    width: 54.625rem;
+    height: 100%;
+    margin-left: 18.125rem;
+    padding: .625rem 0 0 .625rem;
+}
+
+/* 头像 */
+.noteAuther-avater .icon,
+.fanjuAuther-avater .icon {
+    width: 1.5625rem;
+    height: 1.5625rem;
+}
+
+.avatar-box {
+    width: 1.5625rem;
+    height: 1.5625rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img-avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+/* 删除 */
+.delete .icon {
+    width: .9375rem;
+    height: .9375rem;
+}
+
+.delete .icon:hover {
+    fill: rgb(104, 104, 104)
+}
+
+/* 文本 */
+.note-txt,
+.fanju-txt {
+    position: relative;
+    height: 100%;
+    border-bottom: 1px solid #c9c8c85e;
+}
+
+.noteTitle,
+.fanjuMansionTitle {
+    display: inline-block;
+    color: #000;
+    font-size: 1.125rem;
+}
+
+.noteTitle:hover {
+    color: rgb(43, 162, 209);
+}
+
+.fanjuMansionTitle:hover {
+    color: rgb(218, 28, 28);
+}
+
+/* 介绍 */
+.noteSection,
+.fanjuMansionCanvases {
+    width: 50rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin-left: .625rem;
+    color: rgb(136, 136, 136);
+}
+
+.fanjuMansionCanvases {
+    width: 41.5rem;
+}
+
+.historyBelow a .noteAuther-avater,
+.historyBelow a .noteAuther-nickname,
+.historyBelow a .fanjuAuther-nickname,
+.historyBelow a .fanjuAuther-avater {
+    float: left;
+}
+
+.historyBelow a .noteAuther-nickname,
+.historyBelow a .fanjuAuther-nickname {
+    margin: .125rem 0 0 .9375rem;
+    font-size: .875rem;
+    color: rgb(122, 122, 122);
+}
+
+.historyBelow a .noteAuther-nickname:hover {
+    color: rgb(43, 162, 209);
+}
+
+.historyBelow a .fanjuAuther-nickname:hover {
+    color: rgb(218, 28, 28);
+}
+
+/* 下部 */
+.historyBelow {
+    position: absolute;
+    left: 0rem;
+    bottom: .625rem;
+}
+
+.delete {
+    position: absolute;
+    top: 2.1875rem;
+    right: 1rem;
+}
+
+/* 番剧馆封面 */ 
+ .fanjuMansion {
+    width: 10.625rem;
+    height: 100%;;
+    background-color: #e8e8e8;
+}
+
+.fanjuMansion,
+.fanju-txt {
+    float: left;
+}
+
+.fanju-txt {
+    margin-left: 1.25rem;
+}
+
+.fanju-empty,
+.note-empty {
+    display: none;
+    width: 100%;
+    height: 100%;
+    margin-top: 280px;
+}
+
+.empty-word {
+    margin: 0 auto;
+    text-align: center;
+    line-height: 100%;
+    font-size: 25px;
+    color: #525252;
+}
+
+
+/* 底部 */
+.huadiao-footer {
+    width: 98.9375rem;
+    height: 25rem;
+}
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.MyStarMapper">
+
+    <resultMap id="UserMapperResult" type="com.huadiao.pojo.User">
+    </resultMap>
+
+    <insert id="insertNoteStar">
+        insert into note_star(`author_uid`, `note_id`, `uid`, `status`, `star_date`)
+        values (#{authorUid}, #{noteId}, #{myUid}, 1, now())
+        on duplicate key update `status`    = 1,
+                                `star_date` = now();
+    </insert>
+
+    <update id="cancelNoteStar">
+        update note_star
+        set `status`           = 0,
+            `cancel_star_date` = now()
+        where `uid` = #{myUid}
+          and `author_uid` = #{authorUid}
+          and `note_id` = #{noteId};
+    </update>
+
+    <!--获取用户收藏的所有笔记-->
+    <select id="selectUserAllNoteStars" resultType="com.huadiao.pojo.NoteStar">
+        select `note_title`, `note_id`, `note_abstract`, `star_date`, `user_avatar`, `nickname`, `author_uid`
+        from notes
+                 left join (select `note_id`, `star_date`, `author_uid`
+                            from note_star
+                            where uid = #{myUid} and `status` = 1) t1
+                           on uid = author_uid
+                 left join homepage on homepage.uid = author_uid
+                 left join user_infer on author_uid = user_infer.uid
+        where note_id = notes.id order by `star_date`;
+    </select>
+
+
+</mapper>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>花凋--不一样的世界</title>
+
+    <!-- 引入网站图标 -->
+    <link rel="shortcut icon" href="http://localhost:9090/huadiao/favicon.ico" type="image/x-icon">
+    <!-- 引入通用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/common.css">
+    <!-- 网页专用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/index.css">
+
+
+
+</head>
+
+<body>
+
+
+    <!-- 页面头部，该头部使用固定定位 -->
+    <div class="huadiao-header">
+
+        <!-- 左侧图标 -->
+        <ul class="left-entry">
+
+            <!-- logo 连接主站 -->
+            <li class="huadiao-link">
+                <!-- 引入 logo -->
+                <a href="http://localhost:9090/huadiao" title="花凋--不一样的世界">
+                    <!-- svg 格式 -->
+                    <svg class="huadiao-icon" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px"
+                        width="38px" height="49px" viewBox="0 0 38 49" enable-background="new 0 0 38 49"
+                        xml:space="preserve">
+                        <image id="image0" width="38" height="49" x="0" y="0"
+                            href="data:image/png;base64,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" />
+                    </svg>
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- 右侧图标 -->
+        <ul class="right-entry">
+
+            <li>
+                <a href="javascript:;" class="right-icon">
+                    <!-- 历史记录图标 -->
+                    <i class="iconfont History">&#xe63c;</i>
+
+                    <span>历史</span>
+                </a>
+
+            </li>
+            <li>
+
+                <a href="javascript:;" class="right-icon">
+                    <!-- 消息图标 -->
+                    <i class="iconfont information">&#xec35;</i>
+                    <span>消息</span>
+                </a>
+            </li>
+            <li class="index-headUserAvatar">
+<!--                <a href="javascript:;">-->
+<!--                    <div class="userAvater">-->
+<!--                        <div class="avatar"></div>-->
+<!--                    </div>-->
+<!--                </a>-->
+                <!-- <a href="javascript:;">
+                    <svg t="1657536982283" class="icon userAvater" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="3627" width="200" height="200">
+                        <path
+                            d="M510.77050482 2.21923328c281.4240859 0 509.56537287 228.14128697 509.56537173 509.56653682 0 281.42757888-228.14128697 509.56653682-509.56537173 509.56653681-281.42757888 0-509.56886585-228.14012302-509.56886585-509.56653681 0-281.4240859 228.14128697-509.56653682 509.56886585-509.56653682z"
+                            fill="#EEEEEE" p-id="3628"></path>
+                        <path
+                            d="M510.77050482 516.51164387c90.0558939 0 163.05952199-73.30168832 163.05952199-163.72549973 0-90.42264633-73.00362809-163.72433465-163.05952199-163.72433465-90.05705785 0-163.06301497 73.30168832-163.06301497 163.72433465-0.00116395 90.42497536 73.00479317 163.72549859 163.06301497 163.72549973z m251.51800206 200.09807531l1.21552441-0.45756757c-39.85964146-100.90130205-137.98992099-172.25861689-252.73352647-172.25861689-113.31967317 0-210.42537358 69.60155875-251.2141221 168.51890176l0.56235463 0.22820181a39.9609344 39.9609344 0 0 0-2.9188881 15.01940622c0 22.15886393 17.97555086 40.12510094 40.15420757 40.12509981 16.79146325 0 31.16701469-10.30401138 37.16196921-24.92522837l0.65433486 0.26545948c28.69987328-68.84360192 96.50958109-117.22355485 175.60014393-117.22355484 79.76934741 0 148.05874461 49.21940878 176.32433493 119.00725475l0.2875813-0.10828003c6.4338944 13.58499499 20.27037696 22.98434901 36.30970538 22.98434901 22.17516373 0 40.15187968-17.96507307 40.15187968-40.12509981a40.14256469 40.14256469 0 0 0-1.55549923-11.05032533z"
+                            fill="#CCCCCC" p-id="3629"></path>
+                    </svg>
+                </a>
+                <div class="login-box">登录</div>
+
+                <div class="avaterBar">
+
+                    <h1 class="avaterBar-nickname">昵称</h1>
+
+                    <div class="avaterBar-interact">
+                        <a href="javascript:;" class="avaterBar-follow">
+                            <em>999</em>
+                            <span>关注</span>
+                        </a>
+                        <a href="javascript:;" class="avaterBar-fans">
+                            <em>12.3万</em>
+                            <span>粉丝</span>
+                        </a>
+                    </div>
+
+                    <div class="avaterBar-links">
+                        <a href="javascript:;" class="avaterBar-personal">
+                            <span>个人中心</span>
+                            <em class="iconfont">&#xe6b9;</em>
+                        </a>
+                        <a href="javascript:;" class="avaterBar-myNotes">
+                            <span>我的笔记</span>
+                            <em class="iconfont">&#xe6b9;</em>
+
+                        </a>
+                        <a href="javascript:;" class="avaterBar-likeFanju">
+                            <span>我喜欢的番剧</span>
+                            <em class="iconfont">&#xe6b9;</em>
+                        </a>
+
+                    </div>
+                    <div class="avaterBar-loginOut">
+                        <span>退出登录</span>
+                    </div>
+
+
+                </div>
+
+                <div class="noLoginAvaterBar">
+                    <h6>登陆后你可以:</h6>
+                    <div class="introduce">
+                        <div>
+                            <em class="iconfont">&#xe6b5;</em>
+                            <span>记录笔记</span>
+                        </div>
+                        <div>
+                            <em class="iconfont">&#xeb88;</em>
+                            <span>发布笔记</span>
+                        </div>
+                        <div>
+                            <em class="iconfont">&#xe639;</em>
+                            <span>标记喜欢的番剧</span>
+                        </div>
+                    </div>
+                    <div class="immediatelyLogin">立即登录</div>
+                    <div class="lower">
+                        <i>首次使用？</i>
+                        <a href="javascript:;">点我注册</a>
+                    </div>
+                </div> -->
+
+
+            </li>
+        </ul>
+
+
+    </div>
+
+    <div class="huadiao-below">
+        <ul>
+            <li>
+                <!-- 新增笔记图标 -->
+                <a href="javascript:;" title="好记性不如烂笔头" class="newlyAdding-link">
+                    <i class="iconfont newlyAdding">&#xe607;</i>
+                </a>
+
+            </li>
+            <li>
+                <!-- 菜单唤起图标 -->
+                <i class="iconfont menu" title="这个好像可以点">&#xe790;</i>
+
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- 菜单栏 -->
+    <div class="menuBar">
+        <ul class="menu-box">
+            <li>
+                <span>菜单栏</span>
+                <i class="iconfont shutdown"> &#xe665;</i>
+            </li>
+            <li class="unit">
+                <a href="javascript:;" title="开动勤劳的双手（键盘该清清灰了doge）" class="build">
+                    <i class="iconfont"> &#xe607;</i>
+                    <span>新建笔记</span>
+                </a>
+
+            </li>
+            <li class="unit">
+                <a href="javascript:;" title="记你所想" class="notes">
+                    <i class="iconfont"> &#xe603;</i>
+                    <span>我的笔记</span>
+                </a>
+
+            </li>
+            <li class="unit myStar">
+                <a href="javascript:;" title="收藏了什么宝贝">
+                    <i class="iconfont"> &#xe777; </i>
+                    <span>我的收藏</span>
+                </a>
+
+            </li>
+            <li class="unit follow">
+                <a href="javascript:;" title="让我瞅一瞅关注了谁">
+                    <i class="iconfont"> &#xe8bc;</i>
+                    <span>我的关注</span>
+
+                </a>
+            </li>
+            <li class="like-Fanju">
+                <a href="javascript:;" title="打造属于你的番剧馆">
+                    <i class="iconfont"> &#xe602;</i>
+                    <span>喜欢的番剧</span>
+                </a>
+
+                <i class="iconfont dropDown"> &#xe6b9;</i>
+
+            </li>
+            <div class="Fanjus">
+                <ul>
+                    <li class="Fanju">
+                        <a href="javascript:;">
+                            <span>海贼王</span>
+                            <i class="iconfont"> &#xe6b9;</i>
+                        </a>
+                    </li>
+                    <li class="Fanju">
+                        <a href="javascript:;">
+                            <span>间谍过家家</span>
+                            <i class="iconfont"> &#xe6b9;</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <li class="unit myHomePage">
+                <a href="javascript:;" title="看一看你的主页吧">
+                    <i class="iconfont"> &#xe651;</i>
+                    <span>个人主页</span>
+                </a>
+
+            </li>
+            <li class="unit settings">
+                <a href="javascript:;" title="核心保护地点">
+                    <i class="iconfont"> &#xe68f; </i>
+                    <span>账户设置</span>
+                </a>
+
+            </li>
+        </ul>
+    </div>
+
+    <!-- 页面古诗词 -->
+    <div class="poetry">
+
+        <ul class="poem">
+            <li>芳菲移自越王台，最似蔷薇好并栽。</li>
+            <li>秾艳尽怜胜彩绘，嘉名谁赠作玫瑰。</li>
+            <li>春藏锦绣风吹拆，天染琼瑶日照开。</li>
+            <li>为报朱衣早邀客，莫教零落委苍苔。</li>
+        </ul>
+        <span class="poet">
+            —— 徐备
+        </span>
+    </div>
+
+
+    <!-- 登录注册页面 -->
+    <div class="LoginRegister">
+        <div class="LoginRegisterBackGround">
+
+            <!-- 注册左侧介绍 -->
+            <div class="huadiao-Register-introduce">
+                <h2>花凋</h2>
+                <span>世界是什么样子的？</span>
+                <em>一定是美好的吧？</em>
+                <div class="huadiao-jumpLogin">
+                    <a href="javascript:;">已经注册?点击登录</a>
+                </div>
+            </div>
+
+
+            <!-- 登录右侧介绍 -->
+            <div class="huadiao-Login-introduce">
+                <h2>花凋</h2>
+                <span>欢迎体验</span>
+                <em>破败不堪的世界!</em>
+                <div class="huadiao-jumpRegister">
+                    <a href="javascript:;">还没注册?点击注册</a>
+                </div>
+            </div>
+
+
+            <div class="LoginRegisterForeground">
+                <div class="register">
+                    <form action="http://localhost:9090/huadiao/registerServlet" method="post">
+                        <svg class="register-svg">
+                            <defs>
+                                <linearGradient inkscape:collect="always" id="registerlinearGradient" x1="13"
+                                    y1="193.49992" x2="307" y2="193.49992" x3="601" y3="193.49992"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop style="stop-color:#3235f5;" offset="0" id="stop876" />
+                                    <stop style="stop-color:#9b0303;" offset="1" id="stop878" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="m 30,140 200,0 c 0,0 25,1 25,35.0 0,34 -25,35 -25,35 h -200 c 0,0 -25,4 -25,38 0,34 25,38 25,38 h 190 c 0,0 25,1 25,35 0,34 -25,35 -25,35 h -130 c 0,0 -20,2 -20,-25 0,-24 20,-25 20,-25 h 70 c 0,0 20,1 20,25 0,24 -20,25 -20,25" />
+                        </svg>
+
+                        <div class="register-body">
+                            <label for="registerusername" class="usernameText">用户名</label>
+                            <input type="text" name="username" id="registerusername" autocomplete="off" minlength="6"
+                                maxlength="20">
+                            <div class="registerUsernameTip">
+                                <svg t="1657638192081" class="icon warning" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="3544" width="200" height="200">
+                                    <path
+                                        d="M1001.661867 796.544c48.896 84.906667 7.68 157.013333-87.552 157.013333H110.781867c-97.834667 0-139.050667-69.504-90.112-157.013333l401.664-666.88c48.896-87.552 128.725333-87.552 177.664 0l401.664 666.88zM479.165867 296.533333v341.333334a32 32 0 1 0 64 0v-341.333334a32 32 0 1 0-64 0z m0 469.333334v42.666666a32 32 0 1 0 64 0v-42.666666a32 32 0 1 0-64 0z"
+                                        fill="#FAAD14" p-id="3545"></path>
+                                </svg>
+                                <p class="registerSameUserName">用户名已存在</p>
+                                <p class="registerWrongUserName">用户名长度为6-20个字符</p>
+                                <p class="alphabetNumber">用户名必须是数字及字母</p>
+                            </div>
+                            <label for="registerpassword">密码</label>
+                            <input type="password" name="password" id="registerpassword" minlength="8" maxlength="32">
+                            <div class="registerPasswordTip">
+                                <svg t="1657638192081" class="icon warning" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="3544" width="200" height="200">
+                                    <path
+                                        d="M1001.661867 796.544c48.896 84.906667 7.68 157.013333-87.552 157.013333H110.781867c-97.834667 0-139.050667-69.504-90.112-157.013333l401.664-666.88c48.896-87.552 128.725333-87.552 177.664 0l401.664 666.88zM479.165867 296.533333v341.333334a32 32 0 1 0 64 0v-341.333334a32 32 0 1 0-64 0z m0 469.333334v42.666666a32 32 0 1 0 64 0v-42.666666a32 32 0 1 0-64 0z"
+                                        fill="#FAAD14" p-id="3545"></path>
+                                </svg>
+                                <p class="registerWrongLengthPassword">密码长度为8-32个字符</p>
+                                <p class="registerWrongPassword">密码必须是字母和数字</p>
+                            </div>
+                            <label for="checkCode">验证码</label>
+                            <input type="text" name="checkCode" id="checkCode" autocomplete="off">
+                            <div class="checkCode">
+                                <img src="http://localhost:9090/huadiao/checkCodeServlet" class="checkCodeImg">
+                            </div>
+                            <div class="checkCodeTip">
+                                <svg t="1657638192081" class="icon warning" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="3544" width="200" height="200">
+                                    <path
+                                        d="M1001.661867 796.544c48.896 84.906667 7.68 157.013333-87.552 157.013333H110.781867c-97.834667 0-139.050667-69.504-90.112-157.013333l401.664-666.88c48.896-87.552 128.725333-87.552 177.664 0l401.664 666.88zM479.165867 296.533333v341.333334a32 32 0 1 0 64 0v-341.333334a32 32 0 1 0-64 0z m0 469.333334v42.666666a32 32 0 1 0 64 0v-42.666666a32 32 0 1 0-64 0z"
+                                        fill="#FAAD14" p-id="3545"></path>
+                                </svg>
+                                <p class="wrongCheckCode">验证码错误</p>
+                            </div>
+                            <input type="submit" value="注册" class="registerButton">
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="login">
+                    <form action="http://localhost:9090/huadiao/loginServlet" method="post">
+
+                        <svg class="login-svg">
+                            <defs>
+                                <linearGradient inkscape:collect="always" id="loginlinearGradient" x1="13"
+                                    y1="193.49992" x2="307" y2="193.49992" x3="601" y3="193.49992"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop style="stop-color:#5a5af1;" offset="0" id="stop888" />
+                                    <stop style="stop-color:#9b0303;" offset="1" id="stop889" />
+                                </linearGradient>
+                            </defs>
+                            <path
+                                d="m 30,140 200,0 c 0,0 25,1 25,35.0 0,34 -25,35 -25,35 h -200 c 0,0 -25,4 -25,38 0,34 25,38 25,38 h 190 c 0,0 25,1 25,35 0,34 -25,35 -25,35 h -130 c 0,0 -20,2 -20,-25 0,-24 20,-25 20,-25 h 70 c 0,0 20,1 20,25 0,24 -20,25 -20,25" />
+                        </svg>
+                        <div class="login-body">
+                            <label for="loginusername" class="usernameText">用户名</label>
+                            <input type="text" name="username" id="loginusername" autocomplete="off">
+                            <div class="loginUsernameTip">
+                                <svg t="1657638192081" class="icon warning" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="3544" width="200" height="200">
+                                    <path
+                                        d="M1001.661867 796.544c48.896 84.906667 7.68 157.013333-87.552 157.013333H110.781867c-97.834667 0-139.050667-69.504-90.112-157.013333l401.664-666.88c48.896-87.552 128.725333-87.552 177.664 0l401.664 666.88zM479.165867 296.533333v341.333334a32 32 0 1 0 64 0v-341.333334a32 32 0 1 0-64 0z m0 469.333334v42.666666a32 32 0 1 0 64 0v-42.666666a32 32 0 1 0-64 0z"
+                                        fill="#FAAD14" p-id="3545"></path>
+                                </svg>
+                                <p class="loginWrongUserName">用户名或密码错误</p>
+                                <p class="loginLengthUserName">用户名长度为6-20个字符</p>
+                            </div>
+                            <label for="loginpassword">密码</label>
+                            <input type="password" name="password" id="loginpassword" autocomplete="off">
+                            <div class="loginPasswordTip">
+                                <svg t="1657638192081" class="icon warning" viewBox="0 0 1024 1024" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" p-id="3544" width="200" height="200">
+                                    <path
+                                        d="M1001.661867 796.544c48.896 84.906667 7.68 157.013333-87.552 157.013333H110.781867c-97.834667 0-139.050667-69.504-90.112-157.013333l401.664-666.88c48.896-87.552 128.725333-87.552 177.664 0l401.664 666.88zM479.165867 296.533333v341.333334a32 32 0 1 0 64 0v-341.333334a32 32 0 1 0-64 0z m0 469.333334v42.666666a32 32 0 1 0 64 0v-42.666666a32 32 0 1 0-64 0z"
+                                        fill="#FAAD14" p-id="3545"></path>
+                                </svg>
+                                <p class="loginWrongLengthPassword">密码长度为8-32个字符</p>
+                                <p class="loginWrongPassword">密码必须包含字母和数字</p>
+                            </div>
+                            <input type="submit" value="登录" class="loginButton">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="shutdownLoginRegister">
+            <i class="iconfont">&#xeb75;</i>
+        </div>
+    </div>
+
+
+    </div>
+
+    <!-- 第二屏搜索框 -->
+    <div class="huadiao-index-search">
+        <input type="search" name="search" id="search" autocomplete="off">
+        <div>
+            <span class="search-box">
+                <i class="iconfont search-icon">&#xe86e;</i>
+            </span>
+        </div>
+    </div>
+
+    <!-- 第二屏背景 -->
+    <div class="page-two-background"></div>
+
+
+
+
+    <!-- 第二屏内容区域 -->
+    <div style="position: absolute;">
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+        <h1>1</h1>
+    </div>
+
+
+
+
+
+
+    <!-- 下面实现多屏滚动 -->
+    <div class="huadiao-pages">
+
+
+        <!-- 第一屏 -->
+        <div class="section">
+
+            <div class="page-one">
+
+            </div>
+        </div>
+
+
+
+        <!-- 第二屏 -->
+        <div class="section">
+
+            <div class="page-two">
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- 登录页面的线条移动效果 -->
+    <script src="http://localhost:9090/huadiao/JS/anime.min.js"></script>
+    <!-- 引入 jquery  -->
+    <script src="http://localhost:9090/huadiao/JS/jquery.min.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/axios.js"></script>
+
+    <!-- 全屏滚动插件 -->
+    <script src="http://localhost:9090/huadiao/JS/jquery.indexfullpage.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/common.js"></script>
+    <!-- 引入页面专用 js -->
+    <script src="http://localhost:9090/huadiao/JS/index.js"></script>
+
+    <script>
+        $(function () {
+            // ————————————————————————————————————————————————————————————————————————————
+            // 这段代码是实现全屏滚动后出现滚动条，回到正常页面的必要代码，主要是为了第二屏的效果
+            $('.huadiao-pages').fullpage();
+            $('.page-two').fullpage({
+                autoScrolling: false    /* 滚动到第二屏显示滚动条 */
+            });
+
+            // ————————————————————————————————————————————————————————————————————————————
+
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+* {
+    user-select: auto;
+}
+.huadiao-header {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: calc(100vw - 50px);
+    height: 5.903vh;
+    min-height: 35px;
+}
+
+/* logo */
+.huadiao-icon {
+    width: 2.375vw;
+    min-width: 25px;
+    height: 5.785vh;
+    min-height: 30px;
+    margin: 0.59vh 0 0 0.5vw;
+}
+
+/* 侧栏 */
+.sideBar {
+    position: fixed;
+    z-index: 4;
+    left: 0px;
+    top: 0px;
+    width: 50px;
+    height: 100vh;
+    min-height: 400px;
+}
+
+.avatar-box,
+.sideBar {
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.096);
+    transition: all .5s;
+}
+
+.sideBar:hover {
+    width: 12.5vw;
+}
+
+.sideBar:hover .avatar-box {
+    width: 3.75vw;
+    height: 3.75vw;
+}
+
+/* 头像框 */
+.avatar-box {
+    width: 30px;
+    height: 30px;
+    margin: 4.722vh auto 0;
+    border-radius: 50%;
+    background-color: #ececec;
+    overflow: hidden;
+}
+
+.img-avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.nickname {
+    display: none;
+    width: 100px;
+    margin: 20px auto 0;
+    text-align: center;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+/* 模式更换按钮----轨道 */
+.mode-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 22px;
+    border-radius: 11px;
+}
+
+/* 滑块 */
+.slider-sun,
+.slider-moon {
+    position: absolute;
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: rgb(253, 234, 65);
+    transition: all;
+}
+/*默认是日光模式*/
+.moon-self {
+    display: none;
+}
+
+/*太阳滑块*/
+.slider-sun {
+    left: 2px;
+    animation: haloRotate 4s linear infinite;
+}
+/*月亮滑块*/
+.slider-moon {
+    left: 20px;
+    overflow: hidden;
+}
+body{
+    padding-bottom: 300px;
+}
+
+/*滚动条*/
+body::-webkit-scrollbar {
+    width: 5px;
+    background-color: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: #8f8f8f;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #6c6c6c;
+}
+/*笔记面板*/
+.notes-bar {
+    position: relative;
+    width: 70vw;
+    min-height: 400px;
+    margin: 50px auto 0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 7px 7px rgba(51, 51, 51, 0.1);
+}
+
+.notes-bar ul li {
+    width: 100%;
+    padding: 15px 0 30px 0;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.note-title {
+    font-size: 1.875vw;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+/*摘要*/
+.note-abstract {
+    margin: 0 0 20px 10px;
+    font-size: 18px;
+}
+
+.time-icon,
+.mark-icon,
+.view-icon,
+.like-icon {
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+.note-infer {
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.release-time,
+.view-number,
+.like-number,
+.mark-number {
+    float: left;
+    height: 20px;
+    margin-right: 20px;
+}
+
+.empty-notes {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.empty-notes-word {
+    font-size: 25px;
+    color: #333;
+}

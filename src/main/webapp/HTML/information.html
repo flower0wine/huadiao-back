@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>花凋--修改个人信息中...</title>
+
+    <!-- 引入网站图标 -->
+    <link rel="shortcut icon" href="http://localhost:9090/huadiao/favicon.ico" type="image/x-icon">
+    <!-- 引入通用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/common.css">
+    <!-- 网页专用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/information.css">
+
+    <link type="text/css" rel="stylesheet" href="http://localhost:9090/huadiao/CSS/jedate.css">
+
+
+
+</head>
+
+<body>
+
+    <!-- 页面头部 -->
+    <div class="huadiao-information-header">
+        <span>修改个人信息</span>
+    </div>
+
+    <!-- 页面下部 -->
+    <div class="huadiao-information-below">
+
+
+        <h2>我的信息</h2>
+
+        <div class="information-form">
+
+
+
+            <form action="" method="post">
+
+                <div class="information-nickname">
+                    <label for="nickname">昵称：</label>
+                    <div class="information-nickname-input">
+                        <input type="text" name="nickname" id="nickname" autocomplete="off" placeholder="设置你的昵称"
+                            minlength="1" maxlength="15">
+                        <p class="nicknameTip">昵称长度为1-20个字符</p>
+                    </div>
+                </div>
+
+                <div class="username">
+                    <label>用户ID：</label>
+                    <div class="information-username"></div>
+                </div>
+
+                <div class="information-canvases">
+                    <label for="canvases">个性签名：</label>
+                    <div class="information-canvases-input">
+                        <textarea cols="30" rows="10" name="canvases" id="canvases" autocomplete="off"
+                            placeholder="设置你的签名" maxlength="50"></textarea>
+                        <p class="canvasesTip">0/50</p>
+                    </div>
+                </div>
+
+                <div class="information-sex">
+                    <label>性别：</label>
+                    <div class="information-sex-radio">
+
+                        <input type="radio" name="sex" id="sex-man">
+                        <div class="man-box">男</div>
+
+                        <input type="radio" name="sex" id="sex-women">
+                        <div class="women-box">女</div>
+
+                        <input type="radio" name="sex" id="sex-unknown">
+                        <div class="unknown">保密</div>
+
+                    </div>
+                    <div class="icons">
+                        <span class="man"></span>
+                        <span class="women"></span>
+                        <span class="noknown"></span>
+                    </div>
+                </div>
+
+                <div class="information-bornData">
+                    <label for="date">出生日期：</label>
+                    <input type="text" name="date" id="date" autocomplete="off" readonly>
+                </div>
+
+
+                <div class="information-school">
+                    <label for="school">学校：</label>
+                    <input type="text" name="school" id="school" autocomplete="off" placeholder="你现在就读的学校是？"
+                        maxlength="20">
+                </div>
+
+                <div class="save">
+                    <span>保存</span>
+                </div>
+
+            </form>
+
+        </div>
+
+        
+
+
+    </div>
+    <div class="save-succeed-background">
+        <div class="save-bar">
+            <div class="save-header">提示</div>
+            <div class="succeed">修改成功 !</div>
+        </div>
+    </div>
+
+
+    <script src="http://localhost:9090/huadiao/JS/common.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://localhost:9090/huadiao/JS/jedate.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/axios.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/information.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>花凋--番剧收藏馆</title>
+
+    <!-- 引入网站图标 -->
+    <link rel="shortcut icon" href="http://localhost:9090/huadiao/favicon.ico" type="image/x-icon">
+    <!-- 引入通用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/common.css">
+    <!-- 轮播图 -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/swiper-bundle.min.css">
+    <!-- 网页专用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/panoperahouse.css">
+
+
+</head>
+
+<body>
+
+<div class="huadiao-fanjuHouse">
+
+    <div class="section">
+        <div class="fanjuHouse-pageone-background-bar">
+            <div class="fanjuHouse-pageone-background"></div>
+
+            <div class="pageone-header">
+
+                <ul class="left-entry">
+
+                    <li class="huadiao-link">
+                        <a href="http://localhost:9090/huadiao" target="_blank" title="花凋--不一样的世界">
+                            <svg class="huadiao-icon" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px"
+                                 y="0px" width="29px" height="39px" viewBox="0 0 38 49"
+                                 enable-background="new 0 0 38 49" xml:space="preserve">
+                                    <image id="image0" width="38" height="49" x="0" y="0"
+                                           href="data:image/png;base64,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"/>
+                                </svg>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <div class="pageone-header-title">我喜欢的番剧</div>
+            </div>
+
+            <div class="rotation-chart">
+
+                <!-- Swiper -->
+                <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
+                    <div class="swiper-wrapper">
+                        <!--                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0">-->
+                        <!--                            <div></div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1">-->
+                        <!--                            <div></div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2">-->
+                        <!--                            <div></div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="3">-->
+                        <!--                            <div></div>-->
+                        <!--                        </div>-->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <div class="fanjuHouse-pagetwo-background">
+            <div class="pagetwo-header">
+
+                <ul class="left-entry">
+
+                    <li class="huadiao-link">
+                        <a href="http://localhost:9090/huadiao" target="_blank" title="花凋--不一样的世界">
+                            <svg class="huadiao-icon" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px"
+                                 y="0px" width="29px" height="39px" viewBox="0 0 38 49"
+                                 enable-background="new 0 0 38 49" xml:space="preserve">
+                                    <image id="image0" width="38" height="49" x="0" y="0"
+                                           href="data:image/png;base64,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"/>
+                                </svg>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <div class="pagetwo-header-title">番剧收藏馆</div>
+            </div>
+
+            <div class="pagetwo-fanjus">
+                <div class="pagetwo-fanjus-bar">
+
+                    <ul>
+                        <!--                    <li>-->
+                        <!--                        <div class="fanju-cover"></div>-->
+                        <!--                        <div class="fanju-below">-->
+                        <!--                            <div class="fanju-information">-->
+                        <!--                                <div class="fanju-name">1</div>-->
+                        <!--                                <div class="add-time">2323232323</div>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="fanju-operation">-->
+                        <!--                                <div class="delete-icon">-->
+                        <!--                                    <svg t="1658305889860" class="icon" viewBox="0 0 1024 1024" version="1.1"-->
+                        <!--                                         xmlns="http://www.w3.org/2000/svg" p-id="3964" width="200" height="200">-->
+                        <!--                                        <path d="M268.214857 121.929143C268.214857 68.022857 311.881143 24.356571 365.714286 24.356571h292.571428c53.906286 0 97.572571 43.666286 97.572572 97.572572V219.428571h96.987428a46.811429 46.811429 0 0 1 0.877715 0H950.857143a48.786286 48.786286 0 0 1 0 97.499429h-52.077714l-42.349715 592.091429a97.499429 97.499429 0 0 1-97.28 90.624H264.850286c-51.2 0-93.622857-39.497143-97.28-90.624l-42.276572-592.091429H73.142857A48.786286 48.786286 0 0 1 73.142857 219.428571h97.133714a46.811429 46.811429 0 0 1 0.877715 0h97.060571V121.929143zM365.714286 219.428571h292.571428V121.929143H365.714286V219.428571zM223.085714 316.928l41.691429 585.142857h494.445714l41.691429-585.142857h-577.828572z m191.414857 97.572571c26.916571 0 48.786286 21.796571 48.786286 48.786286v292.571429a48.786286 48.786286 0 1 1-97.572571 0v-292.571429c0-26.989714 21.869714-48.786286 48.786285-48.786286z m195.072 0c26.916571 0 48.713143 21.796571 48.713143 48.786286v292.571429a48.786286 48.786286 0 1 1-97.499428 0v-292.571429c0-26.989714 21.796571-48.786286 48.786285-48.786286z"-->
+                        <!--                                              p-id="3965"></path>-->
+                        <!--                                    </svg>-->
+                        <!--                                </div>-->
+                        <!--                                <div class="delete-word">删除该收藏</div>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                    </li>-->
+
+
+                        <li class="addfanju-enter">
+                            <div class="fanju-cover">
+                                <div class="addfanju">
+                                    <svg t="1658316582259" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                         xmlns="http://www.w3.org/2000/svg" p-id="4402" width="200" height="200">
+                                        <path
+                                                d="M593.404949 447.98429h408.498606A17.914802 17.914802 0 0 1 1019.852632 465.910517v92.178966a17.926227 17.926227 0 0 1-17.926227 17.937652H593.404949a17.926227 17.926227 0 0 0-17.937652 17.926227v412.120411a17.914802 17.914802 0 0 1-17.926226 17.926227h-91.093567a17.926227 17.926227 0 0 1-17.937652-17.926227V593.953362a17.926227 17.926227 0 0 0-17.926227-17.926227H22.073595A17.937652 17.937652 0 0 1 4.147368 558.089483v-92.178966a17.926227 17.926227 0 0 1 17.926227-17.926227h408.51003a17.937652 17.937652 0 0 0 17.926227-17.937652V17.926227A17.937652 17.937652 0 0 1 466.447504 0h91.093567a17.926227 17.926227 0 0 1 17.926226 17.926227V430.046638a17.937652 17.937652 0 0 0 17.937652 17.937652z"
+                                                p-id="4403"></path>
+                                    </svg>
+                                </div>
+                                <div class="clickToAdd">点击添加番剧</div>
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新增番剧 -->
+        <div class="addfanju-background">
+
+            <div class="addfanju-bar">
+
+                <div class="addfanju-bar-background"></div>
+
+                <div class="fanju-information-bar">
+
+                    <div class="canceladdfanju">
+                        <svg t="1658308838472" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" p-id="4108" width="200" height="200">
+                            <path
+                                    d="M644.30990222 512l363.7248 363.7248c18.27726222 18.27726222 18.27726222 47.84128 0 66.11854222l-66.11854222 66.11854223c-18.27726222 18.27726222-47.84128 18.27726222-66.11854222 0L512 644.30990222l-363.7248 363.7248c-18.27726222 18.27726222-47.84128 18.27726222-66.11854222 0l-66.11854223-66.11854222c-18.27726222-18.27726222-18.27726222-47.91409778 0-66.11854222L379.69009778 512 15.96529778 148.2752c-18.27726222-18.27726222-18.27726222-47.84128 0-66.11854222l66.11854222-66.11854223c18.27726222-18.27726222 47.91409778-18.27726222 66.11854222 0L512 379.69009778l363.7248-363.7248c18.27726222-18.27726222 47.91409778-18.27726222 66.11854222 0l66.11854223 66.11854222c18.27726222 18.27726222 18.27726222 47.91409778 0 66.11854222L644.30990222 512z"
+                                    p-id="4109"></path>
+                        </svg>
+
+                    </div>
+
+
+                    <div class="addfanju-title">新增番剧</div>
+                    <div class="addfanju-inputname">
+                        <div class="warning">*</div>
+                        <label for="fanjuname" class="addfanju-inputname-title">番剧名称</label>
+                        <input type="text" name="fanjuname" id="fanjuname" maxlength="20" minlength="1"
+                               placeholder="你喜欢的番剧是？">
+                        <p class="nullname">名称不能为空</p>
+                    </div>
+
+                    <div class="addfanju-cover">
+                        <div class="addfanju-cover-title">
+                            <div class="warning">*</div>
+                            <label for="fanjucover" class="addfanju-upcover-title">番剧封面</label>
+                        </div>
+                        <label for="fanjucover" class="addfanju-cover-icon">
+                            <div class="icon-background">
+                                <svg t="1658310034205" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" p-id="4258" width="200" height="200">
+                                    <path
+                                            d="M593.404949 447.98429h408.498606A17.914802 17.914802 0 0 1 1019.852632 465.910517v92.178966a17.926227 17.926227 0 0 1-17.926227 17.937652H593.404949a17.926227 17.926227 0 0 0-17.937652 17.926227v412.120411a17.914802 17.914802 0 0 1-17.926226 17.926227h-91.093567a17.926227 17.926227 0 0 1-17.937652-17.926227V593.953362a17.926227 17.926227 0 0 0-17.926227-17.926227H22.073595A17.937652 17.937652 0 0 1 4.147368 558.089483v-92.178966a17.926227 17.926227 0 0 1 17.926227-17.926227h408.51003a17.937652 17.937652 0 0 0 17.926227-17.937652V17.926227A17.937652 17.937652 0 0 1 466.447504 0h91.093567a17.926227 17.926227 0 0 1 17.926226 17.926227V430.046638a17.937652 17.937652 0 0 0 17.937652 17.937652z"
+                                            p-id="4259"></path>
+                                </svg>
+                            </div>
+                            <div class="img-box">
+                                <!--                                    裁剪图片-->
+                                <div class="catImg">
+                                    <img src="" alt="" class="coverImg">
+                                </div>
+                            </div>
+                            <p class="coverTip">封面必须上传</p>
+                            <p class="filetype">图片大小过大</p>
+                        </label>
+
+                        <input type="file" name="fanjucover" id="fanjucover"
+                               accept="image/*" captrue>
+                        <div class="fanjucover-tip">
+                            <div class="require-title">* 图片要求 :</div>
+                            <div class="requirement">图片大小最佳为 1033 * 580 像素, 为 jpg、jpeg 等格式，大小不超过2M</div>
+                        </div>
+                    </div>
+
+                    <div class="add-btn">添加</div>
+
+                    <a href="javascript:;" target="_blank">
+                        <div class="singleadd-btn">想为该番剧单独制作页面？</div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="themeshop-icon">
+            <svg t="1658328813924" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg" p-id="3820">
+                <path
+                        d="M515.30714027 938.40877013c-172.1533632 0-277.86050347-25.06145173-323.18957014-76.58002986-23.9388448-27.18530347-22.7555552-52.82322987-21.84533333-60.04432534 0.48545173-6.4322368 16.5660448-202.5851264 30.09801493-294.0321184-4.9152-3.3374816-15.35241493-7.52450347-21.39022186-9.9517632a245.15318507 245.15318507 0 0 1-14.8062816-6.28053333c-19.96420693-9.37528853-61.40965973-29.91597013-61.40965974-29.91597013-51.51857813-23.66577813-82.07170347-53.76379307-89.59620693-88.95905174-6.03780693-28.18654827 4.24770347-52.45914027 15.86820693-65.80906666 1.3956736-1.5777184 2.88237013-3.06441493 4.4600896-4.399408l242.21013334-206.65078507a42.56805973 42.56805973 0 0 1 68.0542816 18.7809184c26.54814827 78.61285973 103.49226667 90.38506667 147.0312288 90.38506667 11.5901632 0 18.9629632-0.91022187 19.0236448-0.9405632 3.67122987-0.45511147 7.58518507-0.45511147 11.25641493 0.03034133 0 0 7.22109653 0.8798816 18.41682987 0.8798816 42.68942187 0 118.17718507-11.7115264 144.27022186-90.20302293a42.62874027 42.62874027 0 0 1 68.35768854-18.7809184l238.72094826 206.65078506c1.5777184 1.36533333 3.06441493 2.85202987 4.399408 4.42974827 11.49914027 13.3499264 21.63294827 37.65285973 15.5648 65.74838507-7.52450347 35.01321493-37.65285973 65.05054827-89.5355264 89.20177813 0 0.03034027-39.98909653 20.14625173-59.40717013 29.40017813-4.36906667 2.06317013-9.34494827 4.12634027-14.6242368 6.28053334-5.88610347 2.3969184-16.11093333 6.5536-20.9047712 9.86074026 13.41060693 92.23585173 29.21813333 287.87294827 29.88562987 296.21665174 0.72817813 5.33997013 1.85078507 31.1296-22.27010347 58.466608-45.14702187 51.30619307-149.36746667 76.21594027-318.63845973 76.21594026z m-259.77742187-133.71164373c7.16041493 8.46506667 52.21641493 48.4541632 259.77742187 48.45416213 205.0427264 0 248.73339307-40.0801184 255.49937813-48.3328-3.18577813-38.3203552-17.47626667-208.2588448-29.06642987-286.5986368-9.7090368-65.68770347 50.69937813-90.2333632 73.42459307-99.45694826 3.64088853-1.48669653 7.09973333-2.85202987 10.10346667-4.27804374 19.11466667-9.10222187 58.77001493-29.06642987 58.83069653-29.0967712 26.0930368-12.19697813 36.77297813-21.9363552 40.96-26.9729184l-187.05066667-161.898192c-56.31241493 83.40669653-153.97925973 93.66186667-198.4891264 93.66186667-10.5889184 0-19.0236448-0.5764736-24.21191146-1.03158507a272.64189653 272.64189653 0 0 1-24.5153184 1.03158507c-45.14702187 0-144.27022187-10.31585173-201.219792-94.17765973l-190.38814827 162.4443264c4.3387264 5.06690347 15.04900693 14.6242368 40.35318507 26.24474026 1.21362987 0.5764736 41.44545173 20.57102187 60.8635264 29.6732448 3.06441493 1.42601493 6.58394027 2.82168853 10.2855104 4.30838507 23.02862187 9.22358507 84.16521493 33.7085632 74.30447466 99.638992-11.92391147 79.18933333-26.60882987 252.10121493-29.46085973 286.3862528z"
+                        p-id="3821"></path>
+            </svg>
+        </div>
+        <div class="huadiao-fanju-themeshop">
+
+            <div class="themeshop-header">更换主题</div>
+
+
+            <div class="themeshop-tools">
+                <ul>
+                    <li class="title-color-modular">
+                        <label for="colorbar">
+                            <div class="title-color">标题颜色</div>
+                            <svg t="1658374192103" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="3970">
+                                <path
+                                        d="M756.94275079 1031.34343916l88.81568175-79.38914172a1.3256072 1.3256072 0 0 0 0-1.91476595L357.19853812 513.62018657a1.3256072 1.3256072 0 0 1 0-1.91476594l488.55989442-436.56663462a1.3256072 1.3256072 0 0 0 0-1.91476594l-88.81568175-79.38914172a1.3256072 1.3256072 0 0 0-1.76747625 0L173.97016652 509.79065468a1.3256072 1.3256072 0 0 0 0 1.91476595 1.3256072 1.3256072 0 0 1 0 1.91476594 1.3256072 1.3256072 0 0 0 0 1.91476593l581.20510802 515.80848666a1.3256072 1.3256072 0 0 0 1.76747625 0z"
+                                        p-id="3971"></path>
+                            </svg>
+                        </label>
+
+                    </li>
+                    <li class="title-background-color-modular">
+                        <div class="title-background-color">标题背景</div>
+                        <svg t="1658374192103" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" p-id="3970">
+                            <path
+                                    d="M756.94275079 1031.34343916l88.81568175-79.38914172a1.3256072 1.3256072 0 0 0 0-1.91476595L357.19853812 513.62018657a1.3256072 1.3256072 0 0 1 0-1.91476594l488.55989442-436.56663462a1.3256072 1.3256072 0 0 0 0-1.91476594l-88.81568175-79.38914172a1.3256072 1.3256072 0 0 0-1.76747625 0L173.97016652 509.79065468a1.3256072 1.3256072 0 0 0 0 1.91476595 1.3256072 1.3256072 0 0 1 0 1.91476594 1.3256072 1.3256072 0 0 0 0 1.91476593l581.20510802 515.80848666a1.3256072 1.3256072 0 0 0 1.76747625 0z"
+                                    p-id="3971"></path>
+                        </svg>
+                    </li>
+                    <li class="pagetwo-background-modular">
+                        <div class="pagetwo-background">更换背景</div>
+                        <svg t="1658374192103" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" p-id="3970">
+                            <path
+                                    d="M756.94275079 1031.34343916l88.81568175-79.38914172a1.3256072 1.3256072 0 0 0 0-1.91476595L357.19853812 513.62018657a1.3256072 1.3256072 0 0 1 0-1.91476594l488.55989442-436.56663462a1.3256072 1.3256072 0 0 0 0-1.91476594l-88.81568175-79.38914172a1.3256072 1.3256072 0 0 0-1.76747625 0L173.97016652 509.79065468a1.3256072 1.3256072 0 0 0 0 1.91476595 1.3256072 1.3256072 0 0 1 0 1.91476594 1.3256072 1.3256072 0 0 0 0 1.91476593l581.20510802 515.80848666a1.3256072 1.3256072 0 0 0 1.76747625 0z"
+                                    p-id="3971"></path>
+                        </svg>
+
+                    </li>
+                    <li class="pagetwo-foreground-modular">
+                        <div class="pagetwo-foreground">更换前景</div>
+                        <svg t="1658374192103" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" p-id="3970">
+                            <path
+                                    d="M756.94275079 1031.34343916l88.81568175-79.38914172a1.3256072 1.3256072 0 0 0 0-1.91476595L357.19853812 513.62018657a1.3256072 1.3256072 0 0 1 0-1.91476594l488.55989442-436.56663462a1.3256072 1.3256072 0 0 0 0-1.91476594l-88.81568175-79.38914172a1.3256072 1.3256072 0 0 0-1.76747625 0L173.97016652 509.79065468a1.3256072 1.3256072 0 0 0 0 1.91476595 1.3256072 1.3256072 0 0 1 0 1.91476594 1.3256072 1.3256072 0 0 0 0 1.91476593l581.20510802 515.80848666a1.3256072 1.3256072 0 0 0 1.76747625 0z"
+                                    p-id="3971"></path>
+                        </svg>
+
+                    </li>
+                    <li class="borderimg-modular">
+                        <div class="borderimg">更换边框</div>
+                        <svg t="1658374192103" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" p-id="3970">
+                            <path
+                                    d="M756.94275079 1031.34343916l88.81568175-79.38914172a1.3256072 1.3256072 0 0 0 0-1.91476595L357.19853812 513.62018657a1.3256072 1.3256072 0 0 1 0-1.91476594l488.55989442-436.56663462a1.3256072 1.3256072 0 0 0 0-1.91476594l-88.81568175-79.38914172a1.3256072 1.3256072 0 0 0-1.76747625 0L173.97016652 509.79065468a1.3256072 1.3256072 0 0 0 0 1.91476595 1.3256072 1.3256072 0 0 1 0 1.91476594 1.3256072 1.3256072 0 0 0 0 1.91476593l581.20510802 515.80848666a1.3256072 1.3256072 0 0 0 1.76747625 0z"
+                                    p-id="3971"></path>
+                        </svg>
+                    </li>
+                    <li class="card-background-modular">
+                        <div class="card-background">卡片背景</div>
+                        <svg t="1658374192103" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                             xmlns="http://www.w3.org/2000/svg" p-id="3970">
+                            <path
+                                    d="M756.94275079 1031.34343916l88.81568175-79.38914172a1.3256072 1.3256072 0 0 0 0-1.91476595L357.19853812 513.62018657a1.3256072 1.3256072 0 0 1 0-1.91476594l488.55989442-436.56663462a1.3256072 1.3256072 0 0 0 0-1.91476594l-88.81568175-79.38914172a1.3256072 1.3256072 0 0 0-1.76747625 0L173.97016652 509.79065468a1.3256072 1.3256072 0 0 0 0 1.91476595 1.3256072 1.3256072 0 0 1 0 1.91476594 1.3256072 1.3256072 0 0 0 0 1.91476593l581.20510802 515.80848666a1.3256072 1.3256072 0 0 0 1.76747625 0z"
+                                    p-id="3971"></path>
+                        </svg>
+
+                    </li>
+                </ul>
+                <input type="color" name="colorbar" id="colorbar">
+
+            </div>
+
+            <!-- 多色渐变面板 -->
+            <div class="multiply-bar">
+                <div class="multiply-title"></div>
+                <div class="multiply-bar-left">
+                    <div class="abgleword">角度</div>
+                    <input type="text" name="angle" id="angle" value="0" autocomplete="off">
+                    <div class="addnewcolor">添加多色渐变</div>
+                    <div class="deletenewcolor">删除多色渐变</div>
+                    <div class="addcolortip">最多添加三色渐变</div>
+                    <div class="judge">
+                        <div class="confirmcolor">确定</div>
+                        <div class="cancelcolor">取消</div>
+                    </div>
+                </div>
+                <div class="multiply-bar-right">
+                    <ul>
+
+                        <li>
+                            <label for="colorbar">
+                                <svg t="1658404316200" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg" p-id="4184"
+                                     data-spm-anchor-id="a313x.7781069.0.i2" width="200" height="200">
+                                    <path
+                                            d="M518.18892857 28.74575632c-266.46499615-3.41205767-486.02835289 210.60446149-489.44593394 477.07083847-2.72025642 212.63429749 132.97359041 395.38719959 323.31697451 462.28755662 48.19686809 16.94429774 99.91488029 26.46381437 153.74834062 27.14871143 78.10726115 1.00525212 132.17408358-16.52590298 134.43728167-17.27431869l6.41538647-2.73130315c9.19363821-4.87436811 18.69658474-9.90753291 27.60024638-16.48447775 7.1403279-5.25271849 20.43644418-15.01250143 28.03521123-32.33929207 1.81028233-4.1369991 7.51591661-19.18264071 4.59129572-38.77815283-4.15633087-27.9772159-26.40305738-50.49044469-49.94639341-74.33480404-9.63964979-9.76254462-19.61208221-19.85649104-25.8120575-28.0821598-6.72607564-9.22677838-23.09456276-38.78229536-18.68691886-65.48913773 4.49049435-27.26608289 28.89547506-55.2805815 54.40374759-62.4347178 26.80073953-7.54491426 55.09831052 8.79181351 95.20345139 34.55416074 42.00655869 27.00372313 89.62761614 57.55344551 142.98192471 36.00128194 39.45614567-15.97632833 66.53581505-56.02623555 80.53892184-119.35711907 0.37420786-1.73985943 9.07488588-43.13470563 9.68245585-90.32079823 3.40929599-266.46499615-210.64864839-486.04492299-477.06393427-489.43626804z m386.42001929 562.18724765c-7.2549377 32.81153963-18.72420157 55.29438992-30.64223871 60.12457111-13.5874737 5.47089134-40.80660801-12.00088759-67.1323383-28.90514094-43.54619619-27.97031171-97.7372943-62.78821307-162.37859575-44.62049035-56.21679158 15.77334471-104.05740274 69.90782834-113.76609457 128.72888571-10.91416587 66.21684082 29.46576233 122.40739645 34.10676834 128.60046753l0.02209346 0.02071262c9.55541849 12.72306735 21.56044861 24.88965584 33.17055824 36.64751545 6.52999626 6.59765745 16.12545914 16.31601516 22.27572416 23.71317945-2.56698309 1.52444827-5.54683758 3.15245961-8.78767099 4.88541482-10.83683877 3.0378498-50.58158019 12.9785229-104.60283487 12.28119829-220.79230509-2.83210452-398.11574105-184.74131287-395.28363653-405.54052215 2.8210578-220.77573499 184.75512129-398.1102177 405.53361795-395.27811317 44.61634784 0.57581061 87.44864933 8.45765004 127.38947013 22.49942037 157.70306873 55.43937821 270.15598367 206.86652539 267.89554724 383.04110178-0.49572185 38.68977902-7.80036981 73.80179948-7.8003698 73.80179948z"
+                                            p-id="4185"></path>
+                                    <path
+                                            d="M762.72893411 457.77990425c-10.11465902 28.76981855 5.00969051 60.29441454 33.77950907 70.40769272 28.76981855 10.11327819 60.29165285-5.00969051 70.40769273-33.77950906 10.11327819-28.76981855-5.00969051-60.2930337-33.78088989-70.40769272-28.76981855-10.11327819-60.2930337 5.00969051-70.40631191 33.77950906zM323.52489355 254.55465611c-28.77119939-10.11327819-60.29165285 5.00969051-70.40769273 33.77950905s5.00969051 60.29027202 33.78088988 70.40769273c28.76981855 10.11327819 60.29027202-5.00969051 70.40631189-33.77950905 10.11603987-28.77258022-5.00969051-60.29441454-33.77950904-70.40769273zM458.47446718 158.94109501c-28.76981855-10.11327819-60.29165285 5.00969051-70.40631189 33.77950904-10.11465902 28.76981855 5.00969051 60.29441454 33.77950906 70.40769273 28.76981855 10.11327819 60.29165285-5.00969051 70.40769272-33.77950905 10.11327819-28.76981855-5.00969051-60.29441454-33.78088989-70.40769272zM766.95016451 266.63425163c-28.76981855-10.11742071-60.29165285 5.00554799-70.40769271 33.77950905-10.11327819 28.76981855 5.00969051 60.29027202 33.77950905 70.40769273 28.77119939 10.11327819 60.29441454-5.00969051 70.40769273-33.77950905 10.11327819-28.77396107-5.00969051-60.29441454-33.77950907-70.40769273zM628.77494672 166.0206659c-28.76981855-10.11327819-60.29165285 5.00969051-70.40769273 33.77950905-10.11327819 28.76981855 5.00969051 60.29441454 33.7808899 70.40769273 28.76981855 10.11327819 60.29165285-5.00969051 70.40493104-33.77950905 10.11603987-28.76981855-5.00830966-60.29441454-33.77812821-70.40769273z"
+                                            p-id="4186"></path>
+                                </svg>
+                            </label>
+                            <input type="text" id="colorone" name="colorone" placeholder="渐变色一" autocomplete="off">
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- <div class="more-operation">
+                    <label for="pagetwoBackground" class="oraddimg">
+                        <div class="moretip">或者你可以上传图片作为页面背景</div>
+                        <input type="file" name="pagetwoBackground" id="pagetwoBackground" >
+                    </label>
+                </div>
+                <div class="more-operation">
+                    <label for="pagetwoForeground" class="oraddimg">
+                        <div class="moretip">或者你可以上传图片作为页面前景</div>
+                        <input type="file" name="pagetwoForeground" id="pagetwoForeground">
+                    </label>
+                </div>
+                 -->
+
+            </div>
+
+            <div class="borderimg-bar">
+                <div class="borderimg-bar-header">选择你喜欢的边框</div>
+                <div class="borderimg-bar-body">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="shutdown-icon">
+                    <svg t="1658502826000" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" p-id="3899" width="200" height="200">
+                        <path
+                                d="M644.30990222 512l363.7248 363.7248c18.27726222 18.27726222 18.27726222 47.84128 0 66.11854222l-66.11854222 66.11854223c-18.27726222 18.27726222-47.84128 18.27726222-66.11854222 0L512 644.30990222l-363.7248 363.7248c-18.27726222 18.27726222-47.84128 18.27726222-66.11854222 0l-66.11854223-66.11854222c-18.27726222-18.27726222-18.27726222-47.91409778 0-66.11854222L379.69009778 512 15.96529778 148.2752c-18.27726222-18.27726222-18.27726222-47.84128 0-66.11854222l66.11854222-66.11854223c18.27726222-18.27726222 47.91409778-18.27726222 66.11854222 0L512 379.69009778l363.7248-363.7248c18.27726222-18.27726222 47.91409778-18.27726222 66.11854222 0l66.11854223 66.11854222c18.27726222 18.27726222 18.27726222 47.91409778 0 66.11854222L644.30990222 512z"
+                                p-id="3900"></path>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="deleteFanju-background">
+            <div class="deleteFanju-bar">
+                <div class="deleteFanju-header">确认删除吗</div>
+                <div class="deleteFanju-body">
+                    <div class="deleteFanju-confirm">确认</div>
+                    <div class="deleteFanju-cancel">取消</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="img-tip-background">
+            <div class="imgTip"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="http://localhost:9090/huadiao/JS/common.js"></script>
+<!-- 引入 jquery  -->
+<script src="http://localhost:9090/huadiao/JS/jquery.min.js"></script>
+<script src="http://localhost:9090/huadiao/JS/scrollBarPlugin/jquery.slimscroll.js"></script>
+<script src="http://localhost:9090/huadiao/JS/axios.js"></script>
+<!-- 全屏滚动插件 -->
+<script src="http://localhost:9090/huadiao/JS/jquery.fanjuhousefullpage.min.js"></script>
+<!-- Swiper JS -->
+<script src="http://localhost:9090/huadiao/JS/swiper-bundle.min.js"></script>
+
+<!-- 引入页面专用 js -->
+<script src="http://localhost:9090/huadiao/JS/panoperahouse.js"></script>
+
+
+</body>
+
+</html>

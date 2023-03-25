@@ -1,0 +1,573 @@
+
+body {
+    overflow-x: hidden;
+}
+
+html {
+    padding-bottom: 300px;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 15px;
+    border-radius: 8px;
+    background-color: #ececec;
+}
+
+body::-webkit-scrollbar-thumb {
+    width: 100%;
+    border-radius: 8px;
+    background-color: #d2d2d2;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #c2c2c2;
+}
+
+.huadiao-note-header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 100vw;
+    height: 5.903vh;
+    min-height: 40px;
+    background-color: #fff;
+    box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.12);
+}
+
+.huadiao-icon {
+    width: 2.375vw;
+    min-width: 20px;
+    height: 4.722vh;
+    min-height: 25px;
+    margin: 0.59vh 0 0 0.3125vw;
+}
+
+.huadiao-note-body {
+    width: 85vw;
+    min-height: 100vh;
+    min-width: 540px;
+    margin: 110px auto 0;
+}
+
+.note-bar {
+    float: right;
+    width: 100%;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.09);
+    transition: all .5s;
+}
+
+.note-title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/*笔记信息*/
+.note-infer {
+    width: 99%;
+    margin: 30px auto 0;
+    padding-bottom: 2.361vh;
+    border-radius: 7px;
+    background-color: #f5f5f5;
+}
+
+.note-infer {
+    color: #8c8c8c;
+    font-size: 14px;
+}
+
+/*图标*/
+.note-infer .icon {
+    width: 16px;
+    height: 16px;
+    margin: 2.361vh 0 0 1.875vw;
+    vertical-align: -2px;
+}
+
+.note-release-date,
+.note-view,
+.note-star {
+    display: inline-block;
+}
+
+/*页面主要内容*/
+.note-main {
+    margin-top: 50px;
+}
+
+.note-content {
+    letter-spacing: 1px;
+    font-weight: 200;
+}
+
+.note-main-below {
+    /*粘性定位,必须给定定位词的其中一个，如：top，当达到指定位置时就会固定在指定位置，当回到原来的位置时脱离，不脱离标准流，占有原来位置*/
+    position: sticky;
+    bottom: 0px;
+    margin-top: 70px;
+    padding: 15px 0 15px 0;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    background-color: #fff;
+}
+
+.toolbox-list {
+    float: right;
+}
+
+.user-avatar,
+.unfollow,
+.toolbox-list {
+    display: inline-block;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-avatar .icon {
+    width: 30px;
+    height: 30px;
+    vertical-align: -2px;
+}
+
+.img-avatar {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+}
+.unfollow,
+.followed {
+    display: inline-block;
+    height: 28px;
+    padding: 0 12px;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 14px;
+    color: #f3f3f3;
+    vertical-align: 8px;
+}
+
+.author-nickname {
+    display: inline-block;
+    color: #696969;
+    vertical-align: 8px;
+}
+
+.unfollow {
+    background-color: #ec6011;
+}
+
+.unfollow:hover {
+    background-color: #de5d14;
+}
+
+.followed {
+    background-color: #c9c9c9;
+}
+
+.followed:hover {
+    background-color: #c0c0c0;
+}
+
+.toolbox-list ul li .icon {
+    width: 25px;
+    height: 25px;
+    vertical-align: -7px;
+    margin-left: 15px;
+}
+
+.star .icon {
+    margin-left: 26px !important;
+}
+
+.toolbox-list ul li a {
+    color: #8c8c8c;
+}
+.toolbox-list ul li {
+    float: left;
+    font-size: 14px;
+    color: #8c8c8c;
+}
+
+.unlike .icon {
+    transform: rotateX(180deg);
+}
+
+.unlike-icon:hover path:nth-child(1),
+.like-icon:hover path:nth-child(1),
+.star-icon:hover path:nth-child(1) {
+    fill: #b6b6b6;
+}
+
+.unlike-icon path:nth-child(1) {
+    fill: #c9c9c9;
+}
+
+.unlike-icon path:nth-child(2) {
+    fill: #e0e0e0;
+}
+
+.like-icon path:nth-child(1) {
+    fill: #c9c9c9;
+}
+
+.like-icon path:nth-child(2) {
+    fill: #dadada;
+}
+
+.like-icon path:nth-child(3) {
+    fill: #cbcbcb;
+}
+
+.star-icon path:nth-child(1) {
+    fill: #c9c9c9;
+}
+
+.star-icon path:nth-child(2) {
+    fill: #dadada;
+}
+
+.mark-icon path:nth-child(1) {
+    fill: #c9c9c9;
+}
+
+.mark-icon path:nth-child(2) {
+    fill: #dadada;
+}
+
+/*打开或关闭目录的按钮*/
+.open-directory {
+    position: absolute;
+    width: 25px;
+    height: 20px;
+    top: 11px;
+    right: 29px;
+    cursor: pointer;
+}
+
+.dir-icon-top,
+.dir-icon-middle,
+.dir-icon-bottom {
+    position: absolute;
+    width: 25px;
+    height: 4px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.09);
+}
+
+.dir-icon-top {
+    transform-origin: 22px 6px;
+    background-color: #ffe537;
+}
+
+.dir-icon-middle {
+    top: 7px;
+    background-color: #26bcf8;
+}
+
+.dir-icon-bottom {
+    transform-origin: 20px -1px;
+    top: 14px;
+    background-color: #ff3d3d;
+}
+
+@keyframes openDirectory_top {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes openDirectory_bottom {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes closeDirectory_top {
+    0% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes closeDirectory_bottom {
+    0% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+/*目录面板*/
+.directory-bar {
+    position: sticky;
+    top: 110px;
+    visibility: hidden;
+    float: left;
+    width: 0px;
+    height: 600px;
+    border-radius: 7px;
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.09);
+    overflow: hidden;
+    transition: all .5s;
+}
+
+.dir-title,
+.dir-box ul li a {
+    width: 100%;
+    min-width: 200px;
+    letter-spacing: 1px;
+    color: #808080;
+}
+
+.dir-title {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.dir-box ul li {
+    padding: 8px 0 0 10px;
+}
+
+.dir-box ul li a {
+    display: block;
+    font-size: 14px;
+}
+
+.mark-bar {
+    float: left;
+    width: 60%;
+    padding-bottom: 100px;
+}
+
+.mark-title {
+    font-size: 25px;
+    padding: 20px 0 0 20px;
+}
+
+.mark-main-box {
+    position: sticky;
+    z-index: 9;
+    width: 100%;
+    top: 25px;
+    padding-top: 30px;
+    padding-bottom: 2px;
+    background-color: #ffffff;
+}
+.mark-all {
+    margin-left: 8px;
+    font-size: 16px;
+    color: #ababab;
+}
+
+.mine-avatar {
+    width: 40px;
+    height: 40px;
+    margin: 0 15px -14px 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.mine-img-avatar {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+}
+
+.mine-avatar .icon {
+    width: 40px;
+    height: 40px;
+    vertical-align: -14px;
+}
+
+.mark-avatar-box,
+.input-box,
+.send-box {
+    display: inline-block;
+}
+
+.input-box .mark-input {
+    border: 0;
+    padding: 8px;
+    background-color: #f5f5f5;
+}
+
+.input-box {
+    width: calc(90% - 145px);
+}
+
+.send-box,
+.input-box .mark-input {
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+.send-box {
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-left: 20px;
+    color: #fff;
+    background-color: #ea1616;
+}
+
+.send-box:hover {
+    background-color: #da1717;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #b6b6b6;
+}
+
+.mark-list {
+    width: 100%;
+    min-height: 300px;
+}
+
+/*每一个回复作者的评论，附带回复该评论的评论*/
+.mark-item {
+    position: relative;
+    width: 100%;
+    padding: 30px 0 0 80px;
+    color: #525252;
+}
+
+.root-avatar-box {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.root-img-avatar {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+}
+
+.root-avatar .icon {
+    width: 40px;
+    height: 40px;
+}
+
+.user-info {
+    margin-bottom: 10px;
+}
+
+.user-nickname {
+    font-size: 14px;
+}
+
+.mark-like .icon,
+.mark-unlike .icon {
+    width: 13px;
+    height: 13px;
+    margin: 0 5px;
+    fill: #858585;
+    vertical-align: -2px;
+}
+
+.mark-unlike .icon {
+    transform: rotateX(180deg);
+}
+
+.mark-like-number,
+.send-date,
+.mark-reply {
+    font-size: 13px;
+}
+
+.mark-like,
+.send-date,
+.mark-unlike,
+.mark-reply {
+    display: inline-block;
+    margin-right: 15px;
+    color: #858585;
+}
+
+.mark-info {
+    margin-top: 10px;
+}
+
+.root-tag {
+    display: inline-block;
+    margin: 10px 0 0 4px;
+    padding: 3px 8px;
+    color: #858585;
+    font-size: 13px;
+    background-color: #efefef;
+}
+
+.mark-like:hover .icon,
+.mark-unlike:hover .icon,
+.mark-reply:hover,
+.more-sub-btn:hover {
+    fill: #ce2a2a!important;
+    color: #ce2a2a!important;
+}
+
+.more-sub {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #858585;
+}
+
+.mark-sub-container {
+    padding: 0 0 20px 50px;
+    border-bottom: 1px solid #dedede;
+}
+
+.sub-img-avatar {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+}
+
+.sub-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.sub-avatar .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.sub-avatar-box {
+    position: absolute;
+    left: -44px;
+}
+
+.mark-sub-item {
+    position: relative;
+    margin-top: 20px;
+}

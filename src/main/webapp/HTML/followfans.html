@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>花凋--关注与粉丝</title>
+
+    <!-- 引入网站图标 -->
+    <link rel="shortcut icon" href="http://localhost:9090/huadiao/favicon.ico" type="image/x-icon">
+    <!-- 引入通用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/common.css">
+    <!-- 滚动条css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/scrollBar.min.css">
+    <!-- 网页专用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/followfans.css">
+
+
+
+</head>
+
+<body>
+
+    <div class="huadiao-header">
+        <!-- 左侧图标 -->
+        <ul class="left-entry">
+
+            <!-- logo 连接主站 -->
+            <li class="huadiao-link">
+                <!-- 引入 logo -->
+                <a href="http://localhost:9090/huadiao" target="_blank" title="花凋--不一样的世界">
+                    <!-- svg 格式 -->
+                    <svg class="huadiao-icon" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px"
+                        width="38px" height="49px" viewBox="0 0 38 49" enable-background="new 0 0 38 49"
+                        xml:space="preserve">
+                        <image id="image0" width="38" height="49" x="0" y="0"
+                            href="data:image/png;base64,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" />
+                    </svg>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="huadiao-followfans-background">
+
+        <div class="huadiao-followfans-left"></div>
+
+        <div class="huadiao-followfans-right">
+            <div class="followfans-group">
+                <div class="follow">
+                    <div class="follow-header">
+                        <div class="follow-header-title">我的关注</div>
+                        <i class="iconfont createNewGroup">&#xe775;</i>
+                    </div>
+                    <div class="follow-group">
+                        <ul>
+                            <li>
+                                <a href="javascript:;" class="follow-btn">
+                                    <div class="follow-groupName">全部关注</div>
+                                    <div class="follow-groupNumber">0</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="follow-btn">
+                                    <div class="follow-groupName">特别关注</div>
+                                    <div class="follow-groupNumber">0</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="follow-btn">
+                                    <div class="follow-groupName">默认分组</div>
+                                    <div class="follow-groupNumber">0</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="fans">
+                    <div class="fans-header">我的粉丝</div>
+                    <div class="fans-group">
+                        <ul>
+                            <li>
+                                <a href="javascript:;" class="fans-btn">
+                                    <div class="fans-groupName">我的粉丝</div>
+                                    <div class="fans-groupNumber">0</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="followfans-content">
+
+                <div class="followfans-title">
+                    <div class="myFollow">我的关注</div>
+                    <div class="myFans">我的粉丝</div>
+                </div>
+
+                <div class="followfans-person">
+                    <ul>
+
+                        <!-- 粉丝模版 -->
+                        <!-- <li>
+                            <div class="avater">
+                                <a href="javascript:;" target="_blank" title="">
+                                    <svg t="1658118096234" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" p-id="3788" width="200" height="200">
+                                        <path
+                                            d="M510.77050482 2.21923328c281.4240859 0 509.56537287 228.14128697 509.56537173 509.56653682 0 281.42757888-228.14128697 509.56653682-509.56537173 509.56653681-281.42757888 0-509.56886585-228.14012302-509.56886585-509.56653681 0-281.4240859 228.14128697-509.56653682 509.56886585-509.56653682z"
+                                            fill="#EEEEEE" p-id="3789"></path>
+                                        <path
+                                            d="M510.77050482 516.51164387c90.0558939 0 163.05952199-73.30168832 163.05952199-163.72549973 0-90.42264633-73.00362809-163.72433465-163.05952199-163.72433465-90.05705785 0-163.06301497 73.30168832-163.06301497 163.72433465-0.00116395 90.42497536 73.00479317 163.72549859 163.06301497 163.72549973z m251.51800206 200.09807531l1.21552441-0.45756757c-39.85964146-100.90130205-137.98992099-172.25861689-252.73352647-172.25861689-113.31967317 0-210.42537358 69.60155875-251.2141221 168.51890176l0.56235463 0.22820181a39.9609344 39.9609344 0 0 0-2.9188881 15.01940622c0 22.15886393 17.97555086 40.12510094 40.15420757 40.12509981 16.79146325 0 31.16701469-10.30401138 37.16196921-24.92522837l0.65433486 0.26545948c28.69987328-68.84360192 96.50958109-117.22355485 175.60014393-117.22355484 79.76934741 0 148.05874461 49.21940878 176.32433493 119.00725475l0.2875813-0.10828003c6.4338944 13.58499499 20.27037696 22.98434901 36.30970538 22.98434901 22.17516373 0 40.15187968-17.96507307 40.15187968-40.12509981a40.14256469 40.14256469 0 0 0-1.55549923-11.05032533z"
+                                            fill="#CCCCCC" p-id="3790"></path>
+                                    </svg>
+                                    这是有头像后的结构 svg 会被删除
+                                    <div class="avatar-box">
+                                        <div class="img-avatar"></div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="followfans-information">
+                                <div class="nickname">昵称</div>
+                                <div class="canvases">介绍</div>
+                            </div>
+
+                            <div class="followfans-tools">
+                                <div class="followPerson">关注</div>
+                                <div class="moreOperation">
+                                    <div class="iconfont moreicon">&#xe62d;</div>
+                                    <div class="followfans-toolsBar">
+                                        <div class="sendMessage">发消息</div>
+                                        <div class="removeFans">移除粉丝</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </li> -->
+
+                        <!-- 已经关注模版 -->
+                        <!-- <li>
+                            <div class="avater">
+                                <a href="javascript:;" target="_blank" title="">
+                                    <svg t="1658118096234" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" p-id="3788" width="200" height="200">
+                                        <path
+                                            d="M510.77050482 2.21923328c281.4240859 0 509.56537287 228.14128697 509.56537173 509.56653682 0 281.42757888-228.14128697 509.56653682-509.56537173 509.56653681-281.42757888 0-509.56886585-228.14012302-509.56886585-509.56653681 0-281.4240859 228.14128697-509.56653682 509.56886585-509.56653682z"
+                                            fill="#EEEEEE" p-id="3789"></path>
+                                        <path
+                                            d="M510.77050482 516.51164387c90.0558939 0 163.05952199-73.30168832 163.05952199-163.72549973 0-90.42264633-73.00362809-163.72433465-163.05952199-163.72433465-90.05705785 0-163.06301497 73.30168832-163.06301497 163.72433465-0.00116395 90.42497536 73.00479317 163.72549859 163.06301497 163.72549973z m251.51800206 200.09807531l1.21552441-0.45756757c-39.85964146-100.90130205-137.98992099-172.25861689-252.73352647-172.25861689-113.31967317 0-210.42537358 69.60155875-251.2141221 168.51890176l0.56235463 0.22820181a39.9609344 39.9609344 0 0 0-2.9188881 15.01940622c0 22.15886393 17.97555086 40.12510094 40.15420757 40.12509981 16.79146325 0 31.16701469-10.30401138 37.16196921-24.92522837l0.65433486 0.26545948c28.69987328-68.84360192 96.50958109-117.22355485 175.60014393-117.22355484 79.76934741 0 148.05874461 49.21940878 176.32433493 119.00725475l0.2875813-0.10828003c6.4338944 13.58499499 20.27037696 22.98434901 36.30970538 22.98434901 22.17516373 0 40.15187968-17.96507307 40.15187968-40.12509981a40.14256469 40.14256469 0 0 0-1.55549923-11.05032533z"
+                                            fill="#CCCCCC" p-id="3790"></path>
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <div class="followfans-information">
+                                <div class="nickname">昵称</div>
+                                <div class="canvases">介绍</div>
+                            </div>
+
+                            <div class="followfans-tools">
+                                <div class="cancelFollowPerson">已关注</div>
+                                <div class="moreOperation">
+                                    <div class="iconfont moreicon">&#xe62d;</div>
+                                    <div class="followfans-toolsBar">
+                                        <div class="sendMessage">发消息</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </li> -->
+
+                        <!-- 互粉直接采用已关注模版 -->
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="huadiao-follow">
+            <div class="followslide">关注</div>
+            <div class="iconfont slide">&#xe632;</div>
+        </div>
+        <div class="huadiao-fans">
+            <div class="followslide">粉丝</div>
+            <div class="iconfont slide">&#xe632;</div>
+        </div>
+
+    </div>
+
+    <div class="removeFansBackground">
+
+        <div class="removeFansBar">
+
+            <div class="removeFansBar-header">
+                <span>确认移除吗</span>
+            </div>
+
+            <div class="removeFansBar-below">
+                <div class="confirmDelete">确认</div>
+                <div class="cancelDelete">取消</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="createBackground">
+        <div class="createForeground">
+            <div class="createHeader">新建分组</div>
+            <div class="groupName">
+                <input type="text" name="createGroup" id="createGroup" placeholder="长度为 1-10个 字符" minlength="1" maxlength="10">
+            </div>
+            <div class="createBelow">
+                <div class="confirmCreate">确认</div>
+                <div class="cancelCreate">取消</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="groupNameWrongTip"></div>
+
+    <script src="http://localhost:9090/huadiao/JS/common.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/axios.js"></script>
+    <!-- 引入 jquery  -->
+    <script src="http://localhost:9090/huadiao/JS/jquery.min.js"></script>
+    <!-- 滚动条插件必须的 jquery  -->
+    <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 滚动条插件 -->
+    <script src="http://localhost:9090/huadiao/JS/scrollBar.min.js"></script>
+    <!-- 引入页面专用 js -->
+    <script src="http://localhost:9090/huadiao/JS/followfans.js"></script>
+
+</body>
+
+</html>

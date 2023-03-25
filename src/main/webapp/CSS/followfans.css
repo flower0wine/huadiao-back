@@ -1,0 +1,552 @@
+* {
+    font-family: '宋体';
+}
+
+/* 头部 */
+.huadiao-header {
+    position: absolute;
+    z-index: 3;
+    padding: .1875rem 0 0 .1875rem;
+}
+
+/* 大背景 */
+.huadiao-followfans-background {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/followFansImages/followfans-background.jpeg) no-repeat 10.683vh 0px;
+    background-size: 101.25vw;
+    overflow: hidden;
+}
+
+/* 左侧小背景 */
+.huadiao-followfans-left {
+    position: absolute;
+    z-index: 2;
+    width: 25vw;
+    height: 100%;
+    background: url(../images/followFansImages/foreground.png) no-repeat -1.25rem 0px;
+    background-size: 28.125vw;
+}
+
+/* 关注，粉丝滑块 */
+.huadiao-follow,
+.huadiao-fans {
+    position: absolute;
+    z-index: 1;
+    left: calc(25vw - 2.5rem);
+    width: 3.75rem;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    border-bottom-right-radius: .9375rem;
+    border-top-right-radius: .9375rem;
+    background-color: #fff;
+    transition: all .6s;
+}
+
+.huadiao-follow:hover,
+.huadiao-fans:hover {
+    left: 25vw;
+}
+
+.huadiao-follow:hover .slide,
+.huadiao-fans:hover .slide {
+    transform: rotate(0deg);
+}
+
+.huadiao-follow {
+    top: 2.125rem;
+}
+
+.huadiao-fans {
+    top: 5rem;
+}
+
+.huadiao-follow div,
+.huadiao-fans div {
+    float: left;
+    margin-left: .3125rem;
+    color: #5f5f5f;
+    font-size: 1rem;
+}
+
+/* 关注粉丝，滑块 */
+.huadiao-follow .slide,
+.huadiao-fans .slide {
+    font-size: .75rem;
+    transform: rotate(180deg);
+    transition: all .2s;
+}
+
+/* 右侧 */
+.huadiao-followfans-right {
+    position: absolute;
+    z-index: 1;
+    top: 6.847vh;
+    left: 33.75vw;
+    width: 50rem;
+    height: 84.887vh;
+    border-radius: .625rem;
+    background-color: rgba(255, 255, 255, 0.747);
+}
+
+/* 右侧组别 */
+.followfans-group {
+    float: left;
+    width: 10.6875rem;
+    height: 100%;
+    border-right: 1px solid #c1c1c1;
+}
+
+/* 我的关注 */
+.follow-header,
+.fans-header {
+    width: 100%;
+    height: 4.375rem;
+    text-align: center;
+}
+
+/* 标题 */
+.follow-header .follow-header-title,
+.follow-header i,
+.fans-header {
+    display: inline-block;
+    line-height: 4.375rem;
+    font-size: 1.25rem;
+    color: #646464;
+}
+
+/* 关注标题 */
+.follow-header .follow-header-title {
+    margin-right: .625rem;
+}
+
+/* 组别 */
+.follow-group {
+    width: 10.6875rem;
+    height: 35.419vh;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+/* 每个组 */
+.follow-group ul li,
+.fans-group ul li {
+    display: block;
+    height: 2.5rem;
+    padding: 0 1.25rem 0 1.75rem;
+}
+
+/* 鼠标悬浮 */
+.follow-group ul li:hover,
+.fans-group ul li:hover {
+    background-color: rgba(175, 175, 175, 0.315);
+}
+
+/* 组别内容 */
+.follow-group ul li .follow-groupName,
+.follow-group ul li .follow-groupNumber,
+.fans-group ul li .fans-groupName,
+.fans-group ul li .fans-groupNumber,
+.deleteGroup {
+    color: #5f5f5f;
+    line-height: 2.5rem;
+}
+
+/* 删除组图标 */
+.deleteGroup {
+    display: none;
+}
+
+.follow-group ul li:nth-of-type(n+4):hover .follow-groupNumber {
+    display: none;
+}
+
+.follow-group ul li:hover .deleteGroup {
+    display: block;
+    float: right;
+}
+
+/* 组名 */
+.follow-group ul li .follow-groupName,
+.fans-group ul li .fans-groupName {
+    display: inline-block;
+}
+
+/* 数量 */
+.follow-group ul li .follow-groupNumber,
+.fans-group ul li .fans-groupNumber,
+.deleteGroup {
+    float: right;
+}
+
+.fans {
+    width: 100%;
+    height: 21.8125rem;
+}
+
+/* 主要内容板块 */
+.followfans-content {
+    float: right;
+    width: 39.3125rem;
+    height: 100%;
+}
+
+/* 内容标题 */
+.followfans-title {
+    width: 100%;
+    height: 3.125rem;
+    line-height: 3.125rem;
+    padding-left: 1.5625rem;
+    font-size: 1.25rem;
+    color: #646464;
+}
+
+/* 内容标题 */
+.myFans,
+.myFollow {
+    display: none;
+}
+
+/* 滚动条添加对象 */
+.followfans-person {
+    width: 39.3125rem;
+    height: calc(84.887vh - 3.125rem);
+}
+
+/* 每个用户 */
+.followfans-person ul li {
+    position: relative;
+    /* 这里注意不能设置 z-index 属性，否则上一个元素无法遮挡下一个元素，默认为 auto */
+    /* z-index: 1; */
+    width: 39.3125rem;
+    height: 4.375rem;
+}
+
+.followfans-person ul li:hover {
+    background-color: rgba(156, 156, 156, 0.103);
+}
+
+/* 头像 */
+.followfans-person ul li .avater svg {
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+.followfans-person .avater,
+.followfans-person .followfans-information,
+.followfans-person .followfans-tools {
+    float: left;
+}
+
+.avatar-box {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.img-avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+/* 头像区块 */
+.followfans-person .avater {
+    width: 4.375rem;
+    height: 4.375rem;
+    text-align: center;
+    padding-top: .625rem;
+}
+
+/* 昵称及介绍 */
+.followfans-person .followfans-information {
+    width: 26.1875rem;
+    height: 4.375rem;
+    padding-top: .625rem;
+}
+
+/* 更多操作 */
+.followfans-person .followfans-tools {
+    width: 8.75rem;
+    height: 4.375rem;
+}
+
+/* 昵称 */
+.followfans-information .nickname {
+    font-size: .875rem;
+    color: #3d3c3c;
+}
+
+/* 介绍 */
+.followfans-information .canvases {
+    margin-top: .5rem;
+    font-size: .625rem;
+    color: #747373;
+}
+
+/* 更多操作 */
+.followfans-tools {
+    padding-top: 1.5625rem;
+}
+
+/* followPerson 是关注粉丝 */
+/* cancelFollowPerson 是取消关注，同时可能是粉丝，也可能不是 */
+.followfans-tools .cancelFollowPerson,
+.followfans-tools .followPerson {
+    width: 4.375rem;
+    height: 1.25rem;
+    text-align: center;
+    line-height: 1.25rem;
+    border-radius: .1875rem;
+    box-shadow: 0rem 0rem .25rem .125rem rgba(0, 0, 0, 0.116);
+}
+
+/* 关注 */
+.followfans-tools .followPerson {
+    color: rgb(252, 252, 252);
+    background-color: #65bcf7;
+}
+
+/* 取消关注 */
+.followfans-tools .cancelFollowPerson {
+    color: rgb(102, 102, 102);
+    background-color: #f3f3f3;
+}
+
+.followfans-tools .followPerson:hover {
+    background-color: #5aa3d4;
+}
+
+.followfans-tools .cancelFollowPerson:hover {
+    background-color: #dddddd;
+}
+
+.followfans-tools .cancelFollowPerson,
+.followfans-tools .followPerson,
+.followfans-tools .moreOperation {
+    display: inline-block;
+}
+
+/* 更多操作图标 */
+.followfans-tools .moreOperation .moreicon {
+    color: #747373;
+    font-size: .8125rem;
+}
+
+
+
+/* 更多操作面板 */
+.followfans-toolsBar {
+    display: none;
+    opacity: 0.5;
+    position: absolute;
+    z-index: 3;
+    top: 2.5rem;
+    right: .9375rem;
+    width: 5rem;
+    height: auto;
+    text-align: center;
+    font-size: .625rem;
+    border-radius: .4375rem;
+    box-shadow: 0rem 0rem .375rem .125rem rgba(0, 0, 0, 0.11);
+    color: #747373;
+    background-color: #fff;
+}
+
+.moreicon {
+    width: 1.25rem;
+    height: 1.875rem;
+}
+
+.followfans-toolsBar .sendMessage,
+.followfans-toolsBar .removeFans,
+.followfans-toolsBar .set-group {
+    width: 100%;
+    height: 1.875rem;
+    line-height: 1.875rem;
+}
+
+.sendMessage:hover,
+.removeFans:hover,
+.set-group:hover {
+    background-color: rgba(216, 216, 216, 0.253);
+}
+
+
+/* 移除粉丝 */
+.removeFansBackground {
+    display: none;
+    position: absolute;
+    z-index: 4;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.281);
+}
+
+/* 移除粉丝面板 */
+.removeFansBar {
+    position: absolute;
+    top: 17.3125rem;
+    left: 42.4375rem;
+    width: 12.5rem;
+    height: 8.75rem;
+    border-radius: .4375rem;
+    background-color: #fff;
+}
+
+/* 头部 */
+.removeFansBar-header {
+    width: 100%;
+    height: 2.1875rem;
+    line-height: 2.1875rem;
+    text-align: center;
+    border-bottom: 1px solid #4d4d4d;
+}
+
+/* 下部 */
+.removeFansBar-below {
+    width: 100%;
+    height: 10.3125rem;
+    text-align: center;
+    padding-top: 2.8125rem;
+}
+
+.cancelDelete,
+.confirmDelete {
+    display: inline-block;
+    width: 3.75rem;
+    height: 1.875rem;
+    text-align: center;
+    line-height: 1.875rem;
+    border-radius: .4375rem;
+}
+
+/* 确认 */
+.confirmDelete {
+    margin-right: 1.25rem;
+    color: #fff;
+    background-color: rgb(77, 188, 240);
+}
+
+/* 取消 */
+.cancelDelete {
+    color: #333;
+    background-color: rgb(209, 209, 209);
+}
+
+.confirmDelete:hover {
+    background-color: rgb(69, 166, 211);
+}
+
+.cancelDelete:hover {
+    background-color: rgb(185, 185, 185);
+}
+
+/* 新建分组 */
+.createBackground {
+    display: none;
+    position: absolute;
+    z-index: 4;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.288);
+}
+
+/* 新建分组前景 */
+.createForeground {
+    position: absolute;
+    z-index: 5;
+    top: 19.375rem;
+    left: 40.625rem;
+    width: 18.75rem;
+    height: 12.5rem;
+    border-radius: .625rem;
+    background-color: #fff;
+}
+
+/* 新建头部 */
+.createHeader {
+    width: 100%;
+    height: 2.5rem;
+    text-align: center;
+    line-height: 2.5rem;
+    border-bottom: 1px solid #333;
+    color: rgb(94, 94, 94);
+    font-size: 1.25rem;
+}
+
+.groupName {
+    text-align: center;
+}
+
+/* 组名框 */
+.groupName #createGroup {
+    width: 15rem;
+    height: 1.875rem;
+    margin-top: 1.875rem;
+    padding: .3125rem .625rem;
+    border: 1px solid #333;
+    border-radius: .3125rem;
+}
+
+.createBelow {
+    width: 100%;
+    height: 8.125rem;
+    margin-top: 1.875rem;
+    text-align: center;
+}
+
+/* 确认取消按钮 */
+.createBelow .confirmCreate,
+.createBelow .cancelCreate {
+    display: inline-block;
+    width: 3.75rem;
+    height: 1.875rem;
+    text-align: center;
+    line-height: 1.875rem;
+    border-radius: .4375rem;
+}
+
+.createBelow .confirmCreate {
+    color: #fff;
+    margin-right: 2.5rem;
+    background-color: rgb(48, 158, 221);
+}
+
+.createBelow .cancelCreate {
+    color: rgb(82, 82, 82);
+    background-color: rgb(222, 222, 222);
+}
+
+.createBelow .confirmCreate:hover {
+    background-color: rgb(46, 150, 210);
+}
+
+.createBelow .cancelCreate:hover {
+    background-color: rgb(197, 197, 197);
+}
+
+/* 组名长度提示 */
+.groupNameWrongTip {
+    display: none;
+    opacity: .3;
+    position: absolute;
+    z-index: 6;
+    top: 23.125rem;
+    left: 45.625rem;
+    padding: .3125rem .625rem;
+    border-radius: .375rem;
+    background-color: #000;
+    color: #fff;
+}
+

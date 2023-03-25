@@ -1,0 +1,54 @@
+.mode-btn {
+    background-color: rgb(22, 107, 236);
+}
+
+/* 月食 */
+.moon-eat {
+    position: absolute;
+    top: -3px;
+    left: 7px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: rgb(22, 107, 236);
+}
+
+/* 月晕 */
+.lunar-halo {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 7px rgba(25, 116, 221, 0.69), 0 0 10px rgba(25, 116, 221, 0.562), 0 0 15px rgba(25, 117, 221, 0.432);
+    filter: blur(2px);
+    background-color: transparent;
+    animation: lunarHalo 4.2s linear calc(2.1s * var(--lunar)) infinite;
+}
+
+/* 月晕动画 */
+@keyframes lunarHalo {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(7);
+        opacity: 0;
+    }
+}
+body,
+.sideBar,
+.notes-bar {
+    background-color: #575757;
+}
+
+.nickname,
+.notes-bar div {
+    color: #e5e5e5;
+}
+
+.notes-bar svg {
+    fill: #e5e5e5;
+}

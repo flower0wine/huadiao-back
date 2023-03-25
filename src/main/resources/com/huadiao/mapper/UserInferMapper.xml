@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.UserInferMapper">
+
+    <resultMap id="UserMapperResult" type="com.huadiao.pojo.UserInfer">
+        <result property="uid" column="uid"/>
+        <result property="userId" column="user_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="canvases" column="canvases"/>
+        <result property="sex" column="sex"/>
+        <result property="bornDate" column="born_date"/>
+        <result property="school" column="school"/>
+    </resultMap>
+    <!--通过 uid 获取用户信息-->
+    <select id="selectUserInferByUid" resultMap="UserMapperResult">
+        select `uid`, `user_id`, `nickname`, `canvases`, `sex`, `born_date`, `school`
+        from user_infer
+        where `uid` = #{uid};
+    </select>
+
+    <!--    找到用户的 uid-->
+    <select id="selectUidByUserId" resultType="java.lang.String">
+        select uid
+        from user_infer
+        where user_id = #{userId};
+    </select>
+
+    <!--    根据 userId 获取用户昵称-->
+    <select id="selectNicknameByUid" resultType="java.lang.String">
+        select `nickname`
+        from user_infer
+        where `uid` = #{uid};
+    </select>
+
+    <!--    新增用户信息-->
+    <insert id="insertUserInfer">
+        insert into user_infer(`uid`, `user_id`, `nickname`, `canvases`, `sex`, `born_date`, `school`, `create_time`)
+        values (#{uid}, #{userId}, #{nickname}, #{canvases}, #{sex}, #{bornDate}, #{school}, now());
+    </insert>
+
+    <!--根据我的 uid 修改用户信息-->
+    <update id="updateUserInferByUid">
+        update user_infer
+        set `nickname`    = #{nickname},
+            `canvases`    = #{canvases},
+            `sex`         = #{sex},
+            `born_date`   = #{bornDate},
+            `school`      = #{school},
+            `update_time` = now()
+        where `uid` = #{myUid};
+    </update>
+
+
+</mapper>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>花凋--笔记一览</title>
+
+    <!-- 引入网站图标 -->
+    <link rel="shortcut icon" href="http://localhost:9090/huadiao/favicon.ico" type="image/x-icon">
+    <!-- 引入通用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/common.css">
+    <!-- 网页专用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/notes/notes.css">
+    <link id="sunCSS" rel="stylesheet" href="http://localhost:9090/huadiao/CSS/notes/sun.css">
+
+</head>
+
+<body>
+    <div class="huadiao-header">
+
+        <ul class="left-entry">
+
+            <li class="huadiao-link">
+                <a href="http://localhost:9090/huadiao" title="花凋--不一样的世界">
+                    <svg class="huadiao-icon" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px"
+                        width="38px" height="49px" viewBox="0 0 38 49" enable-background="new 0 0 38 49"
+                        xml:space="preserve">
+                        <image id="image0" width="38" height="49" x="0" y="0"
+                            href="data:image/png;base64,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" />
+                    </svg>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="sideBar">
+        <div class="user-infer">
+            <a href="javascript:;">
+                <div class="avatar-box">
+                    <div class="img-avatar"></div>
+                </div>
+            </a>
+            <div class="nickname"></div>
+        </div>
+        <div class="mode-btn">
+            <div class="sun-self">
+                <div class="slider-sun">
+                    <div class="sun">
+                        <div class="solar-halo halo0" style="--halo:0"></div>
+                        <div class="solar-halo halo1" style="--halo:1"></div>
+                        <div class="solar-halo halo2" style="--halo:2"></div>
+                        <div class="solar-halo halo3" style="--halo:3"></div>
+                        <div class="solar-halo halo4" style="--halo:4"></div>
+                        <div class="solar-halo halo5" style="--halo:5"></div>
+                        <div class="solar-halo halo6" style="--halo:6"></div>
+                        <div class="solar-halo halo7" style="--halo:7"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="moon-self">
+                <div class="slider-moon">
+                    <div class="moon-eat"></div>
+                </div>
+                <div class="moon">
+                    <div class="lunar-halo" style="--lunar:0"></div>
+                    <div class="lunar-halo" style="--lunar:1"></div>
+                    <div class="lunar-halo" style="--lunar:2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notes-bar">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <div class="note-title">现代企业架构框架-应用架构</div>
+                    <div class="note-abstract">摘要： 现代企业架构框架： https://mp.weixin.qq.com/s/SlrEu0_t0slijrNZ6DP4Ng 业务架构： https://mp.weixin.qq.com/s/zQCjiHuxFvAg5QiOAuLAcQ 4.应用架构 应用架构的核心关注点是业务需求是由哪些应用承载的，它们http://localhost:9090/huadiao.</div>
+                    <div class="note-infer">
+                        <div class="release-time">
+                            <svg t="1660742212889" class="icon time-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4089" width="200" height="200"><path d="M827.871087 196.128913C743.498468 111.756293 631.321596 65.290005 512 65.290005c-119.319549 0-231.499491 46.465265-315.871087 130.837884S65.290005 392.680451 65.290005 512s46.465265 231.499491 130.837884 315.871087 196.551538 130.837884 315.871087 130.837884c119.321596 0 231.499491-46.465265 315.871087-130.837884S958.708971 631.319549 958.708971 512 912.243707 280.500509 827.871087 196.128913zM531.556405 917.246651l0-74.145697c0-11.31572-9.174963-20.491707-20.491707-20.491707-11.316743 0-20.491707 9.174963-20.491707 20.491707l0 74.059739C283.276738 906.322857 116.693746 739.164766 106.755396 531.634176l72.351841 0c11.31572 0 20.491707-9.174963 20.491707-20.491707 0-11.31572-9.174963-20.491707-20.491707-20.491707l-72.273047 0c10.769274-206.737528 177.01253-373.005342 383.740848-383.813502l0 72.346725c0 11.316743 9.174963 20.491707 20.491707 20.491707 11.31572 0 20.491707-9.17394 20.491707-20.491707L531.558451 106.752326c207.593012 9.901511 374.807385 176.539762 385.609405 383.89946l-74.142627 0c-11.316743 0-20.491707 9.174963-20.491707 20.491707 0 11.316743 9.174963 20.491707 20.491707 20.491707l74.220399 0C907.275555 739.78796 739.720422 907.317511 531.556405 917.246651zM532.098757 503.118726 532.098757 258.240529c0-11.316743-9.174963-20.491707-20.491707-20.491707-11.31572 0-20.491707 9.17394-20.491707 20.491707l0 254.66612c0 7.858992 4.429893 14.677281 10.924817 18.114566L693.447539 722.42757c4.002151 4.000104 9.245572 6.001691 14.490016 6.001691s10.487865-2.001587 14.490016-6.001691c8.002254-8.002254 8.002254-20.977777 0-28.980032L532.098757 503.118726z" p-id="4090"></path></svg>
+                            <span class="time">发表于 2022-08-14 22:24</span>
+                        </div>
+                        <div class="view-number">
+                            <svg t="1660742304260" class="icon view-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4233" width="200" height="200"><path d="M957.971679 501.685074c-6.928806-9.940396-172.653245-243.818051-441.060321-243.818051-268.409123 0-434.131515 233.877655-441.061344 243.818051-10.730389 15.408945-10.730389 35.877115 0 51.284013 6.928806 9.94142 172.652222 243.819075 441.061344 243.819075 268.407076 0 434.130492-233.877655 441.060321-243.819075C968.701045 537.561166 968.701045 517.092995 957.971679 501.685074zM516.911358 751.877299c-248.028956 0-404.191622-224.550219-404.191622-224.550219s156.161642-224.551242 404.191622-224.551242c248.028956 0 404.190599 224.551242 404.190599 224.551242S764.940314 751.877299 516.911358 751.877299z" p-id="4234"></path><path d="M516.911358 347.687724c-99.206466 0-179.641403 80.434937-179.641403 179.64038s80.434937 179.64038 179.641403 179.64038c99.205443 0 179.639357-80.434937 179.639357-179.64038S616.116801 347.687724 516.911358 347.687724zM516.911358 662.057621c-74.2951 0-134.730541-60.435441-134.730541-134.729517s60.435441-134.730541 134.730541-134.730541c74.294077 0 134.728494 60.435441 134.728494 134.730541S591.205435 662.057621 516.911358 662.057621z" p-id="4235"></path></svg>
+                            <span class="view">阅读：366</span>
+                        </div>
+                        <div class="mark-number">
+                            <svg t="1660742353007" class="icon mark-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4384" width="200" height="200"><path d="M511.999488 847.882863c-28.734592 0-56.729303-2.604314-83.969807-7.099698L231.232673 960.185602 231.232673 761.40735C128.618486 689.355337 62.772174 578.889433 62.772174 454.825836c0-217.07906 201.129864-393.058051 449.228338-393.058051 248.084146 0 449.228338 175.980014 449.228338 393.058051C961.227826 671.917176 760.083635 847.882863 511.999488 847.882863zM511.999488 117.91762c-217.086932 0-393.074156 150.851707-393.074156 336.907193 0 114.166179 66.421434 214.898395 167.761552 275.820929l-1.768346 130.234133 132.171551-79.455633c30.4487 6.497994 62.117231 10.308787 94.910422 10.308787 217.101258 0 393.073132-150.825101 393.073132-336.907193C905.073644 268.769326 729.10177 117.91762 511.999488 117.91762zM736.614169 510.976694c-31.011542 0-56.154182-25.128307-56.154182-56.150858 0-31.010271 25.14264-56.151881 56.154182-56.151881s56.154182 25.14161 56.154182 56.151881C792.768351 485.848387 767.624687 510.976694 736.614169 510.976694zM511.999488 510.976694c-31.010518 0-56.153158-25.128307-56.153158-56.150858 0-31.010271 25.14264-56.151881 56.153158-56.151881 31.011542 0 56.154182 25.14161 56.154182 56.151881C568.15367 485.848387 543.01103 510.976694 511.999488 510.976694zM287.385831 510.976694c-31.010518 0-56.153158-25.128307-56.153158-56.150858 0-31.010271 25.14264-56.151881 56.153158-56.151881s56.153158 25.14161 56.153158 56.151881C343.53899 485.848387 318.39635 510.976694 287.385831 510.976694z" p-id="4385"></path></svg>
+                            <span class="mark">评论：1</span>
+                        </div>
+                        <div class="like-number">
+                            <svg t="1660742442085" class="icon like-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4528" width="200" height="200"><path d="M510.340709 900.892171c-23.173792 0-247.254314-180.180685-332.157006-289.301965-58.338686-53.264111-105.562221-152.650679-105.562221-222.732827 0-148.765185 108.952434-269.77626 242.874563-269.77626 81.781608 0 151.191444 67.679425 194.013739 137.605008 42.822294-69.925582 112.207571-137.605008 194.013739-137.605008 133.922129 0 242.874563 121.011074 242.874563 269.77626 0 70.239737-47.445592 169.805384-106.055454 223.182059C754.630505 722.553437 534.862195 900.892171 510.340709 900.892171zM315.497069 165.0685c-108.570741 0-196.887182 100.397594-196.887182 223.788879 0 58.382689 42.059931 145.353482 91.864244 189.903118 1.033539 0.943488 2.022053 1.977028 2.874467 3.098571 83.937714 109.042485 251.138784 234.421031 297.17119 267.923052 48.054459-34.715663 213.05542-161.193239 294.611901-267.451308 0.899486-1.12359 1.888-2.178619 2.964518-3.142573 50.03251-44.663222 92.312452-131.813095 92.312452-190.33086 0-123.391285-88.316441-223.788879-196.885136-223.788879-70.487378 0-137.808646 75.135234-173.241646 149.597133-7.634888 16.033162-33.908274 16.033162-41.543162 0C453.303668 240.203734 385.983423 165.0685 315.497069 165.0685z" p-id="4529"></path></svg>
+                            <span class="like">获赞数：2</span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="empty-notes">
+            <div class="empty-notes-word">这里空空如也...</div>
+        </div>
+    </div>
+
+    <script src="http://localhost:9090/huadiao/JS/common.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/axios.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/jquery.min.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/notes.js"></script>
+</body>
+
+</html>

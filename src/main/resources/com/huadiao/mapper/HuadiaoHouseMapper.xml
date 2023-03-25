@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.HuadiaoHouseMapper">
+
+    <!--    这是对表 panopera_fanjus 的操作-->
+
+    <!--新增番剧-->
+    <insert id="insertNewFanjuByUid">
+        insert into huadiao_house_fanju(`uid`, `sign_id`, `user_id`, `fanju_name`, `fanju_cover`, `add_date`, `status`)
+        values (#{myUid}, #{signId}, #{myUserId}, #{fanjuName}, #{fanjuCover}, now(), 1);
+    </insert>
+
+    <!--删除番剧根据唯一 id-->
+    <update id="updateHuadiaoHouseFanjuStatusByUid">
+        update huadiao_house_fanju
+        set `status`      = 0,
+            `delete_date` = now()
+        where `uid` = #{myUid}
+          and `sign_id` = #{signId}
+          and `status` = 1;
+    </update>
+
+    <resultMap id="huadiaoHouseInferResultMap" type="com.huadiao.pojo.HuadiaoHouseInfer">
+        <id property="authorUid" column="uid"/>
+        <result property="authorUserId" column="user_id"/>
+        <result property="huadiaoHouseTitleColor" column="title_color"/>
+        <result property="huadiaoHouseTitleBackgroundColor" column="title_background_color"/>
+        <result property="huadiaoHouseForeground" column="pagetwo_foreground"/>
+        <result property="huadiaoHouseBackground" column="pagetwo_background"/>
+        <result property="huadiaoHouseCoverBorder" column="border_img"/>
+        <result property="buildingCardBackground" column="card_color"/>
+        <collection property="huadiaoHouseFanjuInferList" ofType="com.huadiao.pojo.HuadiaoHouseFanjuInfer">
+            <result property="fanjuName" column="fanju_name"/>
+            <result property="fanjuCover" column="fanju_cover"/>
+            <result property="buildDate" column="add_date"/>
+            <result property="signId" column="sign_id"/>
+        </collection>
+    </resultMap>
+    <!--获取番剧馆信息-->
+    <select id="selectHuadiaoHouseInferByUid" resultMap="huadiaoHouseInferResultMap">
+        select panopera_infer.`uid` as `uid`,
+               `user_id`,
+               `title_color`,
+               `title_background_color`,
+               `pagetwo_foreground`,
+               `pagetwo_background`,
+               `border_img`,
+               `card_color`,
+               `fanju_name`,
+               `fanju_cover`,
+               `add_date`,
+               `sign_id`
+        from panopera_infer
+                 left join (select `uid`,
+                                   `fanju_name`,
+                                   `fanju_cover`,
+                                   `add_date`,
+                                   `sign_id`
+                            from huadiao_house_fanju
+                            where `status` = 1) as t1 on t1.uid = panopera_infer.uid
+        where panopera_infer.`uid` = #{authorUid};
+    </select>
+
+    <!--    加入新的配置-->
+    <insert id="insertPanoperaSettings">
+        insert into panopera_infer(`uid`, `user_Id`, `create_date`)
+        values (#{uid}, #{userId}, now());
+    </insert>
+
+    <!--更新番剧页面标题颜色-->
+    <update id="updateHuadiaoHouseTitleColorByUid">
+        update panopera_infer
+        set `title_color`        = #{huadiaoHouseTitleColor},
+            `title_color_update` = now()
+        where `uid` = #{myUid};
+    </update>
+
+    <!--更新番剧馆标题背景-->
+    <update id="updateHuadiaoHouseTitleBackgroundByUid">
+        update panopera_infer
+        set `title_background_color`        = #{huadiaoHouseTitleBackground},
+            `title_background_color_update` = now()
+        where `uid` = #{myUid};
+    </update>
+
+    <!--更新番剧馆页面背景-->
+    <update id="updateHuadiaoHouseBackgroundByUid">
+        update panopera_infer
+        set `pagetwo_background`        = #{huadiaoHouseBackground},
+            `pagetwo_background_update` = now()
+        where `uid` = #{myUid};
+    </update>
+
+    <!--更新番剧馆页面前景-->
+    <update id="updateHuadiaoHouseForegroundByUid">
+        update panopera_infer
+        set `pagetwo_foreground`        = #{huadiaoHouseForeground},
+            `pagetwo_foreground_update` = now()
+        where `uid` = #{myUid};
+    </update>
+
+    <update id="updateHuadiaoHouseChoiceByUid">
+        update panopera_infer
+        set `border_img`        = #{borderImgChoice},
+            `border_img_update` = now()
+        where `uid` = #{myUid};
+    </update>
+
+    <!--修改页面添加卡片背景-->
+    <update id="updateCardBackgroundByUid">
+        update panopera_infer
+        set `card_color`        = #{buildCardBackground},
+            `card_color_update` = now()
+        where `uid` = #{myUid};
+    </update>
+
+
+</mapper>

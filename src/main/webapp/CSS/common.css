@@ -1,0 +1,75 @@
+/* 引入字体图标 */
+@font-face {
+    font-family: 'iconfont';
+    src: url('../iconfont/iconfont.woff2?t=1657536651056') format('woff2'),
+        url('../iconfont/iconfont.woff?t=1657536651056') format('woff'),
+        url('../iconfont/iconfont.ttf?t=1657536651056') format('truetype'),
+        url('../iconfont/iconfont.svg?t=1657536651056#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'MicrosoftYaHei';
+    /* 用户不能选中元素 */
+    -webkit-user-select: none;
+}
+
+a {
+    text-decoration: none;
+    /* 清除 a 的下划线 */
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+    /* 图片与文字对齐 */
+}
+
+li {
+    list-style: none;
+    /* 清除li 前面的原点 */
+}
+
+i,
+em {
+    font-style: normal;
+    /* 文本不倾斜 */
+}
+
+button {
+    cursor: pointer;
+    /* 鼠标移到按钮上变小手 */
+}
+
+html {
+    font-size: 16px;
+}
+
+input {
+    outline: none;
+}
+
+textarea {
+    outline: none;
+    resize: none;
+    /* 文本域与文字中心对齐 */
+    vertical-align: middle;
+}
+
+
+
+@media screen and (min-width: 1301px) {
+    html {
+        font-size: 16px !important;
+    }
+}

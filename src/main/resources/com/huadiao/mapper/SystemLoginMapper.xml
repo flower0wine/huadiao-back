@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.huadiao.mapper.SystemLoginMapper">
+
+
+    <resultMap id="festivalInfoResultMap" type="com.huadiao.pojo.FestivalInfo">
+        <result column="festival_chinese_name" property="festivalChineseName"/>
+        <result column="festival_english_name" property="festivalEnglishName"/>
+        <result column="festival_date" property="festivalDate"/>
+        <result column="festival_establish_time" property="festivalEstablishTime"/>
+        <result column="festival_origin" property="festivalOrigin"/>
+        <result column="festival_mean" property="festivalMean"/>
+        <result column="festival_diet" property="festivalDiet"/>
+        <result column="festival_activity" property="festivalActivity"/>
+    </resultMap>
+    <!--获取所有的节日信息-->
+    <select id="getAllFestivalInfos" resultMap="festivalInfoResultMap">
+        select `festival_chinese_name`,
+        `festival_english_name`,
+        `festival_date`,
+        `festival_establish_time`,
+        `festival_origin`,
+        `festival_mean`,
+        `festival_diet`,
+        `festival_activity`
+        from familiar_festival;
+    </select>
+</mapper>

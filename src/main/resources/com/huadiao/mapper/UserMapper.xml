@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.UserMapper">
+
+    <!--    更新用户登录时间-->
+    <update id="updateLoginTime">
+        update user
+        set `login_time` = now()
+        where `user_id` = #{userId};
+    </update>
+
+    <resultMap id="UserMapperResult" type="com.huadiao.pojo.User">
+        <result property="uid" column="uid"/>
+        <result property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+    </resultMap>
+    <!--    通过查找用户来判断是否存在用户，进而创建用户-->
+    <select id="selectByUsernameUser" resultMap="UserMapperResult">
+        select `uid`, `user_id`, `username`
+        from user
+        where username = #{username};
+    </select>
+
+    <!--    用户登录-->
+    <select id="selectUserSurvive" resultMap="UserMapperResult">
+        select `uid`, `user_id`, `username`
+        from user
+        where `username` = #{username}
+          and `password` = MD5(#{password});
+    </select>
+
+    <!--    创建新用户-->
+    <insert id="insertUser">
+        insert into user(`user_id`, `username`, `password`, `register_time`)
+        values (#{userId}, #{username}, MD5(#{password}), now());
+    </insert>
+
+    <!--    通过用户名查找用户 ID-->
+    <select id="selectUserIdByUsername" resultType="java.lang.String">
+        select `user_id`
+        from user
+        where `username` = #{username};
+    </select>
+
+    <!--    返回所有的 userId 用于比对-->
+    <select id="selectAllUserId" resultType="java.lang.String">
+        select `user_id`
+        from user
+    </select>
+    <select id="selectUidByUserId" resultType="java.lang.String">
+        select uid
+        from user
+        where user_id = #{userId};
+    </select>
+
+    <!--    根据用户 uid 获取 userId-->
+    <select id="selectUserIdByUid" resultType="java.lang.String">
+        select `user_id`
+        from user
+        where uid = #{uid};
+    </select>
+
+
+</mapper>

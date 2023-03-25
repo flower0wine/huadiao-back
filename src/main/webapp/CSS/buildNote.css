@@ -1,0 +1,292 @@
+.huadiao-note-header {
+    width: 100vw;
+    height: 5.903vh;
+
+}
+
+/*logo*/
+.huadiao-link .huadiao-icon {
+    width: 3.541vw;
+    min-width: 25px;
+    height: 4.250vh;
+    min-height: 30px;
+    margin-top: 0.826vh;
+}
+
+.note-background {
+    min-height: 150vh;
+    padding-bottom: 400px;
+    background-image: -webkit-linear-gradient(left, #12c2e9, #c471ed, #f64f59);
+    overflow-x: hidden;
+}
+
+.left-entry {
+    float: left;
+}
+
+.right-entry {
+    float: right;
+}
+
+/*编辑器*/
+.build-note {
+    width: 70vw;
+    margin: 2.36vh auto 0;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 5px rgba(51, 51, 51, 0.15);
+}
+
+.changePosition,
+.release {
+    display: flex;
+    width: 6.25vw;
+    min-width: 80px;
+    height: 4.722vh;
+    min-height: 25px;
+    border-radius: 4.722vh;
+    background-color: #e59a37;
+    box-shadow: 0px 0px 3px 3px rgba(51, 51, 51, 0.09);
+    overflow: hidden;
+}
+
+/*发布*/
+.release {
+    margin: 10px 3.125vw 0 0;
+}
+
+/*改变发布按钮的位置*/
+.changePosition {
+    position: fixed;
+    z-index: 10;
+    right: 12.5vw;
+    bottom: 1.18vh;
+}
+
+.release:hover,
+.changePosition:hover {
+    background-color: #dc9536
+}
+
+/*鼠标悬停飞机动画*/
+.release:hover .release-icon .icon,
+.changePosition:hover .release-icon .icon {
+    animation: flyForward .6s, flyBack .4s .6s;
+}
+
+@keyframes flyForward {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    100% {
+        transform: translate(25px, -25px);
+    }
+}
+
+@keyframes flyBack {
+    0% {
+        transform: translate(-15px, 15px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+/*飞机*/
+.release-icon .icon {
+    width: 0.9375rem;
+    min-width: 12px;
+    height: 2.361vh;
+    min-height: 12px;
+    margin-top: 0.826vh;
+    fill: #e0e0e0;
+}
+
+.release-icon {
+    flex: 10;
+    text-align: center;
+}
+
+.release-word {
+    flex: 12;
+    margin-top: 0.826vh;
+    font-size: 1.889vh;
+    min-font-size: 12px;
+    letter-spacing: 3px;
+    color: #e0e0e0;
+}
+
+.title-number,
+.huadiao-editor-title {
+    height: 10vh;
+    min-height: 50px;
+    border: 1px solid #CCC;
+}
+
+/*文章标题*/
+.huadiao-editor-title {
+    width: calc(100% - 80px);
+    padding: 10px;
+    font-size: 1.25vw;
+    min-font-size: 16px;
+    font-weight: 600;
+    border-top-left-radius: 8px;
+    border-right: 0;
+    color: #868686;
+}
+
+/*标题字数*/
+.title-number {
+    float: right;
+    width: 80px;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 13px;
+    border-left: 0;
+    border-top-right-radius: 8px;
+    color: #868686;
+    background-color: #fff;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #bbbbbb;
+}
+
+.tip {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    z-index: 99;
+    height: 40px;
+    top: 40vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: 40px;
+    padding: 0 30px;
+    border-radius: 10px;
+    color: #dadada;
+    background-color: #505050;
+}
+
+.huadiao-note-below {
+    position: fixed;
+    z-index: 9;
+    bottom: 0;
+    width: 100vw;
+    background-color: rgba(75, 75, 75, 0.46);
+}
+
+.huadiao-note-below,
+.note-content-number {
+    height: 7.083vh;
+    min-height: 40px;
+}
+
+.note-content-number {
+    display: inline-block;
+    width: 12.5vw;
+    min-width: 100px;
+    text-align: center;
+    margin-left: 12.5vw;
+    padding-top: 1.77vh;
+    color: #ffffff;
+    transition: all 1s;
+}
+
+.word-color {
+    position: absolute;
+    left: 10px;
+    bottom: 50%;
+    transform: translateY(50%);
+    width: 4vw;
+    min-width: 40px;
+    height: 4vh;
+    min-height: 30px;
+    text-align: center;
+    padding-top: 0.354vh;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1vw;
+    min-font-size: 12px;
+    cursor: pointer;
+}
+
+.word-color-open {
+    color: #a60000;
+    background-color: #fff;
+}
+.word-color-close {
+    color: #e7e7e7;
+    background-color: #3daee1;
+}
+
+/*笔记内容超过一定字数给予样式变化*/
+.zero {
+    color: #ffffff;
+}
+
+.exceedOneHundred {
+    color: #87fa7b;
+}
+
+.exceedTwoHundred {
+    color: #4eddff;
+}
+
+.exceedThreeHundred {
+    color: #3258ff;
+}
+
+.exceedFourHundred {
+    color: #963fff;
+}
+
+.exceedFiveHundred {
+    color: #e025fd;
+}
+
+.exceedSevenHundred {
+    color: #ff256b;
+}
+
+.exceedThousand {
+    color: #ff1515;
+}
+
+.exceedThousandThree {
+    color: #ff9f30;
+}
+
+.exceedThousandSix {
+    color: #ffe53d;
+}
+
+.exceedTwoThousand {
+    color: #afff47;
+}
+
+.exceedTwoThousandFour {
+    color: #650000;
+}
+
+.exceedTwoThousandEight {
+    color: #000000;
+}
+
+.exceedThreeThousandTwo {
+    background-image: -webkit-linear-gradient(right, #ff6031,#feab3a);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: wordColor 5s infinite;
+}
+@keyframes wordColor {
+    0% {
+        -webkit-filter: hue-rotate(0deg);
+    }
+    100% {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+
+

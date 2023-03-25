@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.MessageMapper">
+
+    <resultMap id="UserMapperResult" type="com.huadiao.pojo.SystemMessage">
+    </resultMap>
+
+    <!--添加系统消息记录-->
+    <insert id="insertSystemMessage">
+        insert into system_message(`message_title`, `message_content`, `build_date`, `status`)
+        values (#{title}, #{content}, now(), 1);
+    </insert>
+
+    <insert id="insertPrivacyUser">
+        insert into latest_message(`session_id`, `uid`, `object_uid`, `build_date`, `status`)
+        values (#{sessionId}, #{uid}, #{privacyUid}, now(), 1)
+        on duplicate key update `status` = 1
+    </insert>
+
+    <insert id="insertSessionMessage">
+        insert into session_content(`send_uid`, `receive_uid`, `session_id`, `session_content`, `send_date`)
+        values (#{sendUid}, #{receiveUid}, #{sessionId}, #{sessionContent}, now());
+    </insert>
+
+
+    <update id="updateReplyMessageRead">
+        update note_marks
+        set `read` = 1
+        where `uid` = #{uid};
+    </update>
+
+    <!--删除回复我的信息-->
+    <update id="deleteReplyMessage">
+        update note_marks
+        set `message_status` = 0
+        where `root_mark_id` = #{rootMarkId}
+          and `sub_mark_id` = #{subMarkId}
+          and `note_id` = #{noteId}
+          and `uid` = #{uid}
+    </update>
+
+    <update id="deleteMarkLikeMessage">
+        update mark_likes
+        set `message_status` = 0
+        where note_id = #{noteId}
+          and `root_mark_id` = #{rootMarkId}
+          and `sub_self_id` = #{subMarkId}
+    </update>
+
+    <update id="deletePrivacyUser">
+        update latest_message
+        set `status`      = 0,
+            `delete_date` = now()
+        where `uid` = #{uid}
+          and `object_uid` = #{privacyUid};
+    </update>
+
+    <update id="deleteSystemMessage">
+        update system_message
+        set `status` = 0
+        where `id` = #{id};
+    </update>
+
+
+    <resultMap id="systemMessageResultMap" type="com.huadiao.pojo.SystemMessage">
+        <result property="messageId" column="message_id"/>
+        <result property="messageTitle" column="message_title"/>
+        <result property="messageContent" column="message_content"/>
+        <result property="buildDate" column="build_date"/>
+    </resultMap>
+    <!--获取系统消息-->
+    <select id="selectSystemMessage" resultMap="replyMeMessageResultMap">
+        select `id` as `message_id`, `message_title`, `message_content`, `build_date`
+        from system_message
+        where `status` = 1;
+    </select>
+
+    <resultMap id="replyMeMessageResultMap" type="com.huadiao.pojo.ReplyMeMessage">
+        <result property="authorUid" column="author_uid"/>
+        <result property="markUid" column="mark_uid"/>
+        <result property="userAvatar" column="user_avatar"/>
+        <result property="noteId" column="note_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="markDate" column="mark_date"/>
+        <result property="markContent" column="mark_content"/>
+        <result property="rootMarkId" column="root_mark_id"/>
+        <result property="subMarkId" column="sub_mark_id"/>
+        <result property="likeStatus" column="like_status"/>
+        <result property="read" column="read"/>
+    </resultMap>
+    <!--获取回复我的信息-->
+    <select id="selectReplyMeMessageByUid" resultMap="replyMeMessageResultMap">
+        select t1.`uid` as `mark_uid`,
+               `user_avatar`,
+               `nickname`,
+               `mark_content`,
+               `mark_date`,
+               note_marks.`root_mark_id` as `root_mark_id`,
+               `sub_mark_id`,
+               note_marks.`read` as `read`,
+               note_marks.`note_id` as `note_id`,
+               mark_likes.`author_uid` as `author_uid`,
+               mark_likes.`uid` as `likeStatus`
+        from note_marks
+                 left join homepage t1
+                           on t1.uid = note_marks.uid
+                 left join user_infer t2 on note_marks.uid = t2.uid
+                 left join mark_likes
+                           on mark_likes.`uid` = #{myUid} and mark_likes.`root_mark_id` = note_marks.`root_mark_id` and
+                              `sub_mark_id` = `sub_self_id` and mark_likes.`status` = 1
+        where note_marks.uid = #{myUid}
+          and note_marks.message_status = 1
+        order by `mark_date` desc;
+    </select>
+
+
+    <resultMap id="likeMessageResultMap" type="com.huadiao.pojo.NoteMarkLikeMessage">
+        <id column="root_mark_id" property="rootMarkId"/>
+        <id column="sub_self_id" property="subMarkId"/>
+        <result column="note_id" property="noteId"/>
+        <collection property="list" javaType="ArrayList" column="{id=root_mark_id, name=sub_self_id}"/>
+        <collection property="likeMarkList" ofType="com.huadiao.pojo.LikeMark">
+            <result column="uid" property="uid"/>
+            <result column="user_avatar" property="userAvatar"/>
+            <result column="nickname" property="nickname"/>
+            <result column="like_date" property="likedDate"/>
+            <result column="read" property="read"/>
+        </collection>
+    </resultMap>
+    <!--获取笔记评论被点赞的消息-->
+    <select id="selectNoteMarkLikeMessageByUid" resultMap="likeMessageResultMap">
+        select `user_avatar`,
+               `nickname`,
+               t1.`uid` as uid,
+               `root_mark_id`,
+               `sub_self_id`,
+               `like_date`,
+               `read`,
+               `note_id`
+        from homepage
+                 left join (select * from mark_likes where uid = #{myUid} and `message_status` = 1) t1
+                           on homepage.uid = t1.uid
+                 left join user_infer on t1.uid = user_infer.uid
+        where t1.uid is not null
+        order by `like_date` desc;
+
+    </select>
+
+    <select id="selectPrimaryKey" resultType="java.lang.String">
+        SELECT @@IDENTITY;
+    </select>
+
+    <resultMap id="privacyMessageResultMap" type="com.huadiao.pojo.LatestPrivacyUser">
+        <id column="uid" property="uid"/>
+        <result column="sessionId" property="sessionId"/>
+        <result column="user_avatar" property="userAvatar"/>
+        <result column="nickname" property="nickname"/>
+        <result column="canvases" property="canvases"/>
+        <collection property="chatContentList" ofType="com.huadiao.pojo.ChatContent">
+            <result column="sessionContent" property="sessionContent"/>
+            <result column="sendDate" property="sendDate"/>
+            <result column="sendUid" property="sendUid"/>
+        </collection>
+    </resultMap>
+    <!--获取私信对象及信息-->
+    <select id="selectLatestPrivacyUserByUid" resultMap="privacyMessageResultMap">
+        select `object_uid`      as `uid`,
+               `user_avatar`,
+               `nickname`,
+               `canvases`,
+               `session_content` as `sessionContent`,
+               `send_date`       as `sendDate`,
+               `send_uid`        as `sendUid`
+        from latest_message
+                 left join session_content t1 on (t1.send_uid = #{myUid} and t1.receive_uid = object_uid) or
+                                                 (t1.send_uid = object_uid and t1.receive_uid = #{myUid})
+                 left join homepage t2 on t2.uid = object_uid
+                 left join user_infer t3 on t3.uid = object_uid
+        where latest_message.uid = #{myUid};
+
+    </select>
+
+
+</mapper>

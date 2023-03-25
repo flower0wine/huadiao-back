@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.UserSettingsMapper">
+
+    <!--新增用户设置-->
+    <insert id="insertUserSettingsByUidAndUserId">
+        insert into user_settings(`uid`,
+                                  `user_id`,
+                                  `public_star_status`,
+                                  `public_born_status`,
+                                  `public_fanju_status`,
+                                  `public_school_status`,
+                                  `public_follow_status`,
+                                  `public_canvases_status`,
+                                  `public_homepage_status`,
+                                  `message_remind_status`,
+                                  `message_reply_status`,
+                                  `message_like_status`)
+        values (#{myUid}, #{myUserId}, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+    </insert>
+
+    <!--更新用户设置-->
+    <update id="updateUserSettingsByUid">
+        update user_settings
+        <set>
+            <choose>
+                <when test="option == 'publicStar'">
+                    `public_star_status` = if(`public_star_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'publicBornDate'">
+                    `public_born_status` = if(`public_born_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'publicFanju'">
+                    `public_fanju_status` = if(`public_fanju_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'publicSchool'">
+                    `public_school_status` = if(`public_school_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'publicFollow'">
+                    `public_follow_status` = if(`public_follow_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'publicCanvases'">
+                    `public_canvases_status` = if(`public_canvases_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'publicHomepage'">
+                    `public_homepage_status` = if(`public_homepage_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'messageNotice'">
+                    `message_remind_status` = if(`message_remind_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'replyNotice'">
+                    `message_reply_status` = if(`message_reply_status` = 1, 0, 1)
+                </when>
+                <when test="option == 'likeNotice'">
+                    `message_like_status` = if(`message_like_status` = 1, 0, 1)
+                </when>
+            </choose>
+        </set>
+        where `uid` = #{myUid};
+    </update>
+
+    <resultMap id="userSettingsResultMap" type="com.huadiao.pojo.UserSettingsInfer">
+        <result property="uid" column="uid"/>
+        <result property="userId" column="user_id"/>
+        <result property="publicStarStatus" column="public_star_status"/>
+        <result property="publicBornStatus" column="public_born_status"/>
+        <result property="publicFanjuStatus" column="public_fanju_status"/>
+        <result property="publicSchoolStatus" column="public_school_status"/>
+        <result property="publicFollowStatus" column="public_follow_status"/>
+        <result property="publicCanvasesStatus" column="public_canvases_status"/>
+        <result property="publicHomepageStatus" column="public_homepage_status"/>
+        <result property="messageRemindStatus" column="message_remind_status"/>
+        <result property="messageReplyStatus" column="message_reply_status"/>
+        <result property="messageLikeStatus" column="message_like_status"/>
+    </resultMap>
+    <!--获取用户所有设置-->
+    <select id="selectUserSettingsByUid" resultMap="userSettingsResultMap">
+        select `uid`,
+               `user_id`,
+               `public_star_status`,
+               `public_born_status`,
+               `public_fanju_status`,
+               `public_school_status`,
+               `public_follow_status`,
+               `public_canvases_status`,
+               `public_homepage_status`,
+               `message_remind_status`,
+               `message_reply_status`,
+               `message_like_status`
+        from user_settings
+        where uid = #{myUid}
+    </select>
+
+    <resultMap id="messageSettingsResultMap" type="com.huadiao.pojo.MessageSettings">
+        <result property="nickname" column="nickname"/>
+        <result property="userAvatar" column="user_avatar"/>
+        <result property="uid" column="uid"/>
+        <result property="messageLikeStatus" column="message_like_status"/>
+        <result property="messageReplyStatus" column="message_reply_status"/>
+        <result property="messageRemindStatus" column="message_remind_status"/>
+    </resultMap>
+    <!--获取我的消息设置-->
+    <select id="selectMessageSettingsByUid">
+        select `message_like_status`,
+               `message_remind_status`,
+               `message_reply_status`,
+               t1.`uid` as `uid`,
+               `nickname`,
+               `user_avatar`
+        from user_settings
+                 left join user_infer t1 on t1.`uid` = #{myUid}
+                 left join homepage t2 on t2.user_id = t1.user_id
+        where user_settings.user_id = t1.user_id;
+    </select>
+
+
+</mapper>

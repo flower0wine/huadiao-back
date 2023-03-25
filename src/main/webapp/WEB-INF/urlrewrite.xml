@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE urlrewrite
+        PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+
+    <rule>
+        <from>^/homepage/(\d+)$</from>
+        <to>/HTML/homepage.html</to>
+
+    </rule>
+
+    <rule>
+        <from>^/(\d+)/follow/fans$</from>
+        <to>/HTML/followfans.html</to>
+    </rule>
+
+    <rule>
+        <from>^/(\d+)/follow/follow$</from>
+        <to>/HTML/followfans.html</to>
+    </rule>
+
+    <rule>
+        <from>^/panoperaHouse/(\d+)$</from>
+        <to>/HTML/panoperahouse.html</to>
+    </rule>
+
+    <rule>
+        <from>^/settings$</from>
+        <to>/HTML/userSettings.html</to>
+    </rule>
+
+    <rule>
+        <from>^/$</from>
+        <to>/HTML/index.html</to>
+    </rule>
+
+    <rule>
+        <from>^/history$</from>
+        <to>/HTML/history.html</to>
+    </rule>
+
+    <rule>
+        <from>^/settings/information$</from>
+        <to>/HTML/information.html</to>
+    </rule>
+
+    <rule>
+        <from>^/message$</from>
+        <to>/HTML/message.html</to>
+    </rule>
+
+    <rule>
+        <from>^/star/(\d+)$</from>
+        <to>/HTML/myStar.html</to>
+    </rule>
+
+    <rule>
+        <from>^/buildNote$</from>
+        <to>/HTML/buildNote.html</to>
+    </rule>
+
+    <rule>
+        <from>^/panoperahouse/(\d+)/singlefanju$</from>
+        <to>/HTML/singlefanju.html</to>
+    </rule>
+
+    <rule>
+        <from>^/serverManage$</from>
+        <to>/huadiao_management/index.html</to>
+    </rule>
+
+    <rule>
+        <from>^/(\d+)/notes/note$</from>
+        <to>/HTML/note.html</to>
+    </rule>
+
+    <rule>
+        <from>^/(\d+)/notes$</from>
+        <to>/HTML/notes.html</to>
+    </rule>
+
+
+
+</urlrewrite>

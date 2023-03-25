@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.HomepageInferMapper">
+
+    <resultMap id="UserMapperResult" type="com.huadiao.pojo.HomepageInfer">
+    </resultMap>
+
+    <!--    新增个人主页部分信息-->
+    <insert id="insertAllByUserId">
+        insert into homepage(`uid`, `user_id`)
+        values (#{uid}, #{userId});
+    </insert>
+
+    <insert id="insertHomepageVisit">
+        insert into homepage_visit(`uid`, `visited_uid`, `visit_date`, `visit_number`)
+        values (1, 1, now(), 0)
+        on duplicate key update `visit_date`   = now(),
+                                `visit_number` = `visit_number` + 1
+    </insert>
+
+    <!--根据 uid 更新个人主页背景-->
+    <update id="updatePageBackgroundByUid">
+        update homepage
+        set `page_background`        = #{homepageBackground},
+            `page_background_update` = now()
+        where `uid` = #{myUid};
+    </update>
+
+    <update id="updateUserAvatarByUid">
+        update homepage
+        set `user_avatar`      = #{userAvatar},
+            `user_avatar_date` = now()
+        where `uid` = #{myUid};
+    </update>
+
+    <!--    根据用户 uid 查找用户信息，个人主页信息-->
+    <!--    这里个人认为比较繁琐，有幸学到更好的方法时就会更改-->
+    <select id="selectAllByUid" resultType="com.huadiao.pojo.HomepageInfer">
+        select user_infer.`user_id`,
+               user_infer.`uid`,
+               `nickname`,
+               `canvases`,
+               `sex`,
+               `born_date`,
+               `school`,
+               (select count(1) from homepage_visit where visited_uid = #{uid})               as `visit_number`,
+               (select count(notes_view.`uid`) from notes_view where notes_view.uid = #{uid}) as `notes_number`,
+               (select count(1) from note_like where `author_uid` = #{uid} and `status` = 1)  as `like_number`,
+               (select count(fanju_view.`uid`) from fanju_view where fanju_view.uid = #{uid}) as `fanjus_number`,
+               (select count(1) from note_star where `uid` = #{uid} and `status` = 1)         as `star_number`,
+               `user_avatar`,
+               `page_background`
+        from user_infer,
+             homepage
+        where user_infer.uid = #{uid}
+          and homepage.uid = #{uid};
+    </select>
+
+    <select id="selectUserAvatarByUid" resultType="java.lang.String">
+        select `user_avatar`
+        from homepage
+        where `uid` = #{uid};
+    </select>
+
+    <select id="selectNoteAuthor" resultType="com.huadiao.pojo.Notes">
+        select `user_avatar`, `nickname`
+        from homepage,
+             user_infer
+        where homepage.`uid` = user_infer.`uid`
+          and homepage.`uid` = #{uid};
+    </select>
+
+    <resultMap id="homepageInferSectionResultMap" type="com.huadiao.pojo.HomepageInfer">
+        <result property="uid" column="uid"/>
+        <result property="userId" column="user_id"/>
+        <result property="userAvatar" column="user_avatar"/>
+        <result property="pageBackground" column="page_background"/>
+        <result property="visitNumber" column="visit_number"/>
+    </resultMap>
+    <!--获取个人主页部分信息-->
+    <select id="selectSectionHomepageInferByUid" resultMap="homepageInferSectionResultMap">
+        select `uid`, `user_id`, `user_avatar`, `page_background`, `visit_number`
+        from homepage
+        where uid = #{uid};
+    </select>
+
+
+</mapper>

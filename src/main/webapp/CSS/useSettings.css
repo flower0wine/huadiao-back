@@ -1,0 +1,224 @@
+/* 网站 logo */
+.huadiao-logo {
+    position: absolute;
+    top: .4375vw;
+    left: .625vw;
+}
+
+.huadiao-logo .huadiao-icon {
+    min-height: 25px;
+    min-width: 20px;
+    width: 2.375vw;
+    height: 5.785vh;
+}
+
+/* 页面头部 */
+.huadiao-settings-header {
+    width: 100vw;
+    min-height: 40px;
+    height: 7.319vh;
+    text-align: center;
+    background-color: #2fbde1;
+    box-shadow: 0rem .0625rem .25rem .25rem rgba(0, 0, 0, 0.185);
+}
+
+/* 标题 */
+.huadiao-settings-header span {
+    display: inline-block;
+    min-height: 40px;
+    height: 7.319vh;
+    line-height: 7.319vh;
+    font-size: 1.5625rem;
+    color: #d4eef6;
+} 
+
+.huadiao-setting-below {
+    width: 49.375rem;
+    margin: 1.875rem auto 0;
+}
+
+/* 更改个人信息 */
+.information {
+    width: 49.375rem;
+    height: 3.125rem;
+    font-size: 1.125rem;
+}
+
+.information,
+.private-settings,
+.message-settings {
+    color: #626262;
+    letter-spacing: .1875rem;
+    background-color: #f6f2f2;
+    box-shadow: 0rem .0625rem .25rem .25rem rgba(0, 0, 0, 0.089);
+    border-radius: .625rem;
+}
+
+
+/* 更改个人信息 */
+.information span {
+    line-height: 3.125rem;
+    margin-left: 3.75rem;
+}
+
+/* 前进图标 */
+.information i {
+    float: right;
+    color: #626262;
+    margin: .875rem 4rem 0 0;
+    transform: rotate(-90deg);
+}
+
+/* 隐私设置标题 */
+/* 消息设置标题 */
+.huadiao-setting-below .private-title,
+.message-title {
+    display: block;
+    font-size: 1.0625rem;
+    color: #626262;
+    margin: 2.715vh 3.75rem;
+}
+
+/* 隐私设置 */
+.private-settings {
+    position: relative;
+    width: 49.375rem;
+    min-height: 150px;
+    height: 35.419vh;
+    padding: 6.729vh 0 0 8.125rem;
+}
+
+/* 每个设置 */
+.private-settings ul li {
+    position: relative;
+    min-height: 30px;
+    height: 7.201vh;
+}
+
+/* 全部浮动 */
+.private-settings ul li div {
+    float: left;
+}
+
+/* 设置间距 */
+.private-settings ul li div:nth-of-type(2n) {
+    margin-left: 15.875rem;
+}
+
+
+/* 开启关闭按钮 */
+.rectangle,
+.circle,
+.collection i,
+.bornDate i,
+.Fanju i,
+.school i,
+.follow i,
+.canvases i,
+.homepage i,
+.messageRemind i,
+.messageReply i,
+.messageLikes i {
+    position: absolute;
+}
+
+/* 位置设置 */
+.collection i {
+    top: .25rem;
+    left: 8rem;
+}
+
+.bornDate i {
+    top: .25rem;
+    left: 30.9375rem;
+}
+
+.Fanju i {
+    top: .25rem;
+    left: 8rem;
+}
+
+.school i {
+    top: .25rem;
+    left: 30.9375rem;
+}
+
+.follow i {
+    top: .25rem;
+    left: 8rem;
+}
+
+.canvases i {
+    top: .25rem;
+    left: 30.9375rem;
+}
+
+.homepage i {
+    top: .25rem;
+    left: 8rem;
+}
+
+.messageRemind i {
+    top: .3125rem;
+    left: 10.125rem;
+}
+
+.messageReply i {
+    top: .3125rem;
+    left: 9.3125rem;
+}
+
+.messageLikes i {
+    top: .3125rem;
+    left: 9.125rem;
+}
+
+/* 开启关闭按钮 */
+.rectangle {
+    z-index: 1;
+    width: 1.875rem;
+    height: .9375rem;
+    border-radius: .4688rem;
+    background-color: #d9d6d6;
+}
+
+/* 滑块 */
+.circle {
+    margin: .125rem 0 0 .125rem;
+    z-index: 2;
+    width: .6875rem;
+    height: .6875rem;
+    border-radius: .3438rem;
+    background-color: #fff;
+}
+
+/* 消息设置面板 */
+.message-settings {
+    position: relative;
+    margin-top: 2.833vh;
+    min-height: 150px;
+    height: 23.617vh;
+}
+
+.messageRemind {
+    position: relative;
+    display: inline-block;
+    margin: 5.903vh 0 1.75rem 3.625rem;
+    padding: 0 0 1.625rem 4.4375rem;
+    width: 42.375rem;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.messageReply,
+.messageLikes {
+    position: relative;
+    display: inline-block;
+}
+
+.messageReply {
+    margin-left: 8.0625rem;
+}
+
+.messageLikes {
+    margin-left: 15.375rem;
+}

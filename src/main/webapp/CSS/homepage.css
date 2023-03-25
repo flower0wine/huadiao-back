@@ -1,0 +1,356 @@
+/*  */
+/*  */
+/* 背景 */
+.homepageBackground {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url(../images/homePageImages/homepageBacground.jpg) no-repeat;
+    background-size: 106.25rem;
+}
+
+/* 遮罩层 */
+.homepageMask {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.308);
+}
+
+/* 头部 */
+.huadiao-homepage-header {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 3.75rem;
+    padding: .3125rem 0 0 .1875rem;
+}
+
+/* 头部左侧 */
+.left-entry {
+    float: left;
+}
+
+/* 头部右侧 */
+.right-entry {
+    float: right;
+}
+
+/* 上传背景 */
+#homepageBackground,
+#changeAvater {
+    display: none;
+    position: absolute;
+    z-index: -99;
+    top: -62.5rem;
+    left: -62.5rem;
+}
+
+.right-entry li {
+    display: inline-block;
+    margin: .625rem 1.25rem 0 0;
+}
+
+/* 上传图标和设置 */
+.localImage .icon,
+.userSettings .icon {
+    fill: #d9d0d0;
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+.right-entry ul li .localImage .icon:hover,
+.userSettings a .icon:hover {
+    transform: translateY(-0.125rem);
+}
+
+/* 页面下部 */
+.homepage-below {
+    position: relative;
+    width: 65rem;
+    height: 76.623vh;
+    margin: 8.264vh auto 0;
+    padding-top: 4.722vh;
+}
+
+/* 页面头像 */
+.homepageavater {
+    text-align: center;
+}
+
+.homepageavater .avater,
+.homepageavater .changeTitle {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+}
+
+.avatar-box {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #fff;
+    overflow: hidden;
+}
+.img-avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.userInformation {
+    text-align: center;
+}
+
+/* 昵称 */
+.userInformation .nickname {
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+/* 性别 */
+.sex .icon {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: .375rem 0;
+}
+
+
+/* 个人信息 */
+.bornAndSchool .born,
+.bornAndSchool a .school {
+    display: inline-block;
+    font-size: .875rem;
+    color: #d9d0d0;
+}
+
+.bornAndSchool .born {
+    margin-right: 1.25rem;
+}
+
+/* 个性签名 */
+.userInformation .canvases {
+    margin-top: .375rem;
+    font-size: .875rem;
+    color: #d9d0d0;
+}
+
+/* 私信 */
+.privateMessage,
+.follow {
+    position: absolute;
+    z-index: 3;
+    
+}
+
+.privateMessage {
+    top: 19.9375rem;
+    left: 1.25rem;
+}
+
+.privateMessage:hover a .privateIcon .icon {
+    fill: #b1adad;
+}
+.privateMessage:hover a .privateWord {
+    color: #b1adad;
+}
+
+/* 关注 */
+.follow {
+    top: 19.375rem;
+    right: 1.25rem;
+}
+
+/* 私信图标 */
+.privateMessage .privateIcon {
+    margin-right: .375rem;
+}
+
+/* 已关注图标 */
+.follow .followIcon {
+    margin-right: .125rem;
+}
+
+.privateMessage .privateIcon,
+.privateMessage .privateWord,
+.follow .followIcon,
+.follow .followWord {
+    display: inline-block;
+    vertical-align: top;
+    
+}
+
+.privateMessage .privateWord {
+    color: #d9d0d0;
+}
+
+.follow .followWord {
+    color: #fff;
+}
+
+.followIcon .icon,
+.privateIcon .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    
+}
+
+.privateIcon .icon {
+    fill: #d9d0d0;
+}
+
+.followIcon .icon {
+    fill: #fff;
+}
+
+.follow .followIcon {
+    display: none;
+    padding-top: .25rem;
+}
+
+.follow {
+    width: 6.25rem;
+    height: 2.1875rem;
+    text-align: center;
+    line-height: 2.0625rem;
+    border-radius: 1.0938rem;
+}
+
+/* 用户活动面板 */
+.userActive {
+    min-height: 180px;
+    position: absolute;
+    top: 22.5rem;
+    width: 65rem;
+    height: 35.419vh;
+    padding: 1.25rem 1.875rem;
+    border-radius: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.74);
+}
+
+/* 面板头部 */
+.userActive-header {
+    height: 5rem;
+    text-align: center;
+    border-bottom: 1px solid #877e7e;
+}
+
+.userActive-header .userActive-follow:hover .followNumber,
+.userActive-header .userActive-fans:hover .fansNumber,
+.userActive-header .userActive-star:hover .starNumber {
+    color: #474646;
+    transform: translateY(-0.125rem);
+}
+
+/* 数量 */
+.userActive-header .userActive-follow .followNumber,
+.userActive-header .userActive-fans .fansNumber,
+.userActive-header .userActive-star .starNumber,
+.userActive-header .userActive-like .likeNumber {
+    font-size: 1.5rem;
+    color: #6d6666;
+    transition: all .1s;
+}
+
+.userActive-header .userActive-follow:hover .followed,
+.userActive-header .userActive-fans:hover .fans,
+.userActive-header .userActive-star:hover .star {
+    color: #5c5757;
+}
+
+/* 文字 */
+.userActive-header .userActive-follow .followed,
+.userActive-header .userActive-fans .fans,
+.userActive-header .userActive-star .star,
+.userActive-header .userActive-like .like {
+    font-size: 1.25rem;
+    color: #857e7e;
+}
+
+/* 布局 */
+.userActive-header .userActive-follow,
+.userActive-header .userActive-fans,
+.userActive-header .userActive-star,
+.userActive-header .userActive-like {
+    display: inline-block;
+}
+
+/* 间隔 */
+.userActive-header .userActive-follow,
+.userActive-header .userActive-fans,
+.userActive-header .userActive-star {
+    margin-right: 6.25rem;
+}
+
+/* 修改资料 */
+.changeInformation {
+    float: right;
+    margin-top: 2.5rem;
+}
+
+/* 前进图标 */
+.changeInformationForword .icon {
+    width: .625rem;
+    height: .625rem;
+    transform: rotate(180deg);
+}
+
+.changeInformation:hover .changeInformationWord,
+.changeInformation:hover .changeInformationForword {
+    color: #8a7f7f;
+    fill: #8a7f7f;
+}
+
+/* 修改资料文字 */
+.changeInformation .changeInformationWord,
+.changeInformation .changeInformationForword {
+    display: inline-block;
+    font-size: .875rem;
+    color: #534e4e;
+    fill: #534e4e;
+}
+
+.userActive-body ul li {
+    height: 3.125rem;
+    padding: 0 12.5rem;
+    padding-top: 1.25rem;
+}
+
+.userActive-body ul li:hover div {
+    color: #242424;
+}
+
+.userActive-body ul li div:nth-of-type(1) {
+    float: left;
+}
+
+.userActive-body ul li div:nth-of-type(n+2){
+    float: right;
+}
+
+.userActive-body ul li:hover .forword .icon {
+    fill: #242424;
+}
+
+.userActive-body ul li div {
+    font-size: 1.25rem;
+    color: #534f4f;
+}
+
+.userActive-body ul li .forword .icon {
+    width: .875rem;
+    height: .875rem;
+    margin-left: .4375rem;
+    transform: rotate(180deg);
+    fill: #534f4f;
+}
+
+.userActive-body ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}

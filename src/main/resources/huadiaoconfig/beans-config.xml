@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans>
+    <!--普通请求, 包括游客请求-->
+    <bean id="ordinaryController" class="com.huadiao.web.controller.OrdinaryController">
+        <property name="ordinaryServiceImpl" ref="ordinaryService"/>
+    </bean>
+    <!--用户关注与粉丝处理, 已登录用户-->
+    <bean id="followsFansController" class="com.huadiao.web.controller.FollowsFansController">
+        <property name="followsFansServiceImpl" ref="followsFansService"/>
+    </bean>
+    <!--用户个人主页处理, 已登录用户-->
+    <bean id="homepageController" class="com.huadiao.web.controller.HomepageController">
+        <property name="homepageServiceImpl" ref="homepageService"/>
+    </bean>
+    <!--消息处理, 已登录用户-->
+    <bean id="messageController" class="com.huadiao.web.controller.MessageController">
+        <property name="messageServiceImpl" ref="messageService"/>
+    </bean>
+    <!--用户信息处理, 已登录用户-->
+    <bean id="userInferController" class="com.huadiao.web.controller.UserInferController">
+        <property name="userInferServiceImpl" ref="userInferService"/>
+    </bean>
+    <!--用户笔记处理, 已登录用户-->
+    <bean id="noteController" class="com.huadiao.web.controller.NoteController">
+        <property name="noteServiceImpl" ref="noteService"/>
+    </bean>
+    <!--用户收藏处理-->
+    <bean id="starController" class="com.huadiao.web.controller.StarController">
+        <property name="starServiceImpl" ref="starService"/>
+    </bean>
+    <!--用户历史记录-->
+    <bean id="historyController" class="com.huadiao.web.controller.HistoryController">
+        <property name="historyServiceImpl" ref="historyService"/>
+    </bean>
+    <!--用户设置-->
+    <bean id="userSettingsController" class="com.huadiao.web.controller.UserSettingsController">
+        <property name="userSettingsServiceImpl" ref="userSettingsService"/>
+    </bean>
+    <!--花凋番剧馆-->
+    <bean id="huadiaoHouseController" class="com.huadiao.web.controller.HuadiaoHouseController">
+        <property name="huadiaoHouseServiceImpl" ref="huadiaoHouseService"/>
+    </bean>
+
+
+    <bean id="huadiaoHouseService" class="com.huadiao.web.service.impl.HuadiaoHouseServiceImpl">
+        <property name="huadiaoHouseDAO" ref="huadiaoHouseDAO"/>
+        <property name="historyDAO" ref="historyDAO"/>
+    </bean>
+    <bean id="userSettingsService" class="com.huadiao.web.service.impl.UserSettingsServiceImpl">
+        <property name="userSettingsDAO" ref="userSettingsDAO"/>
+    </bean>
+    <bean id="historyService" class="com.huadiao.web.service.impl.HistoryServiceImpl">
+        <property name="historyDAO" ref="historyDAO"/>
+        <property name="noteDAO" ref="noteDAO"/>
+    </bean>
+    <bean id="starService" class="com.huadiao.web.service.impl.StarServiceImpl">
+        <property name="starDAO" ref="starDAO"/>
+    </bean>
+    <bean id="noteService" class="com.huadiao.web.service.impl.NoteServiceImpl">
+        <property name="noteDAO" ref="noteDAO"/>
+        <property name="homepageInferDAO" ref="homepageInferDAO"/>
+        <property name="userInferDAO" ref="userInferDAO"/>
+        <property name="followsFansDAO" ref="followsFansDAO"/>
+        <property name="historyDAO" ref="historyDAO"/>
+    </bean>
+    <bean id="homepageService" class="com.huadiao.web.service.impl.HomepageServiceImpl">
+        <property name="homepageInferDAO" ref="homepageInferDAO"/>
+        <property name="userInferDAO" ref="userInferDAO"/>
+        <property name="followsFansDAO" ref="followsFansDAO"/>
+    </bean>
+    <bean id="followsFansService" class="com.huadiao.web.service.impl.FollowsFansServiceImpl">
+        <property name="followsFansDAO" ref="followsFansDAO"/>
+        <property name="userDAO" ref="userDAO"/>
+        <property name="messageDAO" ref="messageDAO"/>
+    </bean>
+    <bean id="ordinaryService" class="com.huadiao.web.service.impl.OrdinaryServiceImpl">
+        <property name="huadiaoHouseDAO" ref="huadiaoHouseDAO"/>
+        <property name="homepageInferDAO" ref="homepageInferDAO"/>
+        <property name="userSettingsDAO" ref="userSettingsDAO"/>
+        <property name="userInferDAO" ref="userInferDAO"/>
+        <property name="followsFansDAO" ref="followsFansDAO"/>
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+    <bean id="messageService" class="com.huadiao.web.service.impl.MessageServiceImpl">
+        <property name="messageDAO" ref="messageDAO"/>
+        <property name="noteDAO" ref="noteDAO"/>
+    </bean>
+    <bean id="userInferService" class="com.huadiao.web.service.impl.UserInferServiceImpl">
+        <property name="userInferDAO" ref="userInferDAO"/>
+    </bean>
+
+    <bean id="historyDAO" class="com.huadiao.web.dao.HistoryDAO"/>
+    <bean id="noteDAO" class="com.huadiao.web.dao.NoteDAO"/>
+    <bean id="huadiaoHouseDAO" class="com.huadiao.web.dao.HuadiaoHouseDAO"/>
+    <bean id="homepageInferDAO" class="com.huadiao.web.dao.HomepageInferDAO"/>
+    <bean id="userSettingsDAO" class="com.huadiao.web.dao.UserSettingsDAO"/>
+    <bean id="userDAO" class="com.huadiao.web.dao.UserDAO"/>
+    <bean id="userInferDAO" class="com.huadiao.web.dao.UserInferDAO"/>
+    <bean id="followsFansDAO" class="com.huadiao.web.dao.FollowsFansDAO"/>
+    <bean id="messageDAO" class="com.huadiao.web.dao.MessageDAO"/>
+    <bean id="starDAO" class="com.huadiao.web.dao.StarDAO"/>
+    <bean id="huadiaoHouseDAO" class="com.huadiao.web.dao.HuadiaoHouseDAO"/>
+</beans>

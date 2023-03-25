@@ -1,0 +1,1173 @@
+/* logo */
+.huadiao-icon {
+    width: 1.6875rem;
+    height: 2.125rem;
+    margin: .5rem 0 0 .5625rem;
+}
+
+
+body {
+    background: url(../images/messageImages/messageBackground.png) no-repeat fixed;
+}
+
+
+/* 头部 */ 
+.message-header {
+    position: relative;
+    width: 100vw;
+    height: 3.125rem;
+    background-color: rgba(255, 255, 255, 0.705);
+}
+
+.message-header a {
+    position: absolute;
+}
+
+/* 标题 */
+.huaidoa-message-title {
+    line-height: 3.125rem;
+    text-align: center;
+    font-size: 1.3125rem;
+    color: #323232;
+    letter-spacing: .3125rem;
+}
+
+/* 内容 */
+.message-body {
+    min-height: 400px;
+    width: 63rem;
+    height: 83.35vh;
+    margin: 1.0625rem auto 0;
+}
+
+/* 左部 */
+.message-body-left {
+    float: left;
+    width: 9.8125rem;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.712);
+}
+
+/* 右部 */
+.message-body-right {
+    width: 51.75rem;
+    height: 100%;
+    float: right;
+}
+
+/* 右侧标题 */
+.messageType {
+    width: 100%;
+    height: 2.3125rem;
+    background-color: rgba(255, 255, 255, 0.712);
+    padding: .375rem 0 0 2.5rem;
+    font-size: 1.125rem;
+    color: #474444;
+    letter-spacing: .1875rem;
+}
+
+/* 右侧内容 */
+.message-content {
+    min-height: calc(400px - 2.007vh - 2.3125rem);
+    margin-top: 2.007vh;
+    width: 100%;
+    height: calc(81.343vh - 2.3125rem);
+    background-color: rgba(255, 255, 255, 0.712);
+    overflow: hidden;
+}
+
+.message-content,
+.messageType,
+.message-body-left {
+    border-radius: .6875rem;
+}
+
+/* 圆点 */
+.message-body-left ul li span::before {
+    content: '';
+    display: inline-block;
+    width: .625rem;
+    height: .625rem;
+    border-radius: .625rem;
+    background-color: #8e8e8e;
+    margin-right: .625rem;
+}
+
+/* 左部标题 */
+.left-title {
+    border-bottom: 1px solid #949494;
+    margin: 1.375rem auto 1.375rem;
+    padding-bottom: 1.375rem;
+}
+
+.replyMe:hover,
+.privateMeassage:hover,
+.replyMelike:hover,
+.systemMessage:hover,
+.meassage-settings:hover {
+    color: #707070;
+}
+
+.left-title i,
+.left-title span {
+    font-size: 1.125rem;
+    color: #4b4b4b;
+}
+
+/* 左侧消息框 */
+.message-body-left ul li {
+    margin: 0 auto;
+    width: 7.5625rem;
+    height: 2.5rem;
+    color: #4b4b4b;
+}
+
+/* 最后一个 li */
+.message-body-left ul li:nth-last-of-type(1) {
+    border-bottom: 1px solid #949494;
+    margin-bottom: 1.375rem;
+}
+
+/* 新消息数量 */
+.message-body-left ul li em {
+    float: right;
+    padding: 0 .1875rem;
+    /* 给 padding 让它自己撑开盒子 */
+    margin-top: .3125rem;
+    height: .9375rem;
+    /* 不给宽度 */
+    font-size: .75rem;
+    text-align: center;
+    line-height: .9375rem;
+    border-radius: .4688rem;
+    color: rgb(255, 255, 255);
+    background-color: rgb(153, 153, 153);
+}
+
+/* 消息设置 */
+.meassage-settings,
+.left-title {
+    width: 7.5625rem;
+    text-align: center;
+}
+/* 消息设置面板 */
+.meassage-settings {
+    height: 12.5rem;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    color: #4b4b4b;
+}
+
+/* 右侧消息标题 */
+.privateMeassage-title,
+.like-title,
+.systemMessage-title,
+.meassage-settings-title {
+    display: none;
+}
+
+.replyMe-body,
+.privateMeassage-body,
+.like-body,
+.systemMessage-body,
+.meassage-settings-body {
+    width: 100%;
+    height: 100%;
+    background-size: 400px!important;
+}
+
+.privateMeassage-body,
+.like-body,
+.systemMessage-body,
+.meassage-settings-body {
+    display: none;
+}
+
+
+/* 每条信息 */
+.replyMe-body ul li {
+    position: relative;
+    /* 由于使用滚动条，宽度不能给 100% */
+    width: 51.75rem;
+    height: 8.875rem;
+}
+
+/* 头像 */
+.replyMe-body ul li .replyMe-avater .homepage .icon {
+    width: 2.0625rem;
+    height: 2.0625rem;
+}
+
+.replyMe-body ul li .replyMe-avater {
+    float: left;
+}
+
+/* 头像 */
+.replyMe-body ul li .replyMe-avater {
+    width: 5rem;
+    height: 100%;
+    text-align: center;
+    padding-top: 2.125rem;
+}
+
+/* 消息内容 */
+.replyMeBody-content {
+    float: left;
+    width: 46.75rem;
+    height: 100%;
+}
+
+/* 消息头部 */
+.reply-header {
+    width: 100%;
+    height: 1.25rem;
+    margin-top: 2.125rem;
+    font-size: .875rem;
+    color: #4b4b4b;
+    letter-spacing: .125rem;
+}
+
+.reply-header div {
+    display: inline-block;
+}
+
+.nickname {
+    margin-right: .625rem;
+}
+
+/* 消息内容 */
+.reply-content {
+    color: #4b4b4b;
+    margin-top: .625rem;
+    font-size: .75rem;
+}
+
+/* 消息下部 */
+.reply-below {
+    position: absolute;
+    bottom: .3125rem;
+    color: #4b4b4b;
+    font-size: .625rem;
+    letter-spacing: .125rem;
+}
+
+.reply-below div {
+    display: inline-block;
+}
+
+.replyMeBody-content {
+    padding-right: 1.25rem;
+    border-bottom: 1px solid #bebebe;
+}
+
+/* 图标 */
+.replyOthers i,
+.like i,
+.replydelete i {
+    font-size: .625rem;
+}
+
+/* 回复 */
+.reply-below .replyOthers {
+    margin: 0 1.25rem;
+}
+
+.reply-below .replydelete {
+    display: none;
+}
+
+
+
+.like {
+    margin-right: 1.25rem;
+}
+
+/* 鼠标经过 */
+.replyOthers:hover,
+.like:hover,
+.replydelete:hover {
+    color: #919191;
+}
+
+.replyMe-body ul li:hover .replydelete {
+    display: inline-block;
+}
+
+.replyMe-replyBar-background {
+    display: none;
+}
+
+/* 背景 */
+.replyMe-replyBar-background::after {
+    content: '';
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.253);
+}
+
+/* 消息回复面板 */
+.replyMe-replyBar-bar {
+    position: absolute;
+    z-index: 11;
+    top: 36.599vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46.25rem;
+    height: 3.125rem;
+    border-radius: .4375rem;
+    background-color: #fff;
+}
+
+/* 设置 placeholder 的样式 */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    font-size: .875rem;
+    font-weight: 300;
+    color: rgb(201, 201, 201);
+}
+
+/* 用户头像 */
+.avaters {
+    position: relative;
+    margin-top: .5rem;
+}
+
+/* 我的及对方的 */
+.avaters .myAvater,
+.avaters .otherAvater,
+.mine-avatar-box,
+.other-avatar-box {
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+.avaters .myAvater,
+.mine-avatar-box {
+    margin-left: 1.25rem;
+}
+
+.avaters .otherAvater,
+.other-avatar-box{
+    margin: 0 1.25rem 0 2.5rem;
+}
+
+.mine-avatar-box,
+.other-avatar-box {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img-avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+/* 图标 */
+.avaters i {
+    position: absolute;
+    color: rgb(138, 138, 138);
+    top: .4375rem;
+    left: 3.9375rem;
+}
+
+/* 输入区块 */
+.replyBar-input {
+    position: absolute;
+    top: .3125rem;
+    left: 9.375rem;
+    width: 34.375rem;
+}
+
+/* 输入框 */
+#replyMeBack {
+    width: 28.125rem;
+    height: 2.5rem;
+    padding: .5rem 1.0625rem .625rem .625rem;
+}
+
+/* 隐藏滚动条 */
+#replyMeBack::-webkit-scrollbar {
+    display: none;
+}
+
+/* 发表 */
+.replyMeBack-btn {
+    position: absolute;
+    top: 0rem;
+    right: 1.3125rem;
+    text-align: center;
+    line-height: 2.5rem;
+    letter-spacing: .125rem;
+    margin-left: 2.5rem;
+    width: 5rem;
+    height: 2.5rem;
+    color: #fff;
+    background-color: rgb(63, 164, 223);
+}
+
+.replyMeBack-btn:hover {
+    background-color: rgb(57, 145, 196);
+}
+
+/* 关闭图标 */
+.shutdown {
+    position: absolute;
+    top: .625rem;
+    right: 1rem;
+    font-size: 1.25rem;
+    color: rgb(133, 133, 133);
+}
+
+/* 确认删除遮罩层 */
+.deleteMarkBackground {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.247);
+}
+
+/* 删除前景 */
+.deleteMarkBar {
+    position: absolute;
+    z-index: 4;
+    top: 19.375rem;
+    left: 39.625rem;
+    width: 18.75rem;
+    height: 11.25rem;
+    text-align: center;
+    border-radius: .625rem;
+    background-color: #fff;
+}
+
+/* 头部 */
+.deleteMarkBar-header {
+    width: 100%;
+    height: 3.125rem;
+    line-height: 3.125rem;
+    font-size: 1.125rem;
+    color: rgb(54, 54, 54);
+    border-bottom: 1px solid rgb(117, 117, 117);
+}
+
+/* 无法恢复 */
+.deleteMarkBar-body {
+    margin-top: 1.25rem;
+    font-size: 1rem;
+    color: rgb(122, 122, 122)
+}
+
+.deleteMarkBar-below {
+    margin-top: 1.875rem;
+}
+
+.deleteMarkBar-below .confirmDelete,
+.deleteMarkBar-below .cancelDelete {
+    display: inline-block;
+}
+
+.confirmDelete {
+    margin-right: 3.125rem;
+}
+
+/* 确认 or 取消 */
+.confirmDelete,
+.cancelDelete {
+    width: 3.75rem;
+    height: 2.1875rem;
+    border-radius: .375rem;
+    text-align: center;
+    line-height: 2.1875rem;
+    color: #fff;
+}
+
+/* 确认 */
+.confirmDelete {
+    background-color: rgb(60, 164, 233);
+}
+
+.confirmDelete:hover {
+    background-color: rgb(45, 134, 194);
+}
+
+/* 取消 */
+.cancelDelete {
+    background-color: rgb(209, 209, 209);
+}
+
+.cancelDelete:hover {
+    background-color: rgb(177, 175, 175);
+}
+
+
+/* 收到的赞 */
+/* 每个消息 */
+.like-body ul li {
+
+    width: 51.75rem;
+}
+
+.likemessage-left,
+.likemessage-right {
+    float: left;
+}
+
+/* 头像区块 */
+.likemessage-left {
+    width: 4.6875rem;
+    height: 4rem;
+}
+
+/* 内容· */
+.likemessage-right {
+    width: 47.0625rem;
+    height: 4rem;
+    border-bottom: 1px solid #c9c8c8;
+}
+/* 多人头像 */
+.like-avaters a .icon,
+.avatar-box-above,
+.avatar-box-below {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+.like-avaters,
+.like-avater {
+    position: relative;
+}
+
+/* 下面的头像 */
+.like-avaters a:last-child .icon,
+.avatar-box-below {
+    top: 10px;
+    left: 16px;
+}
+
+/* 上面的头像 */
+.like-avaters a:first-child .icon,
+.avatar-box-above {
+    z-index: 1;
+    top: 26px;
+    left: 31px;
+}
+
+.avatar-box-below,
+.avatar-box-above {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* 单人头像 */
+.like-avater a .icon,
+.single-avatar-box {
+    position: absolute;
+    top: 1.125rem;
+    left: 1.0625rem;
+    width: 40px;
+    height: 40px;
+}
+
+.single-avatar-box {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.more-img-avatar {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+}
+
+.single-img-avatar {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+}
+
+/* 等人点赞 */
+.likemessage-right .name-filed a,
+.likemessage-right .name-filed .person {
+    display: inline-block;
+    margin-top: .5625rem;
+    font-size: .875rem;
+}
+
+/* 个人页面 */
+.likemessage-right .name-filed a {
+    color: #3b3b3b;
+}
+
+.likemessage-right .name-filed .person {
+    margin-left: .3125rem;
+    color: #727272;
+}
+
+/* 下部时间或删除 */
+.likemessage-right-below {
+    margin-top: .625rem;
+}
+
+.likemessage-right-below .likeTime,
+.likemessage-right-below .deleteLike {
+    display: inline-block;
+    font-size: .625rem;
+    color: #8f9090;
+}
+
+/* 删除 */
+.likemessage-right-below .deleteLike {
+    display: none;
+    margin-left: 1.25rem;
+}
+
+.like-body ul li:hover .likemessage-right .likemessage-right-below .deleteLike {
+    display: inline-block;
+}
+
+/* 图标 */
+.deleteLike i {
+    font-size: .625rem;
+}
+
+/* 系统消息 */
+.systemMessage-body ul li {
+    display: inline-block;
+    width: 51.75rem;
+    padding: 1.625rem 0 0 0;
+}
+
+/* 官方头像 */
+.authority-avater {
+    position: relative;
+    float: left;
+    width: 4.5625rem;
+    height: 6.8125rem;
+}
+
+/* 官方logo */
+.authority-avater .authority-logo {
+    position: absolute;
+    z-index: 2;
+    top: .5rem;
+    left: 1.4375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url(../images/authority.png) no-repeat 0px 0px;
+    background-size: 1.5625rem;
+}
+/* logo 背景 */
+.authority-avater .authority-background {
+    position: absolute;
+    z-index: 1;
+    top: 0rem;
+    left: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.25rem;
+    box-shadow: 0rem 0rem .4375rem .3125rem rgba(0, 0, 0, 0.062);
+    background-color: #fff;
+}
+
+/* 消息内容 */
+.systemMessage-body .authority-content {
+    float: left;
+    width: 45rem;
+    padding: 1.25rem .875rem 1.75rem;
+    border-radius: .375rem;
+    box-shadow: 0rem 0rem .3125rem .3125rem rgba(0, 0, 0, 0.055);
+    background-color: #fff;
+}
+
+/* 消息头部 */
+.authority-content-header {
+    width: 100%;
+    height: 1.25rem;
+    
+}
+/* 消息标题 */
+.authority-content-title {
+    font-size: .875rem;
+    color: #4b4b4b;
+}
+
+.authority-content-header .authority-content-title,
+.authority-content-header .authority-sendTime {
+    display: inline-block;
+}
+
+/* 发送时间 */
+.authority-content-header .authority-sendTime {
+    margin-left: 1.875rem;
+    font-size: .75rem;
+    color: #6e6e6e;
+}
+
+/* 内容 */
+.authority-messageContent {
+    font-size: .625rem;
+    margin: 1.25rem 0 0 2em;
+    color: #4b4b4b;
+}
+
+/* —————————————————————————————————————— */
+/* 消息设置 */
+
+.message-settings {
+    color: #626262;
+}
+
+/* 滑动按钮 */
+.rectangle,
+.circle,
+.messageRemind i,
+.messageReply i,
+.messageLikes i {
+    position: absolute;
+}
+
+/* 开启关闭按钮 */
+.rectangle {
+    z-index: 1;
+    width: 1.875rem;
+    height: .9375rem;
+    border-radius: .4688rem;
+    background-color: #c9c8c8;
+} 
+
+/* 滑块 */
+.circle {
+    margin: .125rem 0 0 .125rem;
+    z-index: 2;
+    width: .6875rem;
+    height: .6875rem;
+    border-radius: .3438rem;
+    background-color: #fff;
+}
+
+.messageRemind i {
+    top: .3125rem;
+    left: 9.625rem;
+}
+
+.messageReply i,
+.messageLikes i {
+    top: .25rem;
+    left: 8.0625rem;
+}
+
+.messageRemind {
+    position: relative;
+}
+
+/* 消息提醒 */
+.messageRemind {
+    display: inline-block;
+    margin: 3.125rem 0 1.75rem 3.625rem;
+    padding: 0 0 1.625rem 4.4375rem;
+    width: 42.375rem;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.messageReply,
+.messageLikes {
+    position: relative;
+    display: inline-block;
+}
+
+/* 消息回复 */
+.messageReply {
+    margin-left: 8.0625rem;
+}
+
+/* 点赞提醒 */
+.messageLikes {
+    margin-left: 15.375rem;
+}
+
+/* ———————————————————————————— */
+/* 私信页面 */
+
+/* 左侧页面 */
+.privateMessage-left {
+    float: left;
+    width: 15rem;
+    height: calc(81.343vh - 2.3125rem);
+    border-right: 1px solid #b9b9b9;
+}
+
+.lastestMessage-body {
+    width: 15rem;
+    /* 不指定高度滚动条无法添加 */
+    height: calc(81.343vh - 4.5rem);
+    padding-bottom: .625rem;
+}
+
+/* 左侧标题 */
+.lastestMessage-title {
+    width: 100%;
+    height: 2.1875rem;
+    padding-left: 1.25rem;
+    line-height: 2.1875rem;
+    border-bottom: 1px solid #b9b9b9;
+    font-size: .875rem;
+    color: rgb(102, 102, 102);
+}
+
+/* 左侧头像 */
+.lastestMessage .icon {
+    width: 1.875rem;
+    height: 1.875rem;
+}
+
+/* 每个用户 */
+.lastestMessage-body ul li {
+    position: relative;
+    width: 15rem;
+    height: 3.75rem;
+    padding-top: 1.0625rem;
+    overflow: hidden;
+}
+
+.lastestMessage-body ul li:hover {
+    background-color: rgba(192, 192, 192, 0.267);
+}
+
+/* 内容 */
+.lastestMessage-body ul li div {
+    float: left;
+}
+
+/* 头像区块 */
+.lastestMessage {
+    width: 4rem;
+    height: 100%;
+    text-align: center;
+}
+
+/* 内容区块 */
+.lastestMessage-information {
+    position: relative;
+    margin-top: -0.1875rem;
+    width: 11rem;
+    height: 100%;
+}
+
+/* 昵称 */
+.lastestMessage-information .lastestMessage-nickname {
+    font-size: .875rem;
+    color: #4b4b4b;
+}
+
+/* 介绍 */
+.lastestMessage-canvases {
+    width: 100%;
+    margin-top: .3125rem;
+    font-size: .5625rem;
+    color: #4b4b4b;
+}
+
+/* 最新消息圆点 */
+.newLastestMessage {
+    position: absolute;
+    width: .375rem;
+    height: .375rem;
+    top: .9375rem;
+    right: 1.25rem;
+    border-radius: .1875rem;
+    background-color: #d50e0e;
+}
+
+/* 删除最近聊天 */
+.deletePrivateObj {
+    position: absolute;
+    z-index: 1;
+    top: 0rem;
+    left: -1.125rem;
+    width: 1.125rem;
+    height: 3.75rem;
+    transition: all .7s;
+}
+
+/* 鼠标经过出现 */
+.lastestMessage-body ul li:hover .deletePrivateObj {
+    left: 0rem;
+}
+
+/* 删除图标 */
+.deletePrivateObj .deletePrivateObjicon {
+    line-height: 3.75rem;
+    margin-left: .1875rem;
+    font-size: 10px;
+    color: rgba(51, 51, 51, 0.377);
+}
+
+
+/* 右侧消息面板 */
+.privateMessage-right {
+    float: right;
+    width: 36.75rem;
+    height: 100%;
+}
+
+/* 右侧头部 */
+.communication-header {
+    width: 36.75rem;
+    height: 2.1875rem;
+    text-align: center;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+/* 右侧标题 */
+.communicationNickname {
+    line-height: 2.1875rem;
+    font-size: 16px;
+    color: rgb(102, 102, 102);
+}
+
+.Chatwindow-box {
+    border-bottom: 1px solid #b9b9b9;
+}
+
+/* 聊天窗口 */
+.Chatwindow,
+.Chatwindow-box {
+    width: 36.75rem;
+    min-height: calc(400px - 21.723vh - 10.75rem);
+    height: calc(81.343vh - 12.75rem);
+}
+
+.Chatwindow .msg-list {
+    width: 36.75rem;
+}
+
+/*消息发送时间*/
+.msg-time,
+.msg-more {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    color: #6e6e6e;
+}
+
+.not-me-avatar,
+.not-me {
+    float: left;
+}
+
+.not-me {
+    margin-left: 10px;
+    border-radius: 0 16px 16px 16px;
+    color: #333;
+    background-color: #fff;
+}
+
+.me-avatar,
+.me {
+    float: right;
+}
+
+.me {
+    margin-right: 10px;
+    border-radius: 16px 0 16px 16px;
+    color: #fff;
+    background-color: #449dd7;
+}
+
+.msg-time .time,
+.msg-no-more {
+    line-height: 40px;
+    font-size: 12px;
+}
+
+.msg-item {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 16px 16px 16px;
+    /* 特别注意: 由于照搬 B站 的消息窗口制作， 这里产生了一个 Bug：父元素的高度不随子元素高度增大而增大, 甚至为零, 而 overflow: hidden 可以解决这个问题 */
+    overflow: hidden;
+}
+
+.msg-avatar-box,
+.msg-avatar,
+.msg-avatar .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.msg-avatar {
+    display: inline-block;
+    border-radius: 50%;
+    background-size: cover;
+}
+
+/*滚动条插件的框大小*/
+.slimScrollDiv {
+    min-height: calc(400px - 21.723vh - 10.75rem);
+}
+
+
+/*消息框*/
+.msg-content {
+    max-width: 400px;
+    min-height: 37px;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+/* 输入窗口 */
+.Chatinput {
+    min-height: 100px;
+    width: 36.75rem;
+    height: 8.25rem;
+}
+
+/* 输入头部 */
+.inputHeader {
+    width: 36.75rem;
+    height: 2.5rem;
+}
+
+/* 输入框 */
+.inputBox {
+    width: 36.75rem;
+    height: 5.75rem;
+}
+
+/* 输入框 */
+.inputBox #privateMessage {
+    width: 100%;
+    height: 90%;
+    border: 0;
+    letter-spacing: .0625rem;
+    padding: .625rem 1.0625rem .625rem .625rem;
+    font-size: 14px;
+    color: rgb(121, 121, 121);
+    background-color: transparent;
+    overflow-y: scroll;
+    outline: none;
+}
+
+#privateMessage:hover::-webkit-scrollbar {
+    display: block;
+}
+
+#privateMessage::-webkit-scrollbar {
+    display: none;
+    width: 10px;
+    border-radius: 5px;
+    background-color: #afafaf;
+}
+
+#privateMessage::-webkit-scrollbar-thumb {
+    width: 10px;
+    background-color: #efeeee;
+}
+
+/* 设置 placeholder 的样式 */
+textarea::-webkit-input-placeholder {
+    font-size: .875rem;
+    font-weight: 300;
+    color: rgb(105, 105, 105);
+}
+
+/* 隐藏原生 js 选择文件按钮 */
+#sendImage {
+    display: none;
+    position: absolute;
+    top: -62.4375rem;
+    right: -62.4375rem;
+}
+
+/* 头部左边 */
+.inputHeaderLeft {
+    float: left;
+}
+
+/* 头部右边 */
+.inputHeaderRight {
+    float: right;
+}
+
+/* 头部组件 */
+.inputHeaderLeft .selectImages,
+.inputHeaderLeft .selectexpression,
+.inputHeaderRight .wordNumber,
+.inputHeaderRight .sendMessage {
+    display: inline-block;
+    color: rgb(116, 115, 115);
+}
+
+.inputHeaderLeft .selectImages:hover,
+.inputHeaderLeft .selectexpression:hover {
+    color: rgb(145, 145, 145);
+}
+
+/* 左部组件 */
+.inputHeaderLeft .selectImages,
+.inputHeaderLeft .selectexpression {
+    margin: .5rem 0 0 .875rem;
+    font-size: 1.25rem;
+}
+
+/* 右部组件 */
+.inputHeaderRight .wordNumber,
+.inputHeaderRight .sendMessage {
+    font-size: .875rem;
+    margin: .5rem .875rem 0 0;
+}
+
+/* 发送 */
+.inputHeaderRight .sendMessage {
+    width: 3.75rem;
+    height: 1.875rem;
+    text-align: center;
+    line-height: 1.5625rem;
+    font-size: .875rem;
+    border-radius: .375rem;
+    color: rgb(238, 236, 236);
+    background-color: #0f8ecf;
+}
+
+.inputHeaderRight .sendMessage:hover {
+    background-color: #1a82b6;
+}
+/*回复我的对象头像*/
+.reply-avatar-box {
+    width: 33px;
+    height: 33px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img-avatar {
+    width: 33px;
+    height: 33px;
+    background-size: cover;
+}
+/*近期聊天对象头像*/
+.latest-avatar-box {
+    width: 1.875rem;
+    height: 1.875rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.latest-avatar {
+    width: 1.875rem;
+    height: 1.875rem;
+    background-size: cover;
+}

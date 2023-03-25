@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.NoteMapper">
+
+    <!--新增笔记-->
+    <insert id="insertNewNote">
+        insert into notes(`uid`, `user_id`, `note_title`, `note_content`, `build_date`, `status`, `note_abstract`,
+                          `view_number`, `like_number`, `unlike_number`, `star_number`)
+        values (#{uid}, #{userId}, #{noteTitle}, #{noteContent}, now(), 1, #{noteAbstract}, 0, 0, 0, 0);
+    </insert>
+
+    <!--新增笔记评论-->
+    <insert id="insertNoteMark">
+        insert into note_marks(`uid`,
+                               `note_id`,
+                               `marked_uid`,
+                               `mark_content`,
+                               `mark_date`,
+                               `root_mark_id`,
+                               `sub_mark_id`,
+                               `status`,
+                               `message_status`,
+                               `read`,
+                               `author_uid`)
+        values (#{myUid}, #{noteId}, #{markedUid}, #{markContent}, now(), #{rootMarkId}, #{subMarkId}, 1, 1, 1,
+                #{authorUid});
+    </insert>
+
+    <!--新增笔记浏览量-->
+    <insert id="insertNoteViewNumber">
+        insert into note_view(`note_id`, `author_uid`, `view_uid`, `view_date`, `view_number`)
+        values (#{noteId}, #{authorUid}, #{myUid}, now(), 0)
+        on duplicate key update `view_number` = `view_number` + 1,
+                                `view_date`   = now()
+    </insert>
+
+    <!--新增笔记喜欢-->
+    <insert id="insertNoteLike">
+        insert into `note_like`(`note_id`, `author_uid`, `like_uid`, `like_date`, `like_repeat_number`, `status`)
+        values (#{noteId}, #{authorUid}, #{myUid}, now(), 0, 1)
+        on duplicate key update `status`             = 1,
+                                `like_date`          = now(),
+                                `like_repeat_number` = `like_repeat_number` + 1
+    </insert>
+
+    <!--新增笔记不喜欢-->
+    <insert id="insertNoteUnlike">
+        insert into `note_unlike`(`note_id`, `author_uid`, `unlike_uid`, `unlike_date`, `unlike_repeat_number`,
+                                  `status`)
+        values (#{noteId}, #{authorUid}, #{myUid}, now(), 0, 1)
+        on duplicate key update `status`               = 1,
+                                `unlike_date`          = now(),
+                                `unlike_repeat_number` = `unlike_repeat_number` + 1
+    </insert>
+
+    <!--新增笔记评论喜欢, 如果存在则根据住状态来更新, 喜欢则取消喜欢, 取消喜欢则再次喜欢-->
+    <insert id="insertNoteMarkLike">
+        insert into mark_likes(`note_id`, `author_uid`, `uid`, `liked_uid`, `like_date`, `status`, `repeat_number`, `root_mark_id`,
+                               `sub_self_id`, `read`, `message_status`)
+        values (#{noteId}, #{authorUid}, #{uid}, #{likedUid}, now(), 1, 0, #{rootMarkId}, #{subMarkId}, 1, 1)
+        on duplicate key update `status`        = if(`status` = 1, 0, 1),
+                                `repeat_number` = `repeat_number` + 1,
+                                `like_date`     = now()
+    </insert>
+
+    <!--新增笔记评论不喜欢, 如果存在则根据住状态来更新, 不喜欢则取消不喜欢, 取消不喜欢则再次不喜欢-->
+    <insert id="insertNoteMarkUnlike">
+        insert into mark_unlikes(`note_id`, `author_uid`, `uid`, `unlike_uid`, `unlike_date`, `status`, `repeat_number`,
+                                 `root_mark_id`, `sub_self_id`, `read`, `message_status`)
+        values (#{noteId}, #{authorUid}, #{uid}, #{myUid}, now(), 1, 0, #{rootMarkId}, #{subMarkId}, 1, 1)
+        on duplicate key update `status`        = if(`status` = 1, 0, 1),
+                                `repeat_number` = `repeat_number` + 1,
+                                `unlike_date`   = now()
+    </insert>
+
+    <!--新增笔记评论-->
+    <insert id="insertNoteComment">
+        insert into note_marks(`note_id`, `marked_uid`, `author_uid`, `uid`, `mark_date`, `mark_content`,
+                               `root_mark_id`, `sub_mark_id`, `status`, `read`, `message_status`)
+        values (#{noteId}, #{markedUid}, #{authorUid}, #{markUid}, now(), #{comment}, #{rootMarkId}, #{subMarkId}, 1, 1,
+                1);
+    </insert>
+
+    <!--更新笔记内容-->
+    <update id="updateNoteContent">
+        update notes
+        set `note_title`    = #{noteTitle},
+            `note_abstract` = #{noteAbstract},
+            `note_content`  = #{noteContent}
+                                  `modify_date` = now(),
+            `modify_times`  = `modify_times` + 1,
+            `modify_date`   = now()
+        where `user_id` = #{userId}
+          and `id` = #{id};
+    </update>
+
+    <!--更新笔记喜欢-->
+    <update id="updateNoteLike">
+        update note_like
+        set `status`           = 0,
+            `cancel_like_date` = now()
+        where `note_id` = #{noteId}
+          and `author_uid` = #{authorUid}
+          and `like_uid` = #{myUid}
+    </update>
+
+    <!--更新笔记不喜欢-->
+    <update id="updateNoteUnlike">
+        update note_unlike
+        set `status`             = 0,
+            `cancel_unlike_date` = now()
+        where `note_id` = #{id}
+          and `author_uid` = #{authorUid}
+          and `unlike_uid` = #{unlikeUid}
+    </update>
+
+    <!--删除笔记-->
+    <delete id="deleteNote">
+        update notes
+        set `status`      = 0,
+            `delete_date` = now()
+        where `user_id` = #{userId}
+          and `id` = #{id};
+    </delete>
+
+    <resultMap id="allNoteResultMap" type="com.huadiao.pojo.Note">
+        <result property="noteId" column="id"/>
+        <result property="noteTitle" column="note_title"/>
+        <result property="noteAbstract" column="note_abstract"/>
+        <result property="buildDate" column="build_date"/>
+        <association property="likeNumber" select="com.huadiao.mapper.NoteMapper.selectNoteLikeNumber"
+                     column="uid, id"/>
+        <association property="viewNumber" select="com.huadiao.mapper.NoteMapper.selectNoteViews" column="uid, id"/>
+        <association property="markNumber" select="com.huadiao.mapper.NoteMapper.selectNoteMarkNumber"
+                     column="uid, id"/>
+        <association property="starNumber" select="com.huadiao.mapper.NoteMapper.selectNoteStarNumber"
+                     column="uid, id"/>
+    </resultMap>
+    <!--获取全部笔记摘要-->
+    <select id="selectAllNoteByAuthorUid" resultMap="allNoteResultMap">
+        select `id`,
+               `uid`,
+               `user_id`,
+               `note_title`,
+               `note_title`,
+               `note_abstract`,
+               `build_date`
+        from notes
+        where `uid` = #{authorUid}
+          and `status` = 1;
+    </select>
+
+
+    <select id="selectNoteByUidAndUserId" resultType="com.huadiao.pojo.NoteDetail">
+
+    </select>
+    <!--     获取父评论和子评论-->
+    <resultMap id="noteMark" type="com.huadiao.pojo.RootMark">
+        <id column="root_mark_id" property="rootMarkId"/>
+        <result column="root_nickname" property="nickname"/>
+        <result column="root_user_avatar" property="userAvatar"/>
+        <result column="root_uid" property="uid"/>
+        <result column="root_mark_content" property="markContent"/>
+        <result column="root_mark_date" property="markDate"/>
+        <result column="root_like_number" property="markLike"/>
+        <result column="root_status" property="rootStatus"/>
+        <result column="root_like" property="rootUnlike"/>
+        <collection property="markList" ofType="com.huadiao.pojo.SubMark">
+            <result column="sub_uid" property="uid"/>
+            <result column="sub_mark_content" property="markContent"/>
+            <result column="sub_mark_date" property="markDate"/>
+            <result column="sub_like_number" property="markLike"/>
+            <result column="sub_nickname" property="nickname"/>
+            <result column="sub_user_avatar" property="userAvatar"/>
+            <result column="self_id" property="selfId"/>
+            <result column="sub_status" property="subStatus"/>
+            <result column="sub_unlike" property="subUnlike"/>
+        </collection>
+    </resultMap>
+    <!--获取笔记评论-->
+    <select id="selectNoteMark" resultMap="noteMark">
+
+        select t1.root_mark_id     as root_mark_id,
+               t1.nickname         as root_nickname,
+               t1.user_avatar      as root_user_avatar,
+               t1.uid              as root_uid,
+               t1.mark_content     as root_mark_content,
+               t1.mark_date        as root_mark_date,
+               t1.root_status      as root_status,
+               t1.root_unlike      as root_unlike,
+               t1.root_like_number as root_like_number,
+               t2.uid              as sub_uid,
+               t2.mark_content     as sub_mark_content,
+               t2.mark_date        as sub_mark_date,
+               t2.nickname         as sub_nickname,
+               t2.user_avatar      as sub_user_avatar,
+               t2.sub_mark_id      as self_id,
+               t2.sub_status       as sub_status,
+               t2.sub_unlike       as sub_unlike,
+               t2.sub_like_number  as sub_like_number
+        from (select nickname,
+                     user_avatar,
+                     note_marks.*,
+                     mark_likes.uid   as `root_status`,
+                     t3.root_like_number,
+                     mark_unlikes.uid as `root_unlike`
+              from note_marks
+                       left join user_infer on user_infer.uid = note_marks.uid
+                       left join homepage on homepage.uid = note_marks.uid
+                       left join mark_likes on mark_likes.root_mark_id = note_marks.root_mark_id and
+                                               mark_likes.sub_self_id is null and
+                                               mark_likes.`status` = 1 and mark_likes.uid = #{myUid}
+                       left join mark_unlikes on mark_unlikes.root_mark_id = note_marks.root_mark_id and
+                                                 mark_unlikes.sub_self_id is null and
+                                                 mark_unlikes.`status` = 1 and mark_unlikes.uid = #{myUid}
+                       left join (select count(1) as root_like_number, `root_mark_id`
+                                  from mark_likes
+                                  where `sub_self_id` is null
+                                    and status = 1
+                                  group by `root_mark_id`, `sub_self_id`) t3 on mark_likes.note_id = #{noteId}
+              where note_marks.status = 1
+                and note_marks.note_id = #{noteId}
+                and `sub_mark_id` is null
+             ) t1
+                 left join (select note_marks.*,
+                                   nickname,
+                                   user_avatar,
+                                   mark_likes.uid   as `sub_status`,
+                                   mark_unlikes.uid as `sub_unlike`,
+                                   t4.sub_like_number
+                            from note_marks
+                                     left join user_infer on note_marks.uid = user_infer.uid
+                                     left join homepage on homepage.uid = note_marks.uid
+                                     left join mark_likes on mark_likes.root_mark_id = note_marks.root_mark_id and
+                                                             note_marks.sub_mark_id = sub_self_id and
+                                                             mark_likes.`status` = 1 and mark_likes.uid = #{myUid}
+                                     left join mark_unlikes on mark_unlikes.root_mark_id = note_marks.root_mark_id and
+                                                               note_marks.sub_mark_id = mark_unlikes.sub_self_id and
+                                                               mark_unlikes.`status` = 1 and mark_unlikes.uid = #{myUid}
+                                     left join (select count(1) as sub_like_number,
+                                                       `root_mark_id`,
+                                                       `sub_self_id`
+                                                from mark_likes
+                                                where `sub_self_id` is not null
+                                                group by `sub_self_id`, `root_mark_id`) t4
+                                               on mark_likes.note_id = #{noteId} and
+                                                  t4.root_mark_id = note_marks.root_mark_id
+                                                   and t4.sub_self_id = note_marks.sub_mark_id
+                            where note_marks.note_id = #{noteId}
+                              and note_marks.status = 1
+                              and `sub_mark_id` is not null) t2 on t2.root_mark_id = t1.root_mark_id
+        order by t1.mark_date;
+
+
+    </select>
+
+    <resultMap id="basicNoteDetail" type="com.huadiao.pojo.NoteDetail">
+        <result property="authorUserId" column="user_id"/>
+        <result property="noteTitle" column="note_title"/>
+        <result property="noteContent" column="note_content"/>
+        <result property="buildDate" column="build_date"/>
+    </resultMap>
+    <!--获取单个笔记-->
+    <select id="selectBasicNoteInfer" resultMap="basicNoteDetail">
+        select `user_id`,
+               `note_title`,
+               `note_content`,
+               `build_date`
+        from notes
+        where `uid` = #{authorUid}
+          and `id` = #{noteId};
+    </select>
+
+    <!--获取笔记浏览量-->
+    <select id="selectNoteViews" resultType="java.lang.String">
+        select count(1)
+        from note_view
+        where `note_id` = #{noteId}
+          and `author_uid` = #{authorUid}
+    </select>
+
+    <!--查找我是否不喜欢当前笔记-->
+    <select id="selectIsUnlikeNote" resultType="java.lang.String">
+        select `unlike_uid`
+        from note_unlike
+        where note_unlike.`status` = 1
+          and `unlike_uid` = #{myUid}
+          and `note_id` = #{noteId}
+    </select>
+
+    <!--查找我是否喜欢当前笔记-->
+    <select id="selectIsLikeNote" resultType="java.lang.String">
+        select `like_uid`
+        from note_like
+        where `note_id` = #{noteId}
+          and `like_uid` = #{myUid}
+          and note_like.`status` = 1
+    </select>
+
+    <!--查找我是否收藏了当前笔记-->
+    <select id="selectIsStarNote" resultType="java.lang.String">
+        select `uid`
+        from note_star
+        where `note_id` = #{noteId}
+          and `uid` = #{myUid}
+          and `status` = 1
+    </select>
+
+    <!--获取作者笔记的喜欢数量-->
+    <select id="selectNoteLikeNumber" resultType="java.lang.String">
+        select count(1)
+        from note_like
+        where note_like.`status` = 1
+          and `note_id` = #{noteId}
+          and `author_uid` = #{authorUid}
+    </select>
+
+    <!--获取作者笔记的收藏数量-->
+    <select id="selectNoteStarNumber" resultType="java.lang.String">
+        select count(1)
+        from note_star
+        where `author_uid` = #{authorUid}
+          and `note_id` = #{noteId}
+          and `status` = 1
+    </select>
+
+    <!--获取笔记的评论数量-->
+    <select id="selectNoteMarkNumber" resultType="java.lang.String">
+        select count(1)
+        from note_marks
+        where `author_uid` = #{authorUid}
+          and `note_id` = #{noteId}
+          and `status` = 1
+    </select>
+
+    <resultMap id="noteSectionResultMap" type="com.huadiao.pojo.Note">
+        <result property="noteTitle" column="note_title"/>
+        <result property="noteAbstract" column="note_abstract"/>
+        <result property="buildDate" column="build_date"/>
+    </resultMap>
+    <!--获取笔记部分信息-->
+    <select id="selectNoteSection" resultMap="noteSectionResultMap">
+        select `user_id`
+        from notes
+        where `id` = #{noteId}
+          and `uid` = #{authorUid}
+    </select>
+
+
+</mapper>

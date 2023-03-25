@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.OperateAdministratorMapper">
+
+    <!--判断管理员是否存在-->
+    <select id="checkAdministrator" resultType="java.lang.Integer">
+        select 1
+        from huadiao_administrator
+        where `account` = #{account}
+          and `passwd` = #{passwd}
+          and `status` = 1;
+    </select>
+</mapper>

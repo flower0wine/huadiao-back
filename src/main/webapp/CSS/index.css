@@ -1,0 +1,934 @@
+/* 滚动条设计，用于 fullpage 插件 */
+.scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* logo */
+.huadiao-icon {
+    width: 2.375rem;
+    height: 3.0625rem;
+    margin: .3125rem;
+}
+
+/* 第一屏 */
+.page-one {
+    /* 注意全屏滚动与 position 有时不适用，会让滚动反应迟钝，甚至不滚动 */
+    position: relative;
+    z-index: -99;
+    width: 100vw;
+    height: 100vh;
+    background: url(http://localhost:9090/huadiao/images/indexImages/pageAbove.png) no-repeat right bottom;
+    /* 使用 right bottom 使背景图片右下角对齐 */
+    background-size: cover;
+}
+
+/* 头部固定定位 */
+.huadiao-header {
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    top: 0rem;
+}
+
+/* logo 的位置 */
+.huadiao-header .left-entry {
+    float: left;
+}
+
+/* 头部右侧图标浮动 */
+.huadiao-header .right-entry {
+    float: right;
+}
+
+/* 用户头像图标 */
+.userAvater,
+.userAvater-box {
+    position: absolute;
+    z-index: 3;
+    top: 0rem;
+    right: 0rem;
+    width: 2.4375rem;
+    height: 2.4375rem;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all .5s;
+}
+.avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+/* 当用户鼠标移到用户头像上时，必须登录才有 */
+/* .index-headUserAvatar:hover .userAvater {
+    top: 1.875rem;
+    right: 1.25rem;
+    width: 4.4375rem;
+    height: 4.4375rem;
+} */
+
+
+
+/* 历史记录图标 */
+.History,
+/* 消息图标 */
+.information {
+    font-size: 1.6875rem;
+    color: #ffffff;
+}
+
+/* 为了好看增加的 */
+.login-box {
+    position: absolute;
+    z-index: -11;
+    top: .25rem;
+    right: -4.5625rem;
+    width: 6.25rem;
+    height: 1.9375rem;
+    border-radius: 0 .9688rem .9688rem 0;
+    background-color: #bebec5;
+    font-size: 1.5rem;
+    color: #ffffff;
+    padding-left: 2.125rem;
+    line-height: 1.9375rem;
+}
+
+.right-entry li {
+    float: right;
+    margin: .625rem 0.625vw;
+}
+
+/* 设置字体图标样式 */
+.right-entry li .right-icon span {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* 为li添加 flex */
+.right-entry li .right-icon {
+    display: flex;
+    flex-direction: column;
+    /* li 的子代数值排列 */
+    cursor: pointer;
+    
+    /* 为右侧图标添加浮动 */
+   
+}
+
+/* 修改图标下面的文字样式 */
+.right-entry li .right-icon span {
+    font-size: 1rem;
+}
+
+.right-entry li .right-icon i {
+    margin-bottom: .125rem;
+    /* 增加图标与文字之间的距离 */
+}
+
+/* 为图标添加动画 */
+.right-entry li:hover .right-icon i {
+    animation: jump .4s;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0rem);
+    }
+
+    50% {
+        transform: translateY(-0.1875rem)
+    }
+
+    100% {
+        transform: translateY(0rem);
+    }
+
+}
+
+/* 使最右边的li 样式变化 */
+.right-entry li:nth-child(1) {
+    margin-right: 5vw;
+}
+
+.right-entry .index-headUserAvatar {
+    position: relative;
+    width: 3.125rem;
+    height: 2.9375rem;
+    margin-right: 6.875rem;
+    /* 修改头像的 位置 */
+    cursor: pointer;
+}
+
+.huadiao-below {
+    position: fixed;
+    bottom: 0rem;
+    left: 0rem;
+    z-index: 2;
+    padding: 1.6875rem;
+}
+
+.menu,
+.newlyAdding {
+    display: block;
+    /* 为了设置 margin padding 将其转换 */
+    cursor: pointer;
+}
+
+/* 菜单按钮 */
+.menu {
+    font-size: 1.1875rem;
+    color: #ffffff;
+}
+
+/* 新增按钮 */
+.newlyAdding {
+    padding-bottom: 1.6875rem;
+    font-size: 1.25rem;
+    color: #ffffff;
+}
+
+/* 设置古诗位置及颜色 */
+.poetry {
+    position: absolute;
+    z-index: 1;
+    right: 2.5625rem;
+    top: 9.4375rem;
+    color: #c5c5c5;
+}
+
+/* 设置古诗排列 */
+.poetry .poem li {
+    user-select: all;
+    /* 选择整个 诗句 */
+    float: right;
+}
+
+/* 设置作者名位置 */
+.poetry .poet {
+    position: absolute;
+    height: 9.375rem;
+    right: 0rem;
+    top: 22.3125rem;
+}
+
+
+.poetry .poem li,
+.poetry .poet {
+    font-family: STKaiti;
+    /* 华文楷体 */
+    font-size: 1rem;
+    writing-mode: vertical-lr;
+    /* 实现文字竖排 */
+}
+
+.menuBar {
+    position: fixed;
+    z-index: 9;
+    display: none;
+    /* 隐藏菜单栏，等待唤起 */
+}
+
+
+/* 菜单面板 */
+.menu-box {
+    min-width: 100px;
+    width: 18.75vw;
+    min-height: 400px;
+    height: 100vh;
+    border-radius: 0 1rem 1rem 0;
+    background: -webkit-linear-gradient(top, #9005a97a, #fb424279);
+}
+
+/* 设置每个 菜单框 */
+.menu-box li {
+    width: 100%;
+    min-height: 30px;
+    height: 10.271vh;
+}
+@media screen and (max-height: 289px) {
+    .menu-box li {
+        line-height: 30px;
+    }
+}
+
+@media screen and (min-height: 290px) {
+    .menu-box li {
+        line-height: 10.271vh;
+    }
+}
+/* 菜单内容排列整齐 */
+.menu-box li {
+    text-align: center;
+    /* 竖直居中 */
+    font-size: 1.875vw;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* —————————————————————————————————————————————————————————————————————————— */
+/* 以下代码都是为了增大 链接点击范围 */
+
+.menu-box .unit a {
+    display: inline-block;
+    /* 为了使 a 增加 width */
+}
+
+.menu-box li a {
+    color: #ffffff;
+}
+
+.menu-box .like-Fanju a {
+    display: inline-block;
+    height: 100%;
+}
+
+.menu-box .like-Fanju i {
+    display: inline-block;
+    height: 100%;
+}
+
+.menu-box li:nth-child(-n+5) a {
+    width: 100%;
+}
+
+.menu-box li:nth-last-child(1) a {
+    width: 100%;
+}
+
+.menu-box li:nth-last-child(2) a {
+    width: 100%;
+}
+
+.Fanju a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+/* ———————————————————————————————————————————————————————————————————————————————— */
+
+
+
+/* 设置文字前面的图标大小 */
+.menu-box li i {
+    font-size: 1.875vw;
+}
+
+/* 关闭菜单按钮 */
+.shutdown {
+    font-size: 1.375vw;
+    float: right;
+    margin-right: 1.375rem;
+}
+
+.Fanjus {
+    display: none;
+}
+
+.Fanju {
+    border: 0 !important;
+    line-height: 7.083vh !important;
+    height: 7.083vh !important;
+}
+
+/* 进入该番剧 图标 */
+.Fanju i {
+    float: right;
+    margin-right: 1.25vw;
+    font-size: 1.25vw !important;
+    /* display: inline-block; */
+    /* 本是为了让 图标旋转而加的，但与 float 冲突，另外浮动也能让 图标旋转 */
+    transform: rotate(-90deg);
+
+}
+
+/* 番剧字体大小 */
+.Fanju span {
+    font-size: 1.5625vw;
+}
+
+/* —————————————————————————————————————————————————————————————————————————————————————— */
+/* 下面开始为每个菜单框设置下边框颜色，逐渐渐变 */
+.menu-box li:nth-child(1) {
+    border-bottom: 1px solid #932e6c;
+}
+
+.menu-box li:nth-child(2) {
+    border-bottom: 1px solid #932e7c;
+}
+
+.menu-box li:nth-child(3) {
+    border-bottom: 1px solid #9f4996;
+}
+
+.menu-box li:nth-child(4) {
+    border-bottom: 1px solid #7f2e93;
+}
+
+.menu-box li:nth-child(5) {
+    border-bottom: 1px solid #732e93;
+}
+
+.menu-box li:nth-child(6) {
+    border-bottom: 1px solid #6c2e93;
+}
+
+.Fanjus ul li:nth-last-child(1) {
+    border-top: 1px solid #5d2e93;
+}
+
+.menu-box li:nth-last-child(1) {
+    border-top: 1px solid #4d2e93;
+}
+
+/* ———————————————————————————————————————————————————————————————————————————————————— */
+
+/* 番剧下拉图标 */
+.dropDown {
+    transition: all .3s;
+    transform: rotate(0deg);
+}
+
+/* 用户面板 */
+.avaterBar {
+    display: none;
+    position: absolute;
+    opacity: .3;
+    z-index: 1;
+    top: 4.3125rem;
+    right: -3.625rem;
+    width: 14rem;
+    height: 19.375rem;
+    border-radius: 1.125rem;
+    background: -webkit-linear-gradient(left bottom, #454440b9, #84041bb6);
+}
+
+/* 用户昵称 */
+.avaterBar-nickname {
+    font-size: 1.25rem;
+    color: #dad5d5;
+    font-weight: 200;
+    text-align: center;
+    margin-top: 2.3125rem;
+}
+
+/* 用户关注及粉丝 */
+.avaterBar-interact {
+    display: block;
+    height: 4.375rem;
+    padding: .625rem 0 .625rem 0;
+    margin: 0 2.5rem 0 2.5rem;
+    border-bottom: 1px solid #bebec5;
+}
+
+/* 关注 */
+.avaterBar-interact a {
+    display: flex;
+    flex-direction: column;
+}
+
+.avaterBar-interact .avaterBar-follow {
+    float: left;
+}
+
+.avaterBar-interact .avaterBar-fans {
+    float: right;
+}
+
+/* 关注粉丝 */
+.avaterBar-follow span,
+.avaterBar-fans span {
+    font-size: .875rem;
+    font-weight: 100;
+}
+
+/* 数量 */
+.avaterBar-follow em,
+.avaterBar-fans em {
+    font-size: 1.3125rem;
+}
+
+/* 共同样式 */
+.avaterBar-follow span,
+.avaterBar-follow em,
+.avaterBar-fans span,
+.avaterBar-fans em {
+    text-align: center;
+    color: #dad5d5;
+}
+
+/* 下面是面板的各种链接 */
+.avaterBar-links {
+    margin: 0 2.5rem 0 2.5rem;
+    margin-top: .625rem;
+    border-bottom: 1px solid #bebec5;
+}
+
+/* 每个链接 */
+.avaterBar-links a {
+    display: block;
+    color: #dad5d5;
+    margin: .9375rem 0 .9375rem 0;
+}
+
+.avaterBar-links a span {
+    font-size: 1.125rem;
+}
+
+.avaterBar-links a em {
+
+    /* 旋转是有要求的 ，加浮动 或 display：inline-block*/
+    float: right;
+    color: #dad5d5;
+    font-size: .9375rem;
+    transform: rotate(-90deg);
+}
+
+.avaterBar-loginOut span {
+    display: block;
+    text-align: center;
+    margin-top: .625rem;
+    color: #dad5d5;
+}
+
+
+
+/* 未登录用户面板 */
+.noLoginAvaterBar {
+    position: absolute;
+    display: none;
+    opacity: .3;
+    border-radius: 1.0625rem;
+    top: 3.5625rem;
+    right: -4.625rem;
+    width: 14.375rem;
+    height: 11.25rem;
+    background: -webkit-linear-gradient(left bottom, #454440b4, #84041bb9);
+}
+
+/* 共同样式 */
+.noLoginAvaterBar h6,
+.noLoginAvaterBar div em,
+.noLoginAvaterBar div span,
+.noLoginAvaterBar .lower i,
+.immediatelyLogin {
+    color: #cecaca;
+    font-size: .875rem;
+}
+
+/* 登录后你可以 */
+.noLoginAvaterBar h6 {
+    margin: 1.3125rem 0 0 1.125rem;
+    font-weight: 300;
+}
+
+/* 每个介绍 */
+.noLoginAvaterBar .introduce {
+    width: 100%;
+    height: 3.125rem;
+}
+
+/* 每一个单元 */
+.noLoginAvaterBar .introduce div {
+    float: left;
+    margin: .5625rem 0 0 1.875rem;
+}
+
+/* 立即登录框 */
+.immediatelyLogin {
+    width: 10.1875rem;
+    height: 1.875rem;
+    border-radius: .9375rem;
+    background-color: #4c829e;
+    margin: 1.1875rem 0 0 2.125rem;
+    text-align: center;
+    line-height: 1.875rem;
+}
+
+/* 框尾部 */
+.lower {
+    display: block;
+    margin-top: .625rem;
+    text-align: center;
+}
+
+.lower a,
+.noLoginAvaterBar .lower i {
+    font-size: .75rem;
+}
+
+/* 立即注册 */
+.lower a {
+    color: #4c829e
+}
+
+/* ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— */
+/* 下面开始做注册登录页面 */
+
+/* 遮罩层 */
+.LoginRegister {
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+/* 登录注册背景 */
+.LoginRegisterBackGround {
+    position: relative;
+    z-index: 1000;
+    width: 37.5rem;
+    height: 18.75rem;
+    margin: 23.612vh auto;
+    border-radius: .5rem;
+    background: url(http://localhost:9090/huadiao/images/indexImages/LoginRegisterBackGround.jpeg) no-repeat;
+}
+
+/* 介绍信息 */
+.huadiao-Register-introduce,
+.huadiao-Login-introduce {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+}
+
+/* 介绍字体调整 */
+.huadiao-Register-introduce h2,
+.huadiao-Register-introduce span,
+.huadiao-Register-introduce em,
+.huadiao-Login-introduce h2,
+.huadiao-Login-introduce span,
+.huadiao-Login-introduce em {
+    font-family: STXingkai;
+    text-align: center;
+    color: #910000;
+    font-weight: 400;
+}
+
+/* 字体调整 */
+.huadiao-Register-introduce h2,
+.huadiao-Login-introduce h2 {
+    font-size: 1.875rem;
+    margin-top: 1.6875rem;
+
+}
+
+
+/* 字体调整 */
+.huadiao-Register-introduce span,
+.huadiao-Register-introduce em,
+.huadiao-Login-introduce span,
+.huadiao-Login-introduce em {
+    display: block;
+    font-size: 1.125rem;
+    color: #730000;
+}
+
+/* 控制介绍位置 */
+.huadiao-Register-introduce span,
+.huadiao-Login-introduce span {
+    margin-top: 1.25rem;
+}
+
+.huadiao-Register-introduce {
+    top: 0rem;
+    left: 0rem;
+}
+
+.huadiao-Login-introduce {
+    top: 0rem;
+    right: 0rem;
+}
+
+/* 跳往登录或跳往注册页面 */
+.huadiao-jumpLogin a,
+.huadiao-jumpRegister a {
+    font-family: STXingkai;
+    font-size: .875rem;
+    color: #ffffff;
+}
+
+.huadiao-jumpLogin,
+.huadiao-jumpRegister {
+    margin-top: 9.375rem;
+}
+
+/* —————————————————————————————— */
+
+/* 下面制作登录注册页面前景 */
+.LoginRegisterForeground {
+    position: absolute;
+    z-index: 1001;
+    width: 16.5rem;
+    height: 25rem;
+    border-radius: .5625rem;
+    top: -3.4375rem;
+    right: 2.25rem;
+    background: -webkit-linear-gradient(top, #8d8887, #433130);
+}
+
+/* 警告图标 */
+.warning {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* 框上用户名 */
+.register .register-body .usernameText,
+.login .login-body .usernameText {
+    display: block;
+    font-family: STXingkai;
+    font-size: 1.25rem;
+    margin: 5.625rem 0 0 2.125rem;
+}
+
+/* 框上密码和验证码 */
+.login .login-body label,
+.register .register-body label {
+    display: block;
+    font-family: STXingkai;
+    font-size: 1.25rem;
+    margin-left: 2.125rem;
+}
+
+.register-body,
+.login-body  {
+    position: absolute;
+    z-index: 1;
+}
+
+/* 提示信息 */
+.registerUsernameTip,
+.loginUsernameTip,
+.loginPasswordTip,
+.registerPasswordTip,
+.checkCodeTip {
+    height: 1.25rem;
+
+}
+
+.loginUsernameTip,
+.registerUsernameTip {
+    margin: .3125rem 0 0 2.25rem;
+}
+
+.loginPasswordTip,
+.registerPasswordTip {
+    margin: .4375rem 0 0 2.25rem;
+}
+
+.checkCodeTip {
+    margin: .3125rem 0 0 2.25rem;
+}
+
+/* 提示信息 */
+.loginUsernameTip p,
+.registerUsernameTip p,
+.loginPasswordTip p,
+.registerPasswordTip p,
+.checkCodeTip p,
+.registerButton,
+.loginButton {
+    font-size: 1rem;
+    font-family: STXingkai;
+
+}
+
+/* 提示信息 */
+.registerUsernameTip p,
+.loginUsernameTip p,
+.registerPasswordTip p,
+.loginPasswordTip p,
+.checkCodeTip p {
+    color: #cc2323;
+}
+
+.warning {
+    visibility: hidden;
+}
+
+.registerUsernameTip .registerWrongUserName,
+.registerUsernameTip .alphabetNumber,
+.loginUsernameTip .loginLengthUserName,
+.registerPasswordTip .registerWrongPassword,
+.loginPasswordTip .loginWrongPassword,
+.checkCodeTip p,
+.registerSameUserName,
+.loginWrongUserName,
+.registerWrongLengthPassword,
+.loginWrongLengthPassword{
+    display: none;
+}
+
+/* 提示信息 */
+.registerUsernameTip .registerWrongUserName,
+.registerUsernameTip .alphabetNumber,
+.loginUsernameTip .loginLengthUserName,
+.registerPasswordTip .registerWrongPassword,
+.loginPasswordTip .loginWrongPassword,
+.checkCodeTip p,
+.warning {
+    float: left;
+    font-size: 1rem;
+}
+
+/* 用户名框 */
+.register #registerusername,
+.login #loginusername {
+    display: block;
+    margin: .375rem 0 0 2rem;
+    width: 12.5rem;
+    height: 1.25rem;
+}
+
+/* 密码框 */
+.login #loginpassword,
+.register #registerpassword {
+    margin-left: 2.125rem;
+    width: 12.5rem;
+    height: 1.25rem;
+    
+}
+.register #checkCode,
+.login #loginpassword,
+.register #registerpassword,
+.register #registerusername,
+.login #loginusername {
+    padding: 0 0.3125rem;
+    border: 0;
+    border-radius: .375rem;
+    background-color: rgba(255, 255, 255, 0.144);
+}
+
+
+/* 验证码框 */
+.register #checkCode {
+    margin: .4375rem 0 0 2.125rem;
+    width: 5rem;
+    height: 1.25rem;
+}
+
+.registerButton,
+.loginButton {
+    position: absolute;
+    top: 16.625rem;
+    left: -1.875rem;
+    margin: 2.5rem 0 0 6.25rem;
+    width: 6.875rem;
+    height: 3.125rem;
+    border-radius: 1.25rem;
+    border: 0;
+    box-shadow: 1px 1px 1px 1px rgba(59, 59, 59, 0.63);
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+.checkCode img {
+    position: absolute;
+    top: 15.187rem;
+    right: -0.5rem;
+}
+
+.login,
+.LoginRegister {
+    display: none;
+}
+
+/* 关闭图标 */
+.shutdownLoginRegister {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.shutdownLoginRegister i {
+    font-size: 2rem;
+    color: #660404;
+}
+
+/* ———————————————————————————————————————— */
+/* 下面主要是第二屏样式 */
+.page-two-background {
+    position: absolute;
+    top: 100vh;
+    z-index: -99;
+    width: 100vw;
+    height: 100vh;
+    background: url(http://localhost:9090/huadiao/images/indexImages/pageBelow.jpg) no-repeat left top;
+    background-size: 100rem;
+}
+
+
+/* 搜索框 */
+.huadiao-index-search {
+    position: absolute;
+    top: calc(100vh + .9375rem);
+    left: 56.125vw;
+    z-index: 9;
+}
+
+/* 搜索图标 */
+.search-icon {
+    position: absolute;
+    display: inline-block;
+    z-index: 4;
+    color: #7eb1b0;
+    font-size: 1.375rem;
+}
+
+/* 搜索框 */
+#search {
+    position: absolute;
+    z-index: 1;
+    width: 0rem;
+    height: 2.125rem;
+    top: .125rem;
+    right: -2.3125rem;
+    border: 0;
+    border-radius: 1.0625rem;
+    background-color: #a2a9b7a2;
+    outline: none;
+    color: #dadada;
+}
+
+/* 搜索图标框 */
+.search-box {
+    position: absolute;
+    z-index: 3;
+    width: 2.375rem;
+    height: 2.375rem;
+    border-radius: 1.1875rem;
+    background-color: #17a6988a;
+    padding-left: .5rem;
+    line-height: 2.375rem;
+    transition: all .3s;
+}
+
+.register-svg,
+.login-svg {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.register-svg path{
+    stroke: url('#registerlinearGradient');
+}
+.login-svg path {
+    stroke: url('#loginlinearGradient');
+}
+
+.register-svg path,
+.login-svg path {
+    /* 不填充 */
+    fill: none;
+    /* 线条宽度 */
+    stroke-width: 1;
+    /* 定义初始长度 */
+    stroke-dasharray: 200 1386;
+}

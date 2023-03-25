@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.OperateUserMapper">
+
+    <!--更新用户信息——非用户本人操作-->
+    <update id="updateUserInfos">
+        update user
+        <set>
+            <if test="username != null">`username` = #{username},</if>
+            <if test="beforeUsername != null">`before_username` = #{beforeUsername},</if>
+            <if test="updateUsernameDate != null">`update_username_date` = #{updateUsernameDate},</if>
+            <if test="loginTime != null">`login_time` = #{loginTime},</if>
+            <if test="registerTime != null">`register_time` = #{registerTime},</if>
+            <if test="logOff != null">`log_off` = #{logOff},</if>
+            <if test="logOffDate != null">`log_off_date` = #{logOffDate},</if>
+        </set>
+        where `uid` = #{uid} and `user_id` = #{userId};
+    </update>
+
+    <delete id="deleteUser">
+        delete
+        from user
+        where `uid` = #{uid}
+          and `user_id` = #{userId};
+    </delete>
+
+    <!--获取用户基本信息-->
+    <select id="selectUsersAllInfos" resultType="com.huadiao.pojo.systemSpecific.UserAllInfos">
+        select `uid`,
+               `user_id`,
+               `username`,
+               `before_username`,
+               `update_username_date`,
+               `login_time`,
+               `register_time`,
+               `log_off`,
+               `log_off_date`
+        from user;
+    </select>
+
+
+</mapper>

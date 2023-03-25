@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.FollowFansMapper">
+
+    <resultMap id="UserMapperResult" type="com.huadiao.pojo.HomepageInfer">
+    </resultMap>
+
+    <!--建立两人的关系，如果关系已经建立，则将建立一人关注另一人的关系, 即取关后再关注-->
+    <insert id="insertRelationByBothUserIdAndUid">
+        insert into follow_fans(`user_uid`, `user_id`, `followed_uid`, `followed_id`, `status`, `follow_date`,
+                                `follow_times`)
+        values (#{userUid}, #{userId}, #{followedUid}, #{followedId}, 1, now(), 1)
+        on duplicate key update `status`        = 1,
+                                `follow_date`   = now(),
+                                `repeat_follow` = 1,
+                                `follow_times`  = `follow_times` + 1;
+    </insert>
+
+    <!-- 取消两人中一方对另一方的关注-->
+    <update id="updateRelationByBothUserId">
+        update follow_fans
+        set `status`             = 0,
+            `cancel_follow_date` = now()
+        where `user_id` = #{userId}
+          and `followed_id` = #{followedId};
+
+    </update>
+
+    <!--    查询两个人的关系-->
+    <select id="selectRelationByBothUserId" resultType="java.lang.Integer">
+        select 1
+        from follow_fans
+        where `user_id` = #{userId}
+          and `followed_id` = #{followedId}
+          and `status` = 1
+        union all
+        select 2
+        from follow_fans
+        where `user_id` = #{followedId}
+          and `followed_id` = #{userId}
+          and `status` = 1
+    </select>
+
+    <resultMap id="followsInferResultMap" type="com.huadiao.pojo.FollowsInfer">
+        <result property="uid" column="uid"/>
+        <result property="userAvatar" column="user_avatar"/>
+        <result property="nickname" column="nickname"/>
+        <result property="canvases" column="canvases"/>
+        <result property="favoritesId" column="favorites_id"/>
+        <result property="favoritesName" column="favorites_name"/>
+    </resultMap>
+    <!--获取用户的关注的人的信息，关注有多个组-->
+    <select id="selectFollowsByUid" resultMap="followsInferResultMap">
+        select distinct user_infer.`uid` as `uid`,
+                        `nickname`,
+                        `canvases`,
+                        `favorites_id`,
+                        `favorites_name`,
+                        `user_avatar`
+        from follow_fans,
+             user_infer,
+             homepage
+        where follow_fans.user_uid = #{viewedUid}
+          and `status` = 1
+          and user_infer.user_id in
+              (select followed_id from follow_fans where follow_fans.user_uid = #{viewedUid} and `status` = 1)
+          and user_infer.uid = homepage.uid;
+
+    </select>
+
+
+    <resultMap id="fansInferResultMap" type="com.huadiao.pojo.FansInfer">
+        <result property="uid" column="uid"/>
+        <result property="userAvatar" column="user_avatar"/>
+        <result property="nickname" column="nickname"/>
+        <result property="canvases" column="canvases"/>
+    </resultMap>
+    <!--获取用户的粉丝 uid 后，再获取粉丝的信息,粉丝只有一个组-->
+    <select id="selectFansByUid" resultMap="fansInferResultMap">
+        select user_infer.`uid` as `uid`,
+               `nickname`,
+               `canvases`,
+               `user_avatar`
+        from user_infer,
+             homepage
+        where user_infer.`uid` in (select `user_uid`
+                                   from follow_fans
+                                   where followed_uid = #{viewedUid}
+                                     and `status` = 1)
+          and user_infer.uid = homepage.uid;
+    </select>
+
+    <!--    获取用户关注的数量-->
+    <select id="countFollowAndFansByUserId" resultType="java.lang.Integer">
+        select count(`user_id`)
+        from follow_fans
+        where `user_id` = #{userId}
+          and `status` = 1
+        union all
+        select count(`user_id`)
+        from follow_fans
+        where `followed_id` = #{userId}
+          and `status` = 1;
+    </select>
+
+
+</mapper>

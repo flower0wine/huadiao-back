@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>花凋--账号设置</title>
+
+    <!-- 引入网站图标 -->
+    <link rel="shortcut icon" href="http://localhost:9090/huadiao/favicon.ico" type="image/x-icon">
+    <!-- 引入通用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/common.css">
+    <!-- 网页专用 css -->
+    <link rel="stylesheet" href="http://localhost:9090/huadiao/CSS/useSettings.css">
+
+
+</head>
+
+<body> 
+
+
+    <div class="huadiao-logo">
+        <a href="http://localhost:9090/huadiao" target="_blank" title="花凋--不一样的世界">
+            <!-- svg 格式 -->
+            <svg class="huadiao-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1" id="Layer_1" x="0px" y="0px" width="38px" height="49px" viewBox="0 0 38 49"
+                enable-background="new 0 0 38 49" xml:space="preserve">
+                <image id="image0" width="38" height="49" x="0" y="0"
+                    href="data:image/png;base64,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" />
+            </svg>
+        </a>
+    </div>
+
+    <div class="huadiao-settings-header">
+        <span>账号设置</span>
+    </div>
+
+
+    <div class="huadiao-setting-below">
+
+        <a href="http://localhost:9090/huadiao/settings/information">
+            <div class="information">
+                <span>更改个人信息</span>
+                <i class="iconfont">&#xe6b9;</i>
+            </div>
+        </a>
+
+        <span class="private-title">隐私设置</span>
+        <div class="private-settings">
+            <ul>
+                <li>
+                    <div class="collection">
+                        <span>公开我的收藏</span>
+                        <i>
+                            <em class="rectangle"></em>
+                            <em class="circle"></em>
+                        </i>
+                    </div>
+                    <div class="bornDate">
+                        <span>公开我的生日</span>
+                        <i>
+                            <em class="rectangle"></em>
+                            <em class="circle"></em>
+                        </i>
+                    </div>
+                </li>
+                <li>
+                    <div class="Fanju">
+                        <span>公开我的番剧</span>
+                        <i>
+                            <em class="rectangle"></em>
+                            <em class="circle"></em>
+                        </i>
+                    </div>
+                    <div class="school">
+                        <span>公开学校信息</span>
+                        <i>
+                            <em class="rectangle"></em>
+                            <em class="circle"></em>
+                        </i>
+                    </div>
+                </li>
+                <li>
+                    <div class="follow">
+                        <span>公开我的关注</span>
+                        <i>
+                            <em class="rectangle"></em>
+                            <em class="circle"></em>
+                        </i>
+                    </div>
+                    <div class="canvases">
+                        <span>公开个人介绍</span>
+                        <i>
+                            <em class="rectangle"></em>
+                            <em class="circle"></em>
+                        </i>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="homepage">
+                        <span>公开我的主页</span>
+                        <i>
+                            <em class="rectangle"></em>
+                            <em class="circle"></em>
+                        </i>
+                    </div>
+                </li>
+            </ul>
+
+
+
+        </div>
+
+        <span class="message-title">消息设置</span>
+        <div class="message-settings">
+
+            <div class="messageRemind">
+                <span>消息提醒</span>
+                <i>
+                    <em class="rectangle"></em>
+                    <em class="circle"></em>
+                </i>
+            </div>
+            <div class="messageReply">
+                <span>有人回复提醒我</span>
+                <i>
+                    <em class="rectangle"></em>
+                    <em class="circle"></em>
+                </i>
+            </div>
+            <div class="messageLikes">
+                <span>有人点赞提醒我</span>
+                <i>
+                    <em class="rectangle"></em>
+                    <em class="circle"></em>
+                </i>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="http://localhost:9090/huadiao/JS/axios.js"></script>
+    <!-- 引入 jquery  -->
+    <script src="http://localhost:9090/huadiao/JS/jquery.min.js"></script>
+    <script src="http://localhost:9090/huadiao/JS/common.js"></script>
+    <!-- 引入页面专用 js -->
+    <script src="http://localhost:9090/huadiao/JS/userSettings.js"></script>
+</body>
+
+</html>

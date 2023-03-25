@@ -1,0 +1,1024 @@
+.fanjuHouse-pageone-background-bar {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+/* 背景 */
+.fanjuHouse-pageone-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: -webkit-linear-gradient(bottom, #015eea, #00c0fa);
+    background-size: cover;
+}
+
+.fanjuHouse-pageone-background::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.295);
+}
+
+/* 全屏滚动每一屏 */
+.section {
+    overflow: hidden;
+}
+
+.pageone-header {
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    height: 3.125rem;
+    padding-left: .625rem;
+    background: -webkit-linear-gradient(bottom, #44a7fd, #00f2fe);
+}
+
+.left-entry {
+    float: left;
+    margin-top: .3125rem;
+}
+
+/* 标题 */
+.pageone-header-title,
+.pagetwo-header-title {
+    text-align: center;
+    line-height: 3.125rem;
+    font-size: 1.5rem;
+}
+
+.pageone-header-title {
+    color: #fff;
+}
+
+.pagetwo-header-title {
+    color: #ff4e00;
+}
+
+.swiper-container {
+    position: relative;
+    width: 100%;
+    padding: 1.77vh 2.5rem 5.903vh;
+    margin: 0 auto;
+    --swiper-theme-color: #dfdfdfa2;
+}
+
+/* 每个面板 */
+.swiper-slide {
+    position: relative;
+    text-align: center;
+    font-size: 1.5625rem;
+    font-family: STKaiti;
+    background: rgb(255, 255, 255);
+    width: 64.5625rem;
+    height: 36.25rem;
+    line-height: 31.25rem;
+    box-shadow: 0rem 0rem .875rem .875rem rgba(0, 0, 0, 0.096);
+    border-radius: .625rem;
+    background-size: cover;
+}
+
+.swiper-slide div {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: .625rem;
+    background-size: cover !important;
+}
+
+/* 扩大 */
+.expand {
+    animation: expand 2.5s;
+}
+
+/* 缩放 */
+.zoom {
+    animation: zoom 2.5s;
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.8);
+    }
+}
+
+/* 第二页 */
+.fanjuHouse-pagetwo-background {
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/panoperaHouseImages/fanjupagetwobackground.jpeg) no-repeat;
+    background-size: cover;
+}
+
+.pagetwo-header {
+    width: 100vw;
+    height: 3.125rem;
+    padding-left: .625rem;
+    background: -webkit-linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+}
+
+.pagetwo-fanjus,
+.pagetwo-fanjus-bar{
+    display: block;
+    width: 59.3125rem;
+    height: 80.283vh;
+    border-radius: 1.0625rem;
+}
+
+.pagetwo-fanjus {
+    margin: 1.875rem auto 0;
+}
+
+/* 番剧面板 */
+.pagetwo-fanjus-bar {
+    padding: 1.25rem;
+    background-image: -webkit-linear-gradient(270deg, #24243e, #302b63, #0f0c29);
+    background-size: cover;
+}
+
+/* 每个番剧 */
+.pagetwo-fanjus-bar ul li {
+    float: left;
+    margin: .625rem 0 1.25rem 3.6875rem;
+}
+
+/* 番剧封面 */
+.pagetwo-fanjus-bar ul li .fanju-cover {
+    position: relative;
+    width: 14.125rem;
+    height: 8.1625rem;
+    border-radius: .75rem;
+    background-image: -webkit-linear-gradient(270deg, #6f0000, #200122);
+    background-size: cover;
+    transition: all .3s;
+}
+
+.pagetwo-fanjus-bar ul li .fanju-cover:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0rem 0rem .4375rem .1875rem rgba(0, 0, 0, 0.164);
+}
+
+.fanju-below .fanju-name,
+.fanju-below .add-time {
+    letter-spacing: .0813rem;
+    text-align: center;
+}
+
+.fanju-name,
+.add-time {
+    font-size: .75rem;
+    color: #bb9c20;
+}
+
+.fanju-name {
+    margin-top: .375rem;
+}
+
+/* 添加番剧 */
+.addfanju {
+    padding-top: 2.5rem;
+    text-align: center;
+}
+
+/* 添加图标 */
+.addfanju .icon {
+    width: 2.9375rem;
+    height: 2.9375rem;
+    fill: #727272;
+}
+
+.addfanju-enter .clickToAdd {
+    display: none;
+    position: absolute;
+    top: 8.8125rem;
+    left: 4.5625rem;
+    color: #6f6f6f;
+    font-size: 0.75rem;
+}
+.delete-icon,
+.delete-word {
+    display: inline-block;
+}
+
+/* 操作 */
+.fanju-operation {
+    display: inline-block;
+    margin-left: 4.375rem;
+}
+
+.fanju-operation:hover .delete-icon .icon,
+.fanju-operation:hover .delete-word {
+    fill: #a1a1a1;
+    color: #a1a1a1;
+}
+
+/* 删除图标 */
+.delete-icon .icon {
+    width: .75rem;
+    height: .8125rem;
+    padding-top: .1875rem;
+    fill: #6f6f6f;
+}
+
+.delete-word {
+    font-size: .75rem;
+    color: #6f6f6f;
+}
+
+/* 每一屏 */
+.section {
+    position: relative;
+}
+
+/* 添加番剧遮罩层 */
+.addfanju-background {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.295);
+}
+
+/* 添加番剧面板 */
+.addfanju-bar {
+    position: relative;
+    width: 43.75rem;
+    height: 31.25rem;
+    margin: 17.945vh auto;
+    border-radius: .625rem;
+    background-color: #fff;
+}
+
+/* 左边图片 */
+.addfanju-bar-background {
+    width: 18.75rem;
+    height: 100%;
+    border-bottom-left-radius: .5625rem;
+    border-top-left-radius: .5625rem;
+    background: url(../images/panoperaHouseImages/addfanjubarbackground.jpeg) no-repeat;
+    background-size: 21.875rem;
+}
+
+/* 右边输入信息 */
+.fanju-information-bar {
+    width: 25rem;
+    height: 100%;
+}
+
+/* 关闭图标 */
+.canceladdfanju .icon {
+    position: absolute;
+    z-index: 5;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: #aaaaaa;
+}
+
+.canceladdfanju:hover .icon {
+    fill: #7e7d7d;
+}
+
+.fanju-information-bar,
+.addfanju-bar-background {
+    float: left;
+}
+
+/* 番剧封面 */
+#fanjucover {
+    position: absolute;
+    display: none;
+    z-index: -99;
+    top: -999px;
+    left: -999px;
+}
+
+/* 添加番剧标题 */
+.addfanju-title {
+    text-align: center;
+    margin-top: 1.25rem;
+    font-size: 3.125rem;
+    color: #740000;
+}
+
+.addfanju-title,
+.addfanju-inputname-title,
+.addfanju-upcover-title,
+.add-btn,
+.singleadd-btn,
+.nullname,
+.namelength,
+.coverTip,
+.filetype {
+    font-family: STXingkai;
+}
+
+input::-webkit-input-placeholder{
+    color: #bdbdbd;
+    letter-spacing: 2px;
+}
+
+.warning,
+.addfanju-inputname .addfanju-inputname-title,
+.addfanju-cover .addfanju-upcover-title {
+    display: inline-block;
+    font-size: 1.25rem;
+    color: #555454;
+}
+
+/* 标题 */
+.addfanju-cover-title,
+.addfanju-inputname {
+    margin-left: 2.5rem;
+}
+
+.addfanju-inputname {
+    margin-top: 1.875rem;
+}
+
+.addfanju-cover-title {
+    margin-top: 1.875rem;
+}
+
+.warning {
+    color: #cb1e1e;
+}
+
+/* 番剧名称输入框 */
+#fanjuname {
+    display: block;
+    width: 20rem;
+    height: 2.5rem;
+    margin-top: .625rem;
+    padding: 0 .625rem;
+    border: 0;
+    border-radius: .4375rem;
+    background-color: #ededed;
+}
+
+/* 预览图片框 */
+.coverImg {
+    width: 6.25rem;
+}
+
+/* 防止图片大小影响样式 */
+.img-box {
+    display: none;
+    width: 6.25rem;
+    height: 6.25rem;
+    margin: .625rem 0 0 2.5rem;
+}
+
+.catImg {
+    width: 6.25rem;
+    height: 3.5063rem;
+    overflow: hidden;
+}
+
+/* 选择框背景 */
+.icon-background {
+    width: 6.25rem;
+    height: 6.25rem;
+    margin: .625rem 0 0 2.5rem;
+    text-align: center;
+    border-radius: .3125rem;
+    background-color: #ededed;
+}
+
+.icon-background:hover,
+.icon-background:hover .icon {
+    background-color: #d6d5d5;
+    fill: #bdbcbc;
+}
+
+/* 添加封面图标 */
+.icon-background .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 1.875rem;
+    fill: #d5d4d4;
+}
+
+/* 添加按钮 */
+.add-btn {
+    display: block;
+    width: 4.6875rem;
+    height: 2.5rem;
+    margin: 1.875rem auto 0;
+    text-align: center;
+    line-height: 2.5rem;
+    border-radius: .5625rem;
+    font-size: 1.25rem;
+    color: #fff;
+    background-color: #d51b1b;
+}
+
+.add-btn:hover {
+    background-color: #b92323;
+}
+
+/* 单独制作按钮 */
+.singleadd-btn {
+    position: absolute;
+    z-index: 6;
+    bottom: .25rem;
+    right: 5.5rem;
+    font-size: 1rem;
+    color: #707070;
+}
+
+/* 图片要求 */
+.require-title {
+    top: 15.625rem;
+    right: 9.375rem;
+}
+
+.require-title,
+.requirement {
+    position: absolute;
+    z-index: 6;
+
+    font-size: .75rem;
+    color: #6e6e6e;
+}
+
+/* 图片要求 */
+.requirement {
+    width: 10rem;
+    top: 16.875rem;
+    left: 31.25rem;
+}
+
+.nullname,
+.namelength,
+.coverTip,
+.filetype {
+    position: absolute;
+    z-index: 6;
+    display: none;
+    color: #c81d1d;
+    font-size: 1rem;
+    margin-top: .3125rem;
+}
+
+/* 番剧名称为空 */
+.nullname {
+    top: 11.5625rem;
+    right: 16.125rem;
+}
+
+/* 封面，文件类型提示 */
+.coverTip,
+.filetype {
+    top: 21.875rem;
+    right: 16.0625rem;
+    margin-left: 2.5rem;
+}
+
+/* 主题商店图标 */
+.themeshop-icon .icon {
+    position: absolute;
+    z-index: 2;
+    bottom: .9375rem;
+    left: .9375rem;
+    width: 1.875rem;
+    height: 1.875rem;
+    fill: #717171;
+}
+
+/* 主题商店面板 */
+.huadiao-fanju-themeshop {
+    display: none;
+    position: absolute;
+    z-index: 3;
+    top: 0rem;
+    left: 0rem;
+    width: 15.625rem;
+    height: 100%;
+    border-bottom-right-radius: .625rem;
+    border-top-right-radius: .625rem;
+    background-color: #fff;
+}
+
+/* 商店头部 */
+.themeshop-header {
+    width: 100%;
+    height: 4.25rem;
+    line-height: 4.25rem;
+    text-align: center;
+    border-bottom: 1px solid #47a8c4;
+    font-weight: 600;
+    font-size: 1.5625rem;
+    letter-spacing: .3125rem;
+
+    background-image: -webkit-linear-gradient(right, #f35626, #feab3a);
+    /* 文字透明 */
+    -webkit-text-fill-color: transparent;
+    /* 文字外部裁剪 */
+    -webkit-background-clip: text;
+    animation: background 20s infinite;
+}
+
+@keyframes background {
+    0% {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    100% {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+/* 每一个组件 */
+.themeshop-tools ul li {
+    display: block;
+    width: 100%;
+    height: 4.375rem;
+    line-height: 4.375rem;
+    font-size: 1.25rem;
+    font-weight: 550;
+    letter-spacing: .125rem;
+    transition: all .3s;
+}
+
+.themeshop-tools ul li:hover {
+    background-color: rgb(243, 243, 243);
+}
+
+.themeshop-tools ul li label {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 前进图标 */
+.themeshop-tools ul li .icon {
+    float: right;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 1.5625rem 1.875rem 0 0;
+    transform: rotate(180deg);
+}
+
+/* 小标题 */
+.title-color-modular .title-color,
+.title-background-color,
+.pagetwo-background,
+.pagetwo-foreground,
+.borderimg,
+.card-background {
+    float: left;
+    margin-left: 1.875rem;
+}
+
+.title-color-modular .title-color,
+.title-color-modular .icon {
+    color: #ff4e00;
+    fill: #ff4e00;
+}
+
+
+.title-background-color,
+.title-background-color-modular .icon {
+    color: #302b63;
+    fill: #302b63;
+}
+
+.pagetwo-background,
+.pagetwo-background-modular .icon {
+    color: #00befc;
+    fill: #00befc;
+}
+
+.pagetwo-foreground,
+.pagetwo-foreground-modular .icon {
+    color: #c80506;
+    fill: #c80506;
+}
+
+.borderimg,
+.borderimg-modular .icon {
+    color: #20bb2b;
+    fill: #20bb2b;
+}
+
+.card-background,
+.card-background-modular .icon {
+    color: #bb9c20;
+    fill: #bb9c20;
+}
+
+.title-color-modular {
+    border-bottom: 1px solid #a12baf;
+}
+
+.title-background-color-modular {
+    border-bottom: 1px solid #d89023;
+}
+
+.pagetwo-background-modular {
+    border-bottom: 1px solid #3fa85a;
+}
+
+.pagetwo-foreground-modular {
+    border-bottom: 1px solid #adaf27;
+}
+
+.borderimg-modular {
+    border-bottom: 1px solid #a11111;
+}
+
+#colorbar {
+    visibility: hidden;
+    position: absolute;
+    top: 48.125rem;
+    left: .625rem;
+    width: 0;
+}
+
+
+
+/* 斗罗大陆边框 */
+.douluodaluborder {
+    border: 1px solid;
+    border-image-source: url(../images/panoperaHouseImages/douluodaluborder.png);
+    border-image-repeat: round;
+    border-image-slice: 160 110 30 114;
+    border-image-outset: 110 41 5 60;
+    border-image-width: 160 110 30 114;
+}
+
+/* 海贼王边框 */
+.onepieceborder {
+    border: 1px solid;
+    border-image-source: url(../images/panoperaHouseImages/onepiece.png);
+    border-image-repeat: round;
+    border-image-slice: 136 109 79 73;
+    border-image-outset: 105 27 30 16;
+    border-image-width: 136 109 79 73;
+}
+
+/* 间谍过家家边框 */
+.spy {
+    border: 1px solid;
+    border-image-source: url(../images/panoperaHouseImages/spy.png);
+    border-image-repeat: round;
+    border-image-slice: 136 53 80 61;
+    border-image-outset: 37 12 1 14;
+    border-image-width: 136 53 80 61;
+}
+
+/* 名侦探柯南边框 */
+.kenan {
+    border: 1px solid;
+    border-image-source: url(../images/panoperaHouseImages/kenan.png);
+    border-image-repeat: round;
+    border-image-slice: 145 555 142 777;
+    border-image-outset: 11 6 3 18;
+    border-image-width: 145 555 142 777;
+}
+
+/* 缘之空边框 */
+.yuanzhikong {
+    border: 1px solid;
+    border-image-source: url(../images/panoperaHouseImages/yuanzhikong.png);
+    border-image-repeat: round;
+    border-image-slice: 225 655 182 457;
+    border-image-outset: 30 6 3 4;
+    border-image-width: 225 655 182 457;
+}
+
+/* 修改题背景 */
+.multiply-bar {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 10rem;
+    right: -26.75rem;
+    width: 20rem;
+    padding: 1.875rem;
+    letter-spacing: .125rem;
+    border-radius: .625rem;
+    background-color: #fff;
+}
+
+/* 面板标题 */
+.multiply-title {
+    text-align: center;
+    margin-bottom: .625rem;
+    font-size: 1.25rem;
+    color: rgb(32, 169, 233);
+}
+
+/* 每个输入框 */
+.multiply-bar input {
+    width: 6.25rem;
+    padding: .3125rem .625rem;
+    border: 0;
+    border-radius: .375rem;
+    background-color: rgb(228, 228, 228);
+}
+
+/* 左侧和右侧 */
+.multiply-bar-left,
+.multiply-bar-right {
+    width: 8.125rem;
+}
+
+.multiply-bar-left {
+    float: left;
+    margin: 5px 0;
+    border-right: 1px solid rgb(153, 153, 153);
+}
+
+.multiply-bar-right {
+    float: right;
+    padding: 1.5rem 0 0 1.875rem;
+}
+
+/* 右边的输入框 */
+.multiply-bar-right ul li {
+    position: relative;
+    width: 100%;
+    height: 3.125rem;
+    
+}
+
+.multiply-bar-right ul li label .icon {
+    position: absolute; 
+    top: 6px;
+    right: 7px;
+    width: .9375rem;
+    height: .9375rem;
+    fill: rgb(150, 150, 150);
+}
+
+/* 角度 */
+.abgleword {
+    color: #333;
+    font-size: .875rem;
+    
+}
+
+/* 添加和删除 */
+.addnewcolor,
+.deletenewcolor {
+    width: 6.25rem;
+    height: 1.875rem;
+    text-align: center;
+    margin-top: .625rem;
+    padding-top: .4375rem;
+    font-size: .625rem;
+    border-radius: .3125rem;
+    
+}
+
+.addnewcolor,
+.confirmcolor {
+    color: #fff;
+    background-color: rgb(52, 171, 226);
+}
+
+.deletenewcolor,
+.cancelcolor {
+    color: rgb(102, 102, 102);
+    background-color: rgb(224, 224, 224);
+}
+
+.addnewcolor:hover,
+.confirmcolor:hover {
+    background-color: rgb(56, 159, 207);
+}
+
+.deletenewcolor:hover,
+.cancelcolor:hover {
+    background-color: rgb(197, 195, 195);
+}
+
+/* 提示 */
+.addcolortip {
+    margin-top: .625rem;
+    color: rgb(196, 73, 73);
+    font-size: .5rem;
+}
+
+/* 确认与否 */
+.judge {
+    display: block;
+    margin-top: .625rem;
+}
+
+/* 确认取消 */
+.confirmcolor,
+.cancelcolor {
+    display: inline-block;
+    width: 3.125rem;
+    height: 1.875rem;
+    text-align: center;
+    line-height: 1.875rem;
+    border-radius: .3125rem;
+    font-size: 1rem;
+}
+
+/* 选择图片 */
+.more-operation .moretip {
+    position: absolute;
+    z-index: 3;
+    top: 17.4375rem;
+    right: 3.125rem;
+    color: rgb(141, 141, 141);
+    font-size: .625rem;
+}
+
+/* 图片input */
+.more-operation input {
+    position: absolute;
+    z-index: -99;
+    top: -999px;
+    left: -999px;
+}
+
+/* 图片边框面板 */
+.borderimg-bar {
+    display: none;
+    position: absolute;
+    z-index: 7;
+    top: 8.125rem;
+    left: 27.5rem;
+    width: 40.625rem;
+    height: 37.5rem;
+    border-radius: .9375rem;
+    background-image: -webkit-linear-gradient(top, rgb(46, 202, 250), rgb(255, 44, 220),rgb(165, 0, 0));
+}
+
+/* 边框面板头部 */
+.borderimg-bar-header {
+    width: 100%;
+    height: 3.75rem;
+    text-align: center;
+    line-height: 3.75rem;
+    font-size: 1.5625rem;
+    color: #fff;
+}
+
+/* 主体 */
+.borderimg-bar-body {
+    width: 37.625rem;
+    height: 31.25rem;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* 每个选择 */
+.borderimg-bar-body ul li {
+    float: left;
+    width: 14.125rem;
+    height: 8.1619rem;
+    text-align: center;
+    line-height: 8.75rem;
+    margin: 1.875rem 0 0 3.125rem;
+    font-size: 1.875rem;
+    color: #333;
+    background-size: contain!important;
+    transition: all .3s;
+}
+
+.borderimg-bar-body ul li:hover {
+    transform: translateY(-0.125rem);
+    box-shadow: 0rem 0rem .25rem .1875rem rgba(0, 0, 0, 0.096);
+}
+
+/* 关闭 */
+.shutdown-icon .icon {
+    position: absolute;
+    z-index: 7;
+    top: .9375rem;
+    right: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: rgb(243, 243, 243);
+}
+
+.shutdown-icon .icon:hover {
+    fill: rgb(211, 211, 211);
+}
+
+/* 确认删除面板 */
+.deleteFanju-background {
+    display: none;
+    position: absolute;
+    z-index: 7;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.274);
+}
+
+.deleteFanju-bar {
+    position: absolute;
+    z-index: 8;
+    top: 15rem;
+    left: 43.1875rem;
+    width: 12.5rem;
+    height: 9.375rem;
+    border-radius: .4375rem;
+    background-color: #fff;
+}
+
+.deleteFanju-header {
+    width: 100%;
+    height: 2.5rem;
+    text-align: center;
+    line-height: 2.5rem;
+    border-top-left-radius: .4375rem;
+    border-top-right-radius: .4375rem;
+    color: #fff;
+    background-color: rgb(90, 164, 224);
+}
+
+.deleteFanju-body {
+    width: 100%;
+    height: 6.875rem;
+    padding-top: 2.5rem;
+    text-align: center;
+}
+
+.deleteFanju-confirm,
+.deleteFanju-cancel {
+    display: inline-block;
+    width: 3.125rem;
+    height: 1.875rem;
+    text-align: center;
+    line-height: 1.875rem;
+    border-radius: .4375rem;
+}
+
+.deleteFanju-confirm {
+    color: #fff;
+    background-color: rgb(90, 164, 224);
+}
+
+.deleteFanju-confirm:hover {
+    background-color: rgb(87, 151, 204);
+}
+
+.deleteFanju-cancel {
+    margin-left: 1.875rem;
+    color: rgb(66, 66, 66);
+    background-color: rgb(224, 224, 224);
+}
+
+.deleteFanju-cancel:hover {
+    background-color: rgb(199, 199, 199);
+}
+
+.img-tip-background {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    opacity: .7;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 文件大小错误 */
+.imgTip {
+    display: inline-block;
+    transform: translateX(-50%);
+    margin: 40vh 0 0 50%;
+    padding: 0 1.5rem;
+    height: 1.875rem;
+    text-align: center;
+    line-height: 1.875rem;
+    border-radius: .4375rem;
+    font-size: .875rem;
+    color: #980707;
+    background-color: #e7e7e7;
+}

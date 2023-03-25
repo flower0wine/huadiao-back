@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace：名称空间，用来寻找Test下的selectAll，就像包名一样使用,但使用 Mapper 代理开发就必须是该文件同名接口的包路径
+    id：sql 语句的解释
+    resultType：执行 sql 语句返回的类型
+-->
+
+<mapper namespace="com.huadiao.mapper.HistoryMapper">
+
+    <!--添加笔记浏览记录-->
+    <insert id="insertViewedNoteHistoryByUid">
+        insert into note_history(`viewed_uid`, `view_uid`, `view_date`, `note_id`, `status`)
+        values (#{authorUid}, #{myUid}, now(), #{noteId}, 1)
+        on duplicate key update view_date = now();
+    </insert>
+
+    <!--添加番剧浏览记录-->
+    <insert id="insertViewedFanjuHistoryByUid">
+        insert into fanju_history(`viewed_uid`, `view_uid`, `view_date`, `status`)
+        values (#{authorUid}, #{myUid}, now(), 1)
+        on duplicate key update view_date = now();
+    </insert>
+
+    <!--删除笔记历史记录-->
+    <update id="deleteNoteHistory">
+        update note_history
+        set `status`      = 0,
+            `delete_date` = now()
+        where `viewed_uid` = #{authorUid}
+          and `view_uid` = #{myUid}
+          and `note_id` = #{noteId};
+    </update>
+
+    <!--删除番剧馆历史记录-->
+    <update id="deleteFanjuHistory">
+        update fanju_history
+        set `status`      = 0,
+            `delete_date` = now()
+        where `viewed_uid` = #{authorUid}
+          and `view_uid` = #{myUid};
+    </update>
+
+    <resultMap id="noteHistoryResultMap" type="com.huadiao.pojo.NotesHistory">
+        <result property="noteId" column="note_id"/>
+        <result property="authorUid" column="viewed_uid"/>
+        <result property="authorNickname" column="nickname"/>
+        <result property="noteTitle" column="note_title"/>
+        <result property="authorUserAvatar" column="user_avatar"/>
+        <result property="noteAbstract" column="note_abstract"/>
+        <result property="viewedDate" column="view_date"/>
+    </resultMap>
+    <!--获取笔记历史记录信息-->
+    <select id="selectNotesHistoriesByUid" resultMap="noteHistoryResultMap">
+        select `user_avatar`, `nickname`, `note_title`, `note_abstract`, `note_id`, `view_date`, `viewed_uid`
+        from notes
+                 left join (select `note_id`, `view_date`, `viewed_uid`
+                            from note_history
+                            where `view_uid` = #{myUid}
+                              and `status` = 1) as t1 on id = t1.note_id and uid = t1.viewed_uid
+                 left join (select `uid`, `user_avatar` from homepage) t2 on t2.uid = t1.viewed_uid
+                 left join (select `uid`, `nickname` from user_infer) t3 on t3.uid = t1.viewed_uid
+        where notes.`uid` = viewed_uid;
+    </select>
+
+    <resultMap id="fanjuHistoryResultMap" type="com.huadiao.pojo.FanjuHistory">
+        <result property="authorUid" column="viewed_uid"/>
+        <result property="authorNickname" column="nickname"/>
+        <result property="authorUserAvatar" column="user_avatar"/>
+        <result property="viewDate" column="view_date"/>
+    </resultMap>
+    <!--获取番剧馆历史记录部分信息-->
+    <select id="selectFanjuHistoryByUid" resultMap="fanjuHistoryResultMap">
+        select `viewed_uid`,
+               `view_date`,
+               `nickname`,
+               `user_avatar`
+        from fanju_history
+                 left join (select `uid`, `nickname` from user_infer) as t1 on t1.`uid` = `viewed_uid`
+                 left join (select `uid`, `user_avatar` from homepage) as t2 on t2.`uid` = `viewed_uid`
+        where view_uid = #{myUid}
+          and `status` = 1
+    </select>
+
+
+</mapper>

@@ -1,0 +1,758 @@
+* {
+    font-family: STKaiti;
+}
+
+body {
+    -webkit-scroll: hidden;
+}
+
+/* 头部 */
+.huadiao-myStar-header {
+    position: absolute;
+    z-index: 2;
+    padding: .3125rem 0 0 .3125rem;
+}
+
+.huadiao-myStar-below {
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/myStarImages/myStarbackground.png) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+/* 收藏面板 */
+.myStar-background {
+    width: calc(63.125rem + 13.875vw);
+    height: 85.24vh;
+    padding-top: 5.667vh;
+    margin-left: 13.875vw;
+}
+
+.nofile {
+    background: url(../images/myStarImages/nofile.png) no-repeat center center;
+}
+
+/* 左右面板 */
+.myStar-left,
+.myStar-right {
+    min-height: 400px;
+    float: left;
+    border-radius: .6875rem;
+    background-color: rgba(255, 255, 255, 0.719);
+}
+
+/* 左面板 */
+.myStar-left {
+    width: 13.125rem;
+    height: 85.24vh;
+}
+
+/* 右面板 */
+.myStar-right {
+    width: 50rem;
+    height: 85.24vh;
+    margin-left: 1.8125rem;
+}
+
+/* 左面板标题 */
+.myStar-left .myStar-left-title h2 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 1.75rem 0 1.5625rem 3.375rem;
+    color: #4943d8;
+}
+
+/* 创建文件夹 */
+.createFile {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #5b55c7;
+    margin-bottom: 1.1875rem;
+}
+
+/* 新增图标 */
+.createFile i {
+    margin-right: .375rem;
+}
+
+/* 删除收藏夹 */
+.deleteStarBackground {
+    display: none;
+    opacity: .4;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    z-index: 20;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+/* 删除面板 */
+.deleteStarBar {
+    display: block;
+    margin: 16.375vw auto 0;
+    width: 18.75rem;
+    height: 12.5rem;
+    border-radius: .625rem;
+    background-color: #fff;
+}
+
+/* 面板头部 */
+.deleteStarBar-header {
+    width: 100%;
+    height: 3.125rem;
+    text-align: center;
+    border-bottom: 1px solid rgb(110, 110, 110);
+}
+
+/* 标题 */
+.deleteStarBar-header span {
+    height: 100%;
+    color: rgb(63, 63, 63);
+    font-size: 1.25rem;
+    line-height: 3.125rem;
+}
+
+/* 面板下部 */
+.deleteStarBar-below{
+    width: 100%;
+    height: 9.375rem;
+    text-align: center;
+}
+
+/* 确认取消 */
+.confirmDelete,
+.cancelDelete {
+    border-radius: .3125rem;
+    width: 6.25rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin-top: 4.375rem;
+}
+
+/* 确认 */
+.confirmDelete {
+    float: left;
+    margin-left: 1.5625rem;
+    background-color: rgb(79, 176, 255);
+    color: rgb(255, 255, 255);
+}
+
+.confirmDelete:hover {
+    background-color: rgb(70, 162, 216);
+}
+
+.cancelDelete {
+    float: right;
+    margin-right: 1.5625rem;
+    background-color: rgb(185, 184, 184);
+    
+    color: rgb(66, 66, 66);
+}
+
+/* 取消 */
+.cancelDelete:hover {
+    background-color: rgb(161, 161, 161);
+}
+
+/* 每个文件夹 */
+.myStar-left-files ul li {
+    display: block;
+    height: 1.875rem;
+    padding-left: 2.4375rem;
+}
+
+.myStar-left-files ul li:hover {
+    background-color: rgba(255, 255, 255, 0.301);
+}
+
+.myStar-left-files ul li:nth-of-type(n+5):hover .deleteFile {
+    display: inline-block;
+}
+
+.myStar-left-files ul li:nth-of-type(n+5):hover  em {
+    display: none;
+}
+
+/* 文件夹数量 */
+.myStar-left-files ul li em {
+    float: right;
+    margin-right: .8125rem;
+
+}
+
+.myStar-left-files ul li i,
+.myStar-left-files ul li span,
+.myStar-left-files ul li em {
+    display: inline-block;
+    font-size: 1rem;
+    color: #5b55c7;
+    line-height: 1.875rem;
+}
+
+.deleteFile {
+    display: none;
+    font-size: 1rem;
+    color: #5b55c7;
+    line-height: 1.875rem;
+    float: right;
+    margin-right: .8125rem;
+}
+
+.addNewFile {
+    display: none;
+}
+
+/* 遮罩层 */
+.addNewFile {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+/* 设置 placeholder 的样式 */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    font-size: .875rem;
+    font-weight: 300;
+    color: rgb(163, 162, 162);
+}
+
+/* 新建面板 */
+.addNewFileBar {
+    position: relative;
+    margin: 19.36vh auto 0;
+    width: 27.125rem;
+    height: 30.3125rem;
+    border-radius: .5625rem;
+    background-color: #fff;
+}
+
+/* 头部 */
+.addNewFileHeader {
+    display: block;
+    text-align: center;
+    padding: .9375rem .9375rem 0 0;
+}
+
+/* 标题 */
+.addNewFileHeader span {
+    font-size: 1.5rem;
+    color: #797878;
+}
+
+/* 关闭图标 */
+.addNewFileHeader i {
+    width: 1.25rem;
+    height: 1.25rem;
+    float: right;
+    color: #9c9c9c;
+    font-size: .875rem;
+}
+
+.addNewFileHeader i:hover {
+    color: #797979;
+}
+
+/* 下部面板 */
+.addNewFileBelow {
+    margin: 1.4375rem 0 0 3.5625rem;
+}
+
+/* 收藏夹名称框和介绍框 */
+.addNewFile-fileName input,
+.addNewFile-fileCanvases textarea {
+    display: block;
+    margin-top: .875rem;
+    outline: none;
+    border: 0;
+    border-radius: .5rem;
+    background-color: #e7e7e7;
+    resize: none;
+    font-size: 1rem;
+    letter-spacing: .1875rem;
+}
+
+/* 框上标题 区块*/
+.addNewFile-fileName label,
+.addNewFile-fileCanvases label {
+    display: block;
+}
+
+.addNewFile-fileCanvases label {
+    margin-top: .625rem;
+}
+
+/* * 号 */
+.addNewFile-fileName label span {
+    color: #db1616;
+    font-size: 1rem;
+}
+
+/* 框上标题 */
+.addNewFile-fileName label em {
+    color: #797878;
+    font-size: 1rem;
+}
+
+/* 收藏夹名称框 */
+.addNewFile-fileName input {
+    width: 19.625rem;
+    height: 2.25rem;
+    padding: 0 .625rem 0 .625rem;
+
+}
+
+/* 框上标题 */
+.addNewFile-fileCanvases label em,
+.addNewFile-filepublic label {
+    color: #797878;
+}
+
+/* 介绍框 */
+.addNewFile-fileCanvases textarea {
+    width: 19.625rem;
+    height: 10rem;
+    padding: .625rem 1.0625rem .625rem .625rem;
+}
+
+.addNewFile-filepublic {
+    margin: 1rem 0 0 .3125rem;
+}
+
+/* 多选框 */
+.addNewFile-filepublic input {
+    margin-top: .125rem;
+}
+
+/* 建立按钮 */
+.submit-btn {
+    width: 4.6875rem;
+    height: 2.1875rem;
+    background-color: #3094e8;
+    margin: 2.5rem 0 0 7rem;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: .625rem;
+    text-align: center;
+    line-height: 2.1875rem;
+}
+
+.submit-btn:hover {
+    color: #fff;
+    background-color: #0277d6;
+}
+
+/* 提示信息 */
+.filenametip {
+    display: none;
+    opacity: .3;
+    position: absolute;
+    z-index: 10;
+    width: 7.5rem;
+    height: 1.875rem;
+    top: 10.75rem;
+    left: 8.75rem;
+    color: #fff;
+    font-size: .875rem;
+    text-align: center;
+    line-height: 1.875rem;
+    border-radius: .375rem;
+    background-color: #333;
+}
+
+/* 介绍字数 */
+.fileCanvases-number {
+    position: absolute;
+    z-index: 3;
+    font-size: .75rem;
+    color: #797878;
+    top: 20.3125rem;
+    right: 4.9375rem;
+}
+
+/* 名称字数 */
+.filename-number {
+    position: absolute;
+    z-index: 3;
+    font-size: .75rem;
+    color: #797878;
+    top: 7.3125rem;
+    right: 4.9375rem;
+}
+
+
+
+.huangxing,
+.juandai,
+.shanxing {
+    position: absolute;
+    z-index: 2;
+}
+
+/* 卷带 */
+.juandai {
+    right: 6.8125rem;
+    width: 2rem;
+    height: 6.1875rem;
+    top: -6.1875rem;
+    background: url(../images/myStarImages/juandai.png) no-repeat -3.5625rem 0rem;
+}
+
+/* 闪星 */
+.shanxing {
+    right: 3.3125rem;
+    width: 3.4375rem;
+    height: 11rem;
+    top: -11rem;
+    background: url(../images/myStarImages/rightStar.png) no-repeat -7.625rem 0rem;
+}
+
+/* 黄星 */
+.huangxing {
+    right: 10.125rem;
+    width: 4.1875rem;
+    height: 6.9375rem;
+    top: -6.9375rem;
+    background: url(../images/myStarImages/leftStar.png) no-repeat 0rem 0rem;
+
+}
+
+/* 礼物盒 */
+.giftbox {
+    position: absolute;
+    z-index: 2;
+    width: 11rem;
+    height: 11.8125rem;
+    bottom: -16.1250rem;
+    right: 3.3125rem;
+    background: url(../images/myStarImages/giftbox.png) no-repeat;
+}
+
+/* 右侧头部 */
+.myStar-right-header {
+    width: 100%;
+    height: 2.5rem;
+    margin-bottom: 1.875rem;
+}
+
+/* 批量处理 */
+.batchProcessing-btn {
+    display: block;
+    float: right;
+    color: #6c69ad;
+    font-size: 1.25rem;
+    margin: 1.25rem 1.5625rem 0 0;
+}
+
+.batchProcessing-tools {
+    display: none;
+}
+
+.batchProcessing-btn:hover,
+.batchProcessing-tools ul li:hover {
+    color: #3c3791;
+}
+
+/* 批量处理控件 */
+.batchProcessing-tools ul {
+    float: right;
+    margin-top: 1.25rem;
+}
+
+/* 批量处理控件 */
+.batchProcessing-tools ul li {
+    display: inline-block;
+    color: #6c69ad;
+    font-size: 1.25rem;
+    margin-right: 1.25rem;
+}
+
+/* 笔记 */
+.myStar-right-below {
+    width: 100%;
+    height: calc(100% - 4.375rem);
+}
+
+/* 每个笔记 */
+.myStar-right-below ul li {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 6.25rem;
+}
+
+/* 多选 */
+.choice-class {
+    position: absolute;
+    z-index: 12;
+    top: 0rem;
+    left: 0rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.267);
+}
+
+/* 选择框 */
+.choice-class div {
+    position: absolute;
+    z-index: 13;
+    top: .1875rem;
+    right: .1875rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #333;
+    border-radius: .1875rem;
+}
+
+.myStar-right-below ul li:hover {
+    background-color: rgba(255, 255, 255, 0.281);
+}
+
+.myStar-right-below ul li:nth-of-type(2n) {
+    border-left: 1px solid #a1a1a1;
+}
+
+/* 用户头像 */
+.userAvater {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.avatar-box {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img-avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+/* 笔记标题 */
+.note-title {
+    display: block;
+    color: #393e40;
+    font-size: 1rem;
+    letter-spacing: .0625rem;
+    margin: .3125rem 0 0 2.4375rem;
+}
+
+/* 收藏时间 */
+.starTime {
+    margin-left: 2.4375rem;
+    font-size: .625rem;
+    color: #5c5c5c;
+}
+.note-abstract {
+    width: 100%;
+    text-indent: 3em;
+    margin-top: 3px;
+    font-size: 14px;
+    color: #5c5c5c;
+}
+.note-below {
+    position: absolute;
+    bottom: .625rem;
+    width: 100%;
+    height: 1.25rem;
+}
+
+.starTime,
+.homepage,
+.nickName,
+.more i {
+    float: left;
+    line-height: 1.25rem;
+}
+
+/* 他的主页 */
+.homepage {
+    margin: 0 .875rem 0 1.4375rem
+}
+
+.nickName {
+    font-size: .875rem;
+    color: #5c5c5c;
+}
+
+.more i {
+    margin-left: 1.25rem;
+    font-size: .75rem;
+    color: #5c5c5c;
+}
+
+/* 笔记链接 */
+.noteLink {
+    width: 100%;
+    height: 6.25rem;
+}
+
+/* 更多操作 */
+.moreBar {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 1.5rem;
+    left: 14.0625rem;
+    width: 6.0625rem;
+    height: 7.9375rem;
+    background-color: #fff;
+    border-radius: .625rem;
+    box-shadow: 0rem 0rem .3125rem .3125rem rgba(0, 0, 0, 0.096);
+}
+
+.moreBar-in {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* 取消收藏 */
+.moreBar-cancelStar {
+    border-top-left-radius: .625rem;
+    border-top-right-radius: .625rem;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+/* 移动到 */
+.moreBar-moveTo {
+    border-bottom-left-radius: .625rem;
+    border-bottom-right-radius: .625rem;
+}
+
+.moreBar-cancelStar,
+.moreBar-copyTo,
+.moreBar-moveTo {
+    flex: 1;
+    text-align: center;
+    width: 100%;
+    color: #686868;
+    line-height: 2.625rem;
+}
+
+.moreBar .moreBar-in div:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+/* 遮罩层 */
+.copyMove-background {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0rem;
+    left: 0rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.247);
+}
+
+/* 面板 */
+.copyMoveBar {
+    position: absolute;
+    top: 8.125rem;
+    left: 37.5rem;
+    border-radius: .625rem;
+    width: 21.875rem;
+    height: 31.25rem;
+    background-color: #fff;
+}
+
+/* 头部 */
+.copyMoveBar-header {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 4.375rem;
+    color: rgb(102, 101, 101);
+    border-bottom: 1px solid rgb(139, 139, 139);
+}
+
+/* 标题 */
+.copyMoveBar-title {
+    margin-top: .625rem;
+    font-size: 1.5625rem;
+}
+
+/* 关闭 */
+.shutdown {
+    position: absolute;
+    top: 1rem;
+    right: .625rem;
+} 
+
+.pleaseChoice {
+    margin-top: .625rem;
+    font-size: .875rem;
+}
+
+/* 内容 */
+.copyMoveBar-body {
+    width: 100%;
+    height: 21.25rem;
+    border-bottom: 1px solid rgb(139, 139, 139);
+}
+
+/* 收藏夹 */
+.starFolders {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    border-left: 1px solid rgb(139, 139, 139);
+    border-right: 1px solid rgb(139, 139, 139);
+}
+
+/* 面板尾部 */
+.copyMoveBar-tail {
+    width: 100%;
+    height: 5.625rem;
+    text-align: center;
+}
+
+/* 确定 */
+.confirm-btn {
+    display: inline-block;
+    width: 6.25rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    border-radius: .4375rem;
+    color: #fff;
+    background-color: rgb(172, 172, 172);
+}
+.starFolders ul li {
+    width: 100%;
+    height: 3.125rem;
+    float: left;
+    border-bottom: 1px solid rgb(139, 139, 139);
+}
+
+/* 收藏夹名称 */
+.folderName {
+    height: 100%;
+    line-height: 3.125rem;
+    margin-left: 1.25rem;
+    font-size: 1.25rem;
+    color: rgb(83, 83, 83);
+}
+
+.starFolders ul li:nth-last-of-type(1) {
+    border: 0;
+}
+
+.starFolders ul li:hover .folderName {
+    color: rgb(70, 188, 224);
+}
+

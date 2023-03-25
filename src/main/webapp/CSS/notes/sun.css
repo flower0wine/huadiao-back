@@ -1,0 +1,77 @@
+.mode-btn {
+    background-color: rgb(209, 95, 29);
+}
+
+/* 太阳光晕 */
+.solar-halo {
+    position: absolute;
+    width: 3px;
+    height: 7px;
+    background-color: rgb(235, 218, 67);
+    transform: rotateZ(calc(45deg * (var(--halo))));
+}
+
+.halo0 {
+    top: -9px;
+    left: 7px;
+}
+
+.halo1 {
+    top: -5px;
+    left: 17px;
+}
+
+.halo2 {
+    top: 5px;
+    left: 22px;
+}
+
+.halo3 {
+    top: 16px;
+    left: 17px;
+}
+
+.halo4 {
+    top: 20px;
+    left: 7px;
+}
+
+.halo5 {
+    top: 16px;
+    left: -2px;
+}
+
+.halo6 {
+    top: 5px;
+    left: -7px;
+}
+
+.halo7 {
+    top: -4px;
+    left: -3px;
+}
+
+@keyframes haloRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body,
+.sideBar,
+.notes-bar {
+    background-color: #ececec;
+}
+
+.nickname,
+.notes-bar div{
+    color: #3a3a3a;
+}
+
+.notes-bar svg {
+    fill: #3a3a3a;
+}
